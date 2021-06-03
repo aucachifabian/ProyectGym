@@ -5,7 +5,7 @@
 
 * git clone https://github.com/Jcat-07/Proyecto-Final-PySW-2021.git (para clonar el proyecto)
 * git init 	(para inicializar)
-* git remote add origin https://github.com/Jcat-07/Proyecto-PSW-2021.git (para agregar url)
+* git remote add origin https://github.com/Jcat-07/Proyecto-Final-PySW-2021.git (para agregar url)
 
 * git log	(para ver los registros)
 * git status	(para ver estado)
