@@ -10,3 +10,4 @@
 * git log	(para ver los registros)
 * git status	(para ver estado)
 
+

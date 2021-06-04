@@ -1,3 +1,64 @@
 <section>
-    o
+    <div>
+        <div>
+            <label for="idDni">DNI</label>
+            <input type="text" name="dni" id="idDni" [(ngModel)]="alumno.dni"/>
+        </div>
+
+        <div>
+            <label for="idNombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" [(ngModel)]="alumno.nombre"/>
+        </div>
+
+        <div>
+            <label for="idApellido">Apellido</label>
+            <input type="text" name="apellido" id="idApellido" [(ngModel)]="alumno.apellido"/>
+        </div>
+
+        <div>
+            <label for="idEmail">eMail</label>
+            <input type="email" name="email" id="idEmail" [(ngModel)]="alumno.eMail"/>
+        </div>
+
+        <div>
+            <label for="idCelular">Numero Celular</label>
+            <input type="text" name="celular" id="idCelular" [(ngModel)]="alumno.celular"/>
+        </div>
+
+        <div>  
+            <label for="idDomicilio">Domilicio</label>
+            <input type="text" name="domicilio" id="idDomicilio" [(ngModel)]="alumno.domicilio"/>
+        </div>
+
+        <div>
+            <label for="idPlan">Plan</label>
+            <select name="plan" id="idPlan" [(ngModel)]="alumno.plan">
+                <option value="full">30 Dias</option>
+                <option value="normal">5 Dias</option>
+                <option value="basico">3 Dias</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="idFechaInicio">Fecha Inicio</label>
+            <input type="date" name="fechaInicio" id="idFechaInicio" [(ngModel)]="alumno.fechaInicio"/>
+        </div>
+
+        <div>
+            <label for="idFechaNacimiento">Fecha Nacimiento</label>
+            <input type="date" name="fechaNacimiento" id="idFechaNacimiento" [(ngModel)]="alumno.fechaNacimiento"/>
+        </div>
+
+        <div>
+            <button type="button" name="guardar" (click)="guardarAlumno()">Guardar</button>
+        </div>
+
+        <div>
+            <button type="button" name="cancelar">Cancelar</button>
+        </div>
+    </div>
+
+    <div>
+
+    </div>
 </section>
