@@ -12,8 +12,7 @@ const AlumnoSchema = new Schema({
     Domicilio: { type: String, required: true },
     Correo_electrónico: { type: String, required: true },
     Fecha_de_inicio: { type: String, required: true },
-    Plan: { type: String, required: true },
-    pasajero: { type: Schema.Types.ObjectId, ref: Plan, require: true }
+    Plan: { type: Schema.Types.ObjectId, ref: Plan, require: true }
 
 })
 
