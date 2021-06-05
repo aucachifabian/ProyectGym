@@ -1,7 +1,11 @@
+import { Plan } from "../plan/plan";
+
 export class Rutina {
 
-    public fecha : Date;
-    public rutina : string;
+    public dia      : string;
+    public plan     : Plan;
+    public repeticion   : number;
+    public descripcion  : string;
 
     constructor(){
     }

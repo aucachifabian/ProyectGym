@@ -15,6 +15,10 @@ import { RutinaComponent } from './components/home/entrenador/generar/rutina/rut
 import { UsuarioComponent } from './components/home/entrenador/generar/usuario/usuario.component';
 
 
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { ToastrModule } from 'ngx-toastr';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +27,9 @@ import { UsuarioComponent } from './components/home/entrenador/generar/usuario/u
     AlumnoComponent,
     PagoComponent,
     RutinaComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    //BrowserAnimationsModule,
+    //ToastrModule.forRoot(),
   ],
   imports: [
     BrowserModule,

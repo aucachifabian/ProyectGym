@@ -1,26 +1,16 @@
+import { Entrenador } from "../entrenador/entrenador";
 import { Pago } from "../pago/pago";
+import { Persona } from "../persona/persona";
 import { Rutina } from "../rutina/rutina";
-import { Usuario } from "../usuario/usuario";
 
-export class Alumno {
+export class Alumno extends Persona{
 
-    public dni  : string;
-
-    //plan full(30d) - normal(5d), basico (3d).
-    public plan : string
-
-    public eMail    : string;
-    public nombre   : string;
-    public celular  : string;
-    public apellido : string;
-    public domicilio        : string;
-    public fechaInicio      : Date;
-    public fechaNacimiento  : Date;
-   
-    public pago     : Pago;
-    public usuario  : Usuario;
+    public tutor    : Entrenador;
     public rutinas  : Array<Rutina>;
+    public contador : number;
+    public ultimoPago     : Pago;
     
     constructor(){
+        super();
     }
 }
