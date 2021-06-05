@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cors({origin: 'http://localhost:4200'}));
 
 //Cargamos el modulo de direccionamiento de rutas para puntos 
-//app.use('/api/noticia/'     , require('./routers/noticia.router')); 
+app.use('/api/alumnos', require('./routers/alumnos.router'));
 //
 
 //setting 
