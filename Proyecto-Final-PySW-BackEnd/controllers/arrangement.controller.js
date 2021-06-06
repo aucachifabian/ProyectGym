@@ -1,10 +1,8 @@
-const Alumno = require('../models/alumnos')
-const AlumnoCtrl = {}
+const arrangement = require('../models/arrangement')
+const ArrangementCtrl = {}
 
-
-AlumnoCtrl.crateAlumno = async (req, res) => {
-    var alum = new Alumno(req.body);
-    console.log(noticia)
+ArrangementCtrl.crateStudent = async (req, res) => {
+    var alum = new arrangement(req.body);
     try {
         await alum.save();
         res.json({
@@ -20,20 +18,20 @@ AlumnoCtrl.crateAlumno = async (req, res) => {
     }
 }
 
-AlumnoCtrl.getAlumnos = async (req, res) => {
-    var alum = await Alumno.find().exec();
+ArrangementCtrl.getStudents = async (req, res) => {
+    var alum = await arrangement.find().exec();
     res.json(alum);
 }
 
 
-AlumnoCtrl.getAlumnosparams = async (req, res) => {
-    const pas = await Alumno.findById(req.params.id)
+ArrangementCtrl.getStudentParams = async (req, res) => {
+    const pas = await arrangement.findById(req.params.id)
     res.json(pas);
 }
 
-AlumnoCtrl.deleteAlumno = async (req, res) => {
+ArrangementCtrl.deleteStudent = async (req, res) => {
     try {
-        await Alumno.findByIdAndRemove({ _id: req.params.id });
+        await arrangement.findByIdAndRemove({ _id: req.params.id });
         res.json({
             status: '1',
             msg: 'alumno borrado'
@@ -46,10 +44,10 @@ AlumnoCtrl.deleteAlumno = async (req, res) => {
     }
 }
 
-AlumnoCtrl.modificarAlumno = async (req, res) => {
-    const alum = new Alumno(req.body);
+ArrangementCtrl.modifyStudent = async (req, res) => {
+    const alum = new arrangement(req.body);
     try {
-        await Alumno.updateOne({ _id: req.body._id }, alum);
+        await arrangement.updateOne({ _id: req.body._id }, alum);
         res.json({
             'status': '1',
             'msg': 'alumno actualizada'
@@ -62,4 +60,4 @@ AlumnoCtrl.modificarAlumno = async (req, res) => {
     }
 }
 
-module.exports = AlumnoCtrl;
+module.exports = ArrangementCtrl;
