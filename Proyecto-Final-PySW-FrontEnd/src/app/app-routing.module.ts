@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AlumnoComponent } from './components/home/entrenador/registro/alumno/alumno.component';
+import { PupilComponent } from './components/home/coach/register/pupil/pupil.component';
 
 const routes: Routes = [
-  { path : '', component : AlumnoComponent},
-  { path : 'Alumno', component : AlumnoComponent},
+  { path : '', component : PupilComponent},
+  { path : 'Pupil', component : PupilComponent},
   { path : '**', redirectTo : '/'}
 ];
 

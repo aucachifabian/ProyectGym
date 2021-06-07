@@ -1,0 +1,71 @@
+<section>
+    <div>
+        <div>
+            <label for="id_dni">DNI</label>
+            <input type="text" name="dni" id="id_dni" [(ngModel)]="student.dni"/>
+        </div>
+
+        <div>
+            <label for="id_name">Name</label>
+            <input type="text" name="name" id="id_name" [(ngModel)]="student.name"/>
+        </div>
+
+        <div>
+            <label for="id_surname">SurName</label>
+            <input type="text" name="surname" id="id_surname" [(ngModel)]="student.surname"/>
+        </div>
+
+        <div>
+            <label for="id_email">Email</label>
+            <input type="email" name="email" id="id_email" [(ngModel)]="student.email"/>
+        </div>
+
+        <div>
+            <label for="id_phone">Number Phone</label>
+            <input type="text" name="phone" id="id_phone" [(ngModel)]="student.phone"/>
+        </div>
+
+        <div>  
+            <label for="id_address">Address</label>
+            <input type="text" name="address" id="id_address" [(ngModel)]="student.address"/>
+        </div>
+
+        <div>
+            <label for="id_start_date">Start Date</label>
+            <input type="date" name="start_date" id="id_start_date" [(ngModel)]="student.start_date"/>
+        </div>
+
+        <div>
+            <label for="id_birth_date">Birth Date</label>
+            <input type="date" name="birth_date" id="id_birth_date" [(ngModel)]="student.birth_date"/>
+        </div>
+
+        <div>
+            <label for="id_arrangement">Arrangement</label>
+            <select name="arrangement" id="id_arrangement" [(ngModel)]="student.arrangement">
+                <option value="full">6 Days</option>
+                <option value="normal">4 Days</option>
+                <option value="basico">2 Days</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="id_coach">Coach</label>
+            <select name="coach" id="id_coach" [(ngModel)]="student.coach">
+                <option>Coach</option>
+            </select>
+        </div>
+
+        <div>
+            <button type="button" name="register" (click)="registerStudent()">Register</button>
+        </div>
+
+        <div>
+            <button type="button" name="cancel">Cancel</button>
+        </div>
+    </div>
+
+    <div>
+
+    </div>
+</section>

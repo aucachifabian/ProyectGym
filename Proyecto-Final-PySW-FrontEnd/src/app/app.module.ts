@@ -9,10 +9,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { AlumnoComponent } from './components/home/entrenador/registro/alumno/alumno.component';
-import { PagoComponent } from './components/home/entrenador/registro/pago/pago.component';
-import { RutinaComponent } from './components/home/entrenador/generar/rutina/rutina.component';
-import { UsuarioComponent } from './components/home/entrenador/generar/usuario/usuario.component';
+import { RoutineComponent } from './components/home/coach/generate/routine/routine.component';
+import { ArrangementComponent } from './components/home/coach/generate/arrangement/arrangement.component';
+import { PaymentComponent } from './components/home/coach/register/payment/payment.component';
+import { AssistanceComponent } from './components/home/coach/register/assistance/assistance.component';
+import { UserComponent } from './components/home/user/user.component';
+import { PupilComponent } from './components/home/coach/register/pupil/pupil.component';
+import { StudentComponent } from './components/home/student/student/student.component';
+
 
 
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,10 +28,15 @@ import { UsuarioComponent } from './components/home/entrenador/generar/usuario/u
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    AlumnoComponent,
-    PagoComponent,
-    RutinaComponent,
-    UsuarioComponent,
+    RoutineComponent,
+    ArrangementComponent,
+    PaymentComponent,
+    AssistanceComponent,
+    UserComponent,
+    PupilComponent,
+    StudentComponent,
+
+
     //BrowserAnimationsModule,
     //ToastrModule.forRoot(),
   ],
