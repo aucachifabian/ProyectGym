@@ -1,9 +1,9 @@
-const student = require('../models/student')
-const StudentCtrl = {}
+const Student = require('../models/student.model')
+const studentCtrl = {}
 
 
-StudentCtrl.crateStudent = async (req, res) => {
-    var alum = new student(req.body);
+studentCtrl.createStudent = async (req, res) => {
+    var alum = new Student(req.body);
     console.log(alum)
     try {
         await alum.save();
@@ -20,20 +20,20 @@ StudentCtrl.crateStudent = async (req, res) => {
     }
 }
 
-StudentCtrl.getStudents = async (req, res) => {
-    var alum = await student.find().exec();
+studentCtrl.getStudents = async (req, res) => {
+    var alum = await Student.find().exec();
     res.json(alum);
 }
 
 
-StudentCtrl.getStudentParams = async (req, res) => {
-    const pas = await student.findById(req.params.id)
+studentCtrl.getStudentParams = async (req, res) => {
+    const pas = await Student.findById(req.params.id)
     res.json(pas);
 }
 
-StudentCtrl.deleteStudent = async (req, res) => {
+studentCtrl.deleteStudent = async (req, res) => {
     try {
-        await student.findByIdAndRemove({ _id: req.params.id });
+        await Student.deleteOne({ _id: req.params.id });
         res.json({
             status: '1',
             msg: 'alumno borrado'
@@ -46,10 +46,10 @@ StudentCtrl.deleteStudent = async (req, res) => {
     }
 }
 
-StudentCtrl.modifyStudent = async (req, res) => {
+studentCtrl.modifyStudent = async (req, res) => {
     const alum = new Student(req.body);
     try {
-        await student.updateOne({ _id: req.body._id }, alum);
+        await Student.updateOne({ _id: req.body._id }, alum);
         res.json({
             'status': '1',
             'msg': 'alumno actualizada'
@@ -63,4 +63,4 @@ StudentCtrl.modifyStudent = async (req, res) => {
 }
 
 
-module.exports = StudentCtrl;
+module.exports = studentCtrl;

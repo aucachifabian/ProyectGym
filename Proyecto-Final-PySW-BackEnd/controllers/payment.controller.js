@@ -1,8 +1,8 @@
-const Payment = require('../models/payment');
-const Student = require('../models/student');
-const PaymentCtrl = {}
-student:Student;
-PaymentCtrl.crateStudent = async (req, res) => {
+const Payment = require('../models/payment.model');
+const Student = require('../models/student.model');
+const paymentCtrl = {}
+
+paymentCtrl.createPayment = async (req, res) => {
     var payment = new Payment(req.body);
     console.log(payment);
     var student = new Student();
@@ -26,20 +26,20 @@ PaymentCtrl.crateStudent = async (req, res) => {
     }
 }
 
-PaymentCtrl.getStudents = async (req, res) => {
+paymentCtrl.getPayments = async (req, res) => {
     var alum = await Payment.find().exec();
     res.json(alum);
 }
 
 
-PaymentCtrl.getStudentParams = async (req, res) => {
+paymentCtrl.getPaymentParams = async (req, res) => {
     const pas = await Payment.findById(req.params.id)
     res.json(pas);
 }
 
-PaymentCtrl.deleteStudent = async (req, res) => {
+paymentCtrl.deletePayment = async (req, res) => {
     try {
-        await Payment.findByIdAndRemove({ _id: req.params.id });
+        await Payment.deleteOne({ _id: req.params.id });
         res.json({
             status: '1',
             msg: 'alumno borrado'
@@ -52,7 +52,7 @@ PaymentCtrl.deleteStudent = async (req, res) => {
     }
 }
 
-PaymentCtrl.modifyStudent = async (req, res) => {
+paymentCtrl.modifyPayment = async (req, res) => {
     const alum = new Payment(req.body);
     try {
         await Payment.updateOne({ _id: req.body._id }, alum);
@@ -68,4 +68,4 @@ PaymentCtrl.modifyStudent = async (req, res) => {
     }
 }
 
-module.exports = PaymentCtrl;
+module.exports = paymentCtrl;

@@ -1,14 +1,12 @@
 const coachCtrl = require('../controllers/coach.controller');
-//creamos el manejador de rutas
+
 const express = require('express');
 const router = express.Router();
 
-
-router.post('/', coachCtrl.crateStudent);
-router.get('/', coachCtrl.getStudents);
-router.get('/:id', coachCtrl.getStudentParams);
-router.delete('/:id', coachCtrl.deleteStudent);
-router.put('/:id', coachCtrl.modifyStudent);
-
+router.post('/', coachCtrl.createCoach);
+router.get('/', coachCtrl.getCoachs);
+router.get('/:id', coachCtrl.getCoachParams);
+router.delete('/:id', coachCtrl.deleteCoach);
+router.put('/:id', coachCtrl.modifyCoach);
 
 module.exports = router;

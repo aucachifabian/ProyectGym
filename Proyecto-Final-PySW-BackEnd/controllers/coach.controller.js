@@ -1,8 +1,8 @@
-const coach = require('../models/coach')
-const CoachCtrl = {}
+const Coach = require('../models/coach.model')
+const coachCtrl = {}
 
-CoachCtrl.crateStudent = async (req, res) => {
-    var alum = new coach(req.body);
+coachCtrl.createCoach = async (req, res) => {
+    var alum = new Coach(req.body);
     try {
         await alum.save();
         res.json({
@@ -18,20 +18,20 @@ CoachCtrl.crateStudent = async (req, res) => {
     }
 }
 
-CoachCtrl.getStudents = async (req, res) => {
-    var alum = await coach.find().exec();
+coachCtrl.getCoachs = async (req, res) => {
+    var alum = await Coach.find().exec();
     res.json(alum);
 }
 
 
-CoachCtrl.getStudentParams = async (req, res) => {
-    const pas = await coach.findById(req.params.id)
+coachCtrl.getCoachParams = async (req, res) => {
+    const pas = await Coach.findById(req.params.id)
     res.json(pas);
 }
 
-CoachCtrl.deleteStudent = async (req, res) => {
+coachCtrl.deleteCoach = async (req, res) => {
     try {
-        await coach.findByIdAndRemove({ _id: req.params.id });
+        await Coach.deleteOne({ _id: req.params.id });
         res.json({
             status: '1',
             msg: 'alumno borrado'
@@ -44,8 +44,8 @@ CoachCtrl.deleteStudent = async (req, res) => {
     }
 }
 
-CoachCtrl.modifyStudent = async (req, res) => {
-    const alum = new coach(req.body);
+coachCtrl.modifyCoach = async (req, res) => {
+    const alum = new Coach(req.body);
     try {
         await coach.updateOne({ _id: req.body._id }, alum);
         res.json({
@@ -60,4 +60,4 @@ CoachCtrl.modifyStudent = async (req, res) => {
     }
 }
 
-module.exports = CoachCtrl;
+module.exports = coachCtrl;

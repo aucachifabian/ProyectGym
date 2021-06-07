@@ -1,40 +1,43 @@
-const arrangement = require('../models/arrangement')
-const ArrangementCtrl = {}
+const Arrangement = require('../models/arrangement.model')
+const arrangementCtrl = {}
 
-ArrangementCtrl.crateStudent = async (req, res) => {
-    var alum = new arrangement(req.body);
+arrangementCtrl.createArrangement = async (req, res) => {
+    var arrangement = new Arrangement(req.body);
+
     try {
-        await alum.save();
+        await arrangement.save();
+
         res.json({
-            alum: alum,
             'status': '1',
-            'msg': 'alumno guardado.'
-        })
+            'msg': 'Arrangement save.'
+        });
     } catch (error) {
         res.json({
             'status': '0',
-            'msg': 'Error procesando operacion al guardar el alumno.'
-        })
+            'msg': 'Arrangement error.'
+        });
     }
 }
 
-ArrangementCtrl.getStudents = async (req, res) => {
-    var alum = await arrangement.find().exec();
-    res.json(alum);
+arrangementCtrl.getArrangements = async (req, res) => {
+    var arrangement = await Arrangement.find().exec();
+
+    res.json(arrangement);
 }
 
 
-ArrangementCtrl.getStudentParams = async (req, res) => {
-    const pas = await arrangement.findById(req.params.id)
-    res.json(pas);
+arrangementCtrl.getArrangementParams = async (req, res) => {
+    const arrangement = await Arrangement.findById(req.params.id);
+
+    res.json(arrangement);
 }
 
-ArrangementCtrl.deleteStudent = async (req, res) => {
+arrangementCtrl.deleteArrangement = async (req, res) => {
     try {
-        await arrangement.findByIdAndRemove({ _id: req.params.id });
+        await Arrangement.deleteOne({ _id: req.params.id });
         res.json({
             status: '1',
-            msg: 'alumno borrado'
+            msg: 'Arrangement deleted'
         })
     } catch (error) {
         res.json({
@@ -44,20 +47,20 @@ ArrangementCtrl.deleteStudent = async (req, res) => {
     }
 }
 
-ArrangementCtrl.modifyStudent = async (req, res) => {
-    const alum = new arrangement(req.body);
+arrangementCtrl.modifyArrangement = async (req, res) => {
+    const alum = new Arrangement(req.body);
     try {
-        await arrangement.updateOne({ _id: req.body._id }, alum);
+        await Arrangement.updateOne({ _id: req.body._id }, alum);
         res.json({
             'status': '1',
-            'msg': 'alumno actualizada'
+            'msg': 'Arrangement update'
         })
     } catch (error) {
         res.json({
             'status': '0',
-            'msg': 'Error procesando la operacion de modificacion'
+            'msg': 'Arrangement Error.'
         })
     }
 }
 
-module.exports = ArrangementCtrl;
+module.exports = arrangementCtrl;

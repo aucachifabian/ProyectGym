@@ -1,9 +1,9 @@
-const user = require('../models/user');
-const UserCtrl = {}
+const User = require('../models/user.model');
+const userCtrl = {}
 
 
-UserCtrl.crateUser = async (req, res) => {
-    var alum = new user(req.body);
+userCtrl.createUser = async (req, res) => {
+    var alum = new User(req.body);
     try {
         await alum.save();
         res.json({
@@ -19,20 +19,20 @@ UserCtrl.crateUser = async (req, res) => {
     }
 }
 
-UserCtrl.getUsers = async (req, res) => {
-    var alum = await user.find().populate("owner.coach").populate("owner.student");
+userCtrl.getUsers = async (req, res) => {
+    var alum = await User.find().populate("owner.coach").populate("owner.student");
     res.json(alum);
 }
 
 
-UserCtrl.getUserParams = async (req, res) => {
-    const pas = await user.findById(req.params.id)
+userCtrl.getUserParams = async (req, res) => {
+    const pas = await User.findById(req.params.id)
     res.json(pas);
 }
 
-UserCtrl.deleteUser = async (req, res) => {
+userCtrl.deleteUser = async (req, res) => {
     try {
-        await user.findByIdAndRemove({ _id: req.params.id });
+        await User.deleteOne({ _id: req.params.id });
         res.json({
             status: '1',
             msg: 'alumno borrado'
@@ -45,8 +45,8 @@ UserCtrl.deleteUser = async (req, res) => {
     }
 }
 
-UserCtrl.modifyUser = async (req, res) => {
-    const alum = new user(req.body);
+userCtrl.modifyUser = async (req, res) => {
+    const alum = new User(req.body);
     try {
         await user.updateOne({ _id: req.body._id }, alum);
         res.json({
@@ -61,4 +61,4 @@ UserCtrl.modifyUser = async (req, res) => {
     }
 }
 
-module.exports = UserCtrl;
+module.exports = userCtrl;
