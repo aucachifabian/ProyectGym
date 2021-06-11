@@ -1,5 +1,5 @@
-const Student = require('../models/student.model')
-const studentCtrl = {}
+const Student       = require('../models/student.model');
+const studentCtrl   = {};
 
 
 studentCtrl.createStudent = async (req, res) => {
@@ -8,17 +8,18 @@ studentCtrl.createStudent = async (req, res) => {
     console.log(alum)
     try {
         await alum.save();
+
         res.json({
       
             'status': '1',
-            'msg': 'alumno guardado.'
-        })
+            'msg': 'Student saved.'
+        });
     } catch (error) {
         res.json({
             'status': '0',
-            'msg': 'Error procesando operacion al guardar el alumno.' + error
-        })
-    }
+            'msg': 'Student Error' + error
+        });
+    };
   //}
   /*else
   {
@@ -32,44 +33,49 @@ studentCtrl.createStudent = async (req, res) => {
 
 studentCtrl.getStudents = async (req, res) => {
     var alum = await Student.find().exec();
+
     res.json(alum);
 }
 
 
 studentCtrl.getStudentParams = async (req, res) => {
-    const pas = await Student.findById(req.params.id)
-    res.json(pas);
+    const student = await Student.findById(req.params.id);
+
+    res.json(student);
 }
 
 studentCtrl.deleteStudent = async (req, res) => {
     try {
         await Student.deleteOne({ _id: req.params.id });
+
         res.json({
             status: '1',
-            msg: 'alumno borrado'
-        })
+            msg: 'Student deleted'
+        });
     } catch (error) {
         res.json({
             'status': '0',
-            'msg': 'Error procesando la operacion'
-        })
-    }
+            'msg': 'Student Error.'
+        });
+    };
 }
 
 studentCtrl.modifyStudent = async (req, res) => {
     const alum = new Student(req.body);
+
     try {
         await Student.updateOne({ _id: req.body._id }, alum);
+
         res.json({
             'status': '1',
-            'msg': 'alumno actualizada'
-        })
+            'msg': 'Student updated.'
+        });
     } catch (error) {
         res.json({
             'status': '0',
-            'msg': 'Error procesando la operacion de modificacion'
-        })
-    }
+            'msg': 'Student Error.'
+        });
+    };
 }
 
 

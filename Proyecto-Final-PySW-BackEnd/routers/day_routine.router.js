@@ -1,4 +1,4 @@
-const routineCtrl = require('../controllers/routine.controller');
+const routineCtrl = require('../controllers/day_routine_controller');
 
 const express = require('express');
 const router = express.Router();

@@ -1,65 +1,71 @@
-const User = require('../models/user.model');
-const userCtrl = {}
-const jwt = require('jsonwebtoken');
+const User      = require('../models/user.model');
+const userCtrl  = {}
+const jwt       = require('jsonwebtoken');
 
 
 userCtrl.createUser = async (req, res) => {
-    var alum = new User(req.body);
+    var user = new User(req.body);
+
     try {
-        await alum.save();
+        await user.save();
+
         res.json({
-            alum: alum,
             'status': '1',
-            'msg': 'alumno guardado.'
-        })
+            'msg': 'User saved.'
+        });
     } catch (error) {
         res.json({
             'status': '0',
-            'msg': 'Error procesando operacion al guardar el alumno.'
-        })
-    }
+            'msg': 'User Error.'
+        });
+    };
 }
 
 userCtrl.getUsers = async (req, res) => {
-    var alum = await User.find().populate("owner.coach").populate("owner.student");
-    res.json(alum);
+    var user = await User.find().populate("owner.coach").populate("owner.student");
+
+    res.json(user);
 }
 
 
 userCtrl.getUserParams = async (req, res) => {
-    const pas = await User.findById(req.params.id)
-    res.json(pas);
+    const user = await User.findById(req.params.id);
+
+    res.json(user);
 }
 
 userCtrl.deleteUser = async (req, res) => {
     try {
         await User.deleteOne({ _id: req.params.id });
+
         res.json({
             status: '1',
-            msg: 'alumno borrado'
-        })
+            msg: 'User deleted.'
+        });
     } catch (error) {
         res.json({
             'status': '0',
-            'msg': 'Error procesando la operacion'
-        })
-    }
+            'msg': 'User Error.'
+        });
+    };
 }
 
 userCtrl.modifyUser = async (req, res) => {
-    const alum = new User(req.body);
+    const user = new User(req.body);
+
     try {
-        await user.updateOne({ _id: req.body._id }, alum);
+        await User.updateOne({ _id: req.body._id }, user);
+
         res.json({
             'status': '1',
-            'msg': 'alumno actualizada'
-        })
+            'msg': 'User updated.'
+        });
     } catch (error) {
         res.json({
             'status': '0',
-            'msg': 'Error procesando la operacion de modificacion'
-        })
-    }
+            'msg': 'User Error.'
+        });
+    };
 }
 
 

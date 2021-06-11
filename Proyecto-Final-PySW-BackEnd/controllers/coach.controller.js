@@ -1,63 +1,69 @@
-const Coach = require('../models/coach.model')
-const coachCtrl = {}
+const Coach = require('../models/coach.model');
+const coachCtrl = {};
 
 coachCtrl.createCoach = async (req, res) => {
-    var alum = new Coach(req.body);
+    var coach = new Coach(req.body);
+
     try {
-        await alum.save();
+        await coach.save();
+
         res.json({
-            alum: alum,
             'status': '1',
-            'msg': 'alumno guardado.'
-        })
+            'msg': 'Coach save.'
+        });
     } catch (error) {
         res.json({
             'status': '0',
-            'msg': 'Error procesando operacion al guardar el alumno.'
-        })
-    }
+            'msg': 'Coach Error.'
+        });
+    };
 }
 
 coachCtrl.getCoachs = async (req, res) => {
-    var alum = await Coach.find().exec();
-    res.json(alum);
+    var coach = await Coach.find().exec();
+
+    res.json(coach);
 }
 
 
 coachCtrl.getCoachParams = async (req, res) => {
-    const pas = await Coach.findById(req.params.id)
-    res.json(pas);
+    const coach = await Coach.findById(req.params.id);
+
+    res.json(coach);
 }
 
 coachCtrl.deleteCoach = async (req, res) => {
     try {
         await Coach.deleteOne({ _id: req.params.id });
+
         res.json({
             status: '1',
-            msg: 'alumno borrado'
-        })
+            msg: 'Coach deleted'
+        });
     } catch (error) {
         res.json({
             'status': '0',
-            'msg': 'Error procesando la operacion'
-        })
-    }
+            'msg': 'Coach Error'
+        });
+    };
 }
 
 coachCtrl.modifyCoach = async (req, res) => {
-    const alum = new Coach(req.body);
+    const coach = new Coach(req.body);
+
     try {
-        await coach.updateOne({ _id: req.body._id }, alum);
+        await Coach.updateOne({ _id: req.body._id }, coach);
+        
         res.json({
             'status': '1',
-            'msg': 'alumno actualizada'
-        })
+            'msg': 'Coach updated'
+        });
     } catch (error) {
         res.json({
             'status': '0',
-            'msg': 'Error procesando la operacion de modificacion'
-        })
-    }
+            'msg': 'Coach Error'
+        });
+    };
 }
 
 module.exports = coachCtrl;

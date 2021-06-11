@@ -1,5 +1,5 @@
-const Routine        = require('../models/routine.model');
-const routineCtrl    = {};
+const Routine = require('../models/day_routine.model');
+const routineCtrl = {};
 
 routineCtrl.createRoutine = async (req, res) => {
     var routine = new Routine(req.body);
@@ -8,13 +8,14 @@ routineCtrl.createRoutine = async (req, res) => {
         await routine.save();
 
         res.json({
+           
             'status': '1',
             'msg': 'Routine saved.'
         });
     } catch (error) {
         res.json({
             'status': '0',
-            'msg': 'Routine error.'
+            'msg': 'Routine Error.'
         });
     };
 }
@@ -33,9 +34,8 @@ routineCtrl.getRoutineParams = async (req, res) => {
 }
 
 routineCtrl.deleteRoutine = async (req, res) => {
-    
     try {
-        await Routine.deleteOne({_id: req.params.id});
+        await Routine.deleteOne({ _id: req.params.id });
 
         res.json({
             status: '1',
@@ -44,7 +44,7 @@ routineCtrl.deleteRoutine = async (req, res) => {
     } catch (error) {
         res.json({
             'status': '0',
-            'msg': 'Routine error.'
+            'msg': 'Routine Error.'
         });
     };
 }
@@ -58,13 +58,13 @@ routineCtrl.modifyRoutine = async (req, res) => {
         res.json({
             'status': '1',
             'msg': 'Routine updated.'
-        });
+        })
     } catch (error) {
         res.json({
             'status': '0',
-            'msg': 'Routine error.'
-        });
-    };
+            'msg': 'Routine Error.'
+        })
+    }
 }
 
 module.exports = routineCtrl;

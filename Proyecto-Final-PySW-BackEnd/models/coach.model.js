@@ -2,11 +2,12 @@ const mongoose      = require('mongoose');
 const { Schema }    = mongoose;
 
 const CoachSchema = new Schema({
-    name    : {type : String, require : true},
-    surname : {type : String, require : true},
-    photo   : {type : String, require :true},
-    email   : {type : String, require :true},
-    birth_date : {type : Date, require :true},
+    dni         : { type : String, required : true },
+    name        : { type : String, required : true },
+    surname     : { type : String, required : true },
+    phone       : { type : String, required : true },
+    email       : { type : String, required : true },
+    birth_date  : { type : Date, required : true },
 });
 
 module.exports = mongoose.models.Coach || mongoose.model('Coach', CoachSchema);

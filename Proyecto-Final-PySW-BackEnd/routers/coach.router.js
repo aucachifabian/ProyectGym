@@ -3,10 +3,10 @@ const coachCtrl = require('../controllers/coach.controller');
 const express = require('express');
 const router = express.Router();
 
-router.post('/', coachCtrl.createCoach);
-router.get('/', coachCtrl.getCoachs);
-router.get('/:id', coachCtrl.getCoachParams);
+router.post('/'     , coachCtrl.createCoach);
+router.get('/'      , coachCtrl.getCoachs);
+router.get('/:id'   , coachCtrl.getCoachParams);
 router.delete('/:id', coachCtrl.deleteCoach);
-router.put('/:id', coachCtrl.modifyCoach);
+router.put('/:id'   , coachCtrl.modifyCoach);
 
 module.exports = router;

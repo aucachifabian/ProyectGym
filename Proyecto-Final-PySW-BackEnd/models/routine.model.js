@@ -1,13 +1,17 @@
 const mongoose    = require('mongoose');
 const { Schema }  = mongoose;
 
-const Arrangement = require('./arrangement.model');
+const Coach = require('./coach.model');
+const Training = require('./training.model');
 
 const RoutineSchema = new Schema({
-   day         : {type : String, required  : true},
-   repetition  : {type : String, required  : true},
-   description : {type : String, required  : true},
-   arrangement : {type : Schema.Types.ObjectId, ref: Arrangement, required : true}
+   coach       : { type : Schema.Types.ObjectId, ref : Coach, required : true },
+   name        : { type : String, required : true },
+   serie       : { type : String, required : true },
+   repetition  : { type : String, required : true },
+   rest        : { type : String, required : true },
+   intensity   : { type : String, required : true },
+   training    : [{ type : Schema.Types.ObjectId, ref : Training, required : true }],
 });
 
 module.exports = mongoose.models.Routine || mongoose.model('Routine', RoutineSchema);

@@ -1,19 +1,21 @@
-const Assistence        = require('../models/assistance.model');
-const assistenceCtrl    = {};
+const Assistence = require('../models/day_assistence.model');
+const assistenceCtrl = {};
 
 assistenceCtrl.createAssistence = async (req, res) => {
-    var assitence = new Assistence(req.body);
+    var assistence = new Assistence(req.body);
 
     try {
-        await assitence.save();
+        await assistence.save();
+
         res.json({
+           
             'status': '1',
             'msg': 'Assistence save.'
         });
     } catch (error) {
         res.json({
             'status': '0',
-            'msg': 'Assistence error.'
+            'msg': 'Assistence Error.'
         });
     };
 }
@@ -32,27 +34,27 @@ assistenceCtrl.getAssistenceParams = async (req, res) => {
 }
 
 assistenceCtrl.deleteAssistence = async (req, res) => {
-
     try {
-        await Assistence.deleteOne({_id: req.params.id});
+        await Assistence.deleteOne({ _id: req.params.id });
 
         res.json({
             status: '1',
-            msg: 'Assistence deleted'
+            msg: 'Assistence save'
         });
     } catch (error) {
         res.json({
             'status': '0',
-            'msg': 'Assistence error.'
+            'msg': 'Assistence Error.'
         });
     };
 }
 
 assistenceCtrl.modifyAssistence = async (req, res) => {
-    const assistence = new Assitence(req.body);
+    const assistence = new Assistence(req.body);
 
     try {
-        await Assitence.updateOne({ _id: req.body._id }, assistence);
+        await Assistence.updateOne({ _id: req.body._id }, assistence);
+
         res.json({
             'status': '1',
             'msg': 'Assistence update'
@@ -60,9 +62,9 @@ assistenceCtrl.modifyAssistence = async (req, res) => {
     } catch (error) {
         res.json({
             'status': '0',
-            'msg': 'Assistence error.'
+            'msg': 'Assistence Error'
         });
-    }
+    };
 }
 
 module.exports = assistenceCtrl;
