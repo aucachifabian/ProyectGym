@@ -8,9 +8,9 @@ const Routine       = require('./routine.model');
 const StudentSchema = new Schema({
     surname : { type : String, required : true },
     name    : { type : String, required : true },
-    dni     : { type : String, required : true },
+    dni     : { type : String, required : true, unique : true },
     phone   : { type : String, required : true },
-    email   : { type : String, required : true },
+    email   : { type : String, required : true, unique : true },
     birth_date  : { type : Date, required : true },
     address     : { type : String, required : true },
     start_date  : { type : Date, required : true },

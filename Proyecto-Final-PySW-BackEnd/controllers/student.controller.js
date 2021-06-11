@@ -3,7 +3,8 @@ const studentCtrl = {}
 
 
 studentCtrl.createStudent = async (req, res) => {
-    var alum = new Student(req.body);
+//    if(req.rol =="coach")
+  /* {*/ var alum = new Student(req.body);
     console.log(alum)
     try {
         await alum.save();
@@ -18,6 +19,15 @@ studentCtrl.createStudent = async (req, res) => {
             'msg': 'Error procesando operacion al guardar el alumno.' + error
         })
     }
+  //}
+  /*else
+  {
+    res.json({
+        'status': '0',
+        'msg': 'n' + error
+    })
+    }*/
+
 }
 
 studentCtrl.getStudents = async (req, res) => {
