@@ -1,71 +1,69 @@
-<section>
-    <div>
-        <div>
-            <label for="id_dni">DNI</label>
-            <input type="text" name="dni" id="id_dni" [(ngModel)]="student.dni"/>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="../../../../../../assets/imgicon/users.jpg" id="icon" alt="User Icon" />
         </div>
 
-        <div>
-            <label for="id_name">Name</label>
-            <input type="text" name="name" id="id_name" [(ngModel)]="student.name"/>
-        </div>
-
-        <div>
-            <label for="id_surname">SurName</label>
-            <input type="text" name="surname" id="id_surname" [(ngModel)]="student.surname"/>
-        </div>
-
-        <div>
-            <label for="id_email">Email</label>
-            <input type="email" name="email" id="id_email" [(ngModel)]="student.email"/>
-        </div>
-
-        <div>
-            <label for="id_phone">Number Phone</label>
-            <input type="text" name="phone" id="id_phone" [(ngModel)]="student.phone"/>
-        </div>
-
-        <div>  
-            <label for="id_address">Address</label>
-            <input type="text" name="address" id="id_address" [(ngModel)]="student.address"/>
-        </div>
-
-        <div>
-            <label for="id_start_date">Start Date</label>
-            <input type="date" name="start_date" id="id_start_date" [(ngModel)]="student.start_date"/>
-        </div>
-
-        <div>
-            <label for="id_birth_date">Birth Date</label>
-            <input type="date" name="birth_date" id="id_birth_date" [(ngModel)]="student.birth_date"/>
-        </div>
-
-        <div>
-            <label for="id_arrangement">Arrangement</label>
-            <select name="arrangement" id="id_arrangement" [(ngModel)]="student.arrangement">
-                <option value="full">6 Days</option>
-                <option value="normal">4 Days</option>
-                <option value="basico">2 Days</option>
-            </select>
-        </div>
-
-        <div>
-            <label for="id_coach">Coach</label>
-            <select name="coach" id="id_coach" [(ngModel)]="student.coach">
-                <option>Coach</option>
-            </select>
-        </div>
-
-        <div>
-            <button type="button" name="register" (click)="registerStudent()">Register</button>
-        </div>
-
-        <div>
-            <button type="button" name="cancel">Cancel</button>
-        </div>
-    </div>
-
-    <div>
+        <!-- Login Form -->
+        <form>
+            <input type="text" id="login" class="fadeIn second" name="login" placeholder="DNI"
+                [(ngModel)]="student.dni">
+            <input type="text" id="password" class="fadeIn third" name="login" placeholder="Name"
+                [(ngModel)]="student.name">
+            <input type="text" id="password" class="fadeIn third" name="login" placeholder="SurName"
+                [(ngModel)]="student.surname">
+            <input type="text" id="password" class="fadeIn third" name="login" placeholder="Email"
+                [(ngModel)]="student.email">
+            <input type="text" id="password" class="fadeIn third" name="login" placeholder="Number Phone"
+                [(ngModel)]="student.phone">
+            <input type="text" id="password" class="fadeIn third" name="login" placeholder="Address"
+                [(ngModel)]="student.address">
+            <br><br>
+            <label class="col-md-4 control-label">Start Date</label>
+            <input type="date" id="password" class="fadeIn third" name="login" placeholder="Start Date"
+                [(ngModel)]="student.start_date">
+            <br><br>
+            <label class="col-md-4 control-label">Birth Date</label>
+            <input type="date" id="password" class="fadeIn third" name="login" placeholder="Birth Date"
+                [(ngModel)]="student.birth_date">
+            <br><br>
+            <div class="form-group">
+                <label class="col-md-4 control-labell">Arrangement</label>
+                <div class="col-md-4 selectContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                        <select name="arrangement" class="form-control selectpicker" [(ngModel)]="student.arrangement">
+                            <option *ngFor="let arrage of Arragement" [ngValue]="arrage">{{arrage.amount_day}} ,
+                                {{arrage.price}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- Text selec-->
+            <div class="form-group">
+                <label class="col-md-4 control-labell">Coach</label>
+                <div class="col-md-4 selectContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                        <select name="coach" class="form-control selectpicker" [(ngModel)]="student.coach">
+                            <option *ngFor="let coa of Coach" [ngValue]="coa">{{coa.name}} ,
+                                {{coa.surname}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <input type="submit" class="fadeIn fourth" value="Log In" (click)="registerStudent()">
+        </form>
+        <!-- Remind Passowrd -->
+        <!-- <div id="formFooter">
+            <a class="underlineHover" href="#">Forgot Password?</a>
+        </div> -->
 
     </div>
-</section>
+</div>
