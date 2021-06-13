@@ -14,8 +14,9 @@ const StudentSchema = new Schema({
     birth_date  : { type : Date, required : true },
     start_date  : { type : Date, required : true },
     end_date    : { type : Date, required : true },
+    amount_day    : { type : Number, required : true },
     arrangement : { type : Schema.Types.ObjectId, ref: Arrangement, required : true },
-    day_routine : { type : Schema.Types.ObjectId, ref: Day_Routine, required : true },
+    day_routine : { type : Schema.Types.ObjectId, ref: Day_Routine, required : false },
 });
 
 module.exports = mongoose.models.Student || mongoose.model('Student', StudentSchema);

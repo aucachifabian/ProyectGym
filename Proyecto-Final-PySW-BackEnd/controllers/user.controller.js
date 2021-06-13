@@ -16,7 +16,7 @@ userCtrl.createUser = async (req, res) => {
     } catch (error) {
         res.json({
             'status': '0',
-            'msg': 'User Error.'
+            'msg': 'User Error.'+error
         });
     };
 }
@@ -69,33 +69,51 @@ userCtrl.modifyUser = async (req, res) => {
 }
 
 
-userCtrl.loginUsuario = async (req, res)=>{
+userCtrl.loginUsuario = async (req, res) => {
+    console.log(req.body);
+
     const criteria = {
-    Username: req.body.username,
-    Password: req.body.password
+        user_name   : req.body.user_name,
+        password    : req.body.password
     }
-    User.findOne(criteria, function(err, user) {
-    if (err) {
-    res.json({
-    status: 0,
-    message: 'error'})
-    };
-    if (!user) {
-    res.json({
-    status: 0,
-    message: "not found" })
-    } else {
-    const unToken = jwt.sign({id: user._id, rol:user.typeUser}, "secretkey");
-    res.json({
-    status: 1,
-    message: "success",
-    username: user.username,
-    owner: user.owner,
-    token: unToken
-    });
-    }
+
+   await User.findOne(criteria, function(err, user) {
+        if (err) {
+            //console.log("paso x1");
+
+            res.json({
+                'status': '0',
+                'msg'   : 'error'
+            });
+        };
+        
+        if (!user) {
+            console.log("paso x2");
+
+            res.json({
+                'status': '0',
+                'msg'   : "not found" 
+            });
+
+        } else {
+          //  console.log("paso x3");
+
+            const unToken = jwt.sign({_id : user._id, rol : user.type_user}, "secretkey");
+            
+
+            res.json({
+                'status'    : '1',
+                'msg'       : 'success',
+                'type_user' : user.type_user,
+                //'owner'     : user.owner,
+                'token'     : unToken
+            });
+
+        //    console.log("paso x4");
+        };
+      //  console.log("paso x5");
     }).populate("owner.student").populate("owner.coach");
-   }
+}
    
 
 

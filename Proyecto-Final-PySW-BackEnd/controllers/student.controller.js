@@ -3,12 +3,12 @@ const studentCtrl   = {};
 
 
 studentCtrl.createStudent = async (req, res) => {
-//    if(req.rol =="coach")
-  /* {*/ var alum = new Student(req.body);
-    console.log(alum)
-    try {
+    if(req.rol =="coach")
+     { var alum = new Student(req.body);
+       console.log(alum)
+       try {
         await alum.save();
-
+        
         res.json({
       
             'status': '1',
@@ -20,15 +20,14 @@ studentCtrl.createStudent = async (req, res) => {
             'msg': 'Student Error' + error
         });
     };
-  //}
-  /*else
+  }
+  else
   {
     res.json({
         'status': '0',
-        'msg': 'n' + error
+        'msg': 'No tiene permiso de acceder a este modulo' 
     })
-    }*/
-
+    }
 }
 
 studentCtrl.getStudents = async (req, res) => {
@@ -77,6 +76,20 @@ studentCtrl.modifyStudent = async (req, res) => {
         });
     };
 }
+
+studentCtrl.checkValidate = async (req, res) => {
+    let id = req.body.student[0];
+    const stud = await Student.findById(id);
+    if (new Date(req.body.day) <= stud.end_date) {
+        stud.amount_day = stud.amount_day + 1;
+        await Student.updateOne({ _id: stud._id }, stud);
+        return 1;
+    }
+    else {
+        return 0;
+    }
+}
+
 
 
 module.exports = studentCtrl;
