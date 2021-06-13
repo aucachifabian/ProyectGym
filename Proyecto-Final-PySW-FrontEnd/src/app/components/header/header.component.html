@@ -6,16 +6,23 @@
 
 <nav class="col-12">
     <ul class="nav nav-tabs justify-content-evenly text-center">
-        <li class="col-md-3 col-sm-6 nav-item">
+        <li class="col-md-3 col-sm-6 nav-item" *ngIf="loginService.isLoggedIn()">
             <a class="nav-link text-dark" routerLinkActive="active" [routerLink]="['Student']">Student</a>
         </li>
+
         <li class="col-md-3 col-sm-6 nav-item">
-            <a class="nav-link text-dark" routerLinkActive="active" [routerLink]="['User']">User</a>
+            <a class="nav-link text-dark" routerLinkActive="active" [routerLink]="['Login']">Login</a>
         </li>
-        <li class="col-md-3 col-sm-6 nav-item">
+
+        <li class="col-md-3 col-sm-6 nav-item" *ngIf="loginService.isLoggedIn()">
             <a class="nav-link text-dark" routerLinkActive="active" [routerLink]="['Assitance']">Assitance</a>
         </li>
     </ul>
+
+    <div>
+        <a *ngIf="!loginService.isLoggedIn()" [routerLink]="['Login']">(Login)</a>
+        <a *ngIf="loginService.isLoggedIn()" [routerLink]="['Login']" (click)="logout()">{{loginService.isLogged()}} (logout)</a>
+    </div>
 </nav>
 
 <hr/>

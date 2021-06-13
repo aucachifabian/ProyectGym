@@ -7,7 +7,7 @@ export class User {
     public owner 	 	: Student | Coach;
     public type_user 	: string;
     public password	    : string;
-    public user_name 	: number;
+    public user_name 	: string;
 
     constructor(){
     }
