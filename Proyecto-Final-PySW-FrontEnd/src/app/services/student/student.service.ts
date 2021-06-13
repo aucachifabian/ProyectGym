@@ -32,4 +32,37 @@ export class StudentService {
 
   //-----------------------------------------------------------//
 
+  public getStudents() : Observable<any> {
+
+    return this.http.get(this.urlBase);
+  } 
+
+  //-----------------------------------------------------------//
+
+  public getStudent(id : string) : Observable<any> {
+
+    return this.http.get(this.urlBase+id);
+  }
+
+  //-----------------------------------------------------------//
+
+  public updateStudent(student : Student) : Observable<any> {
+
+    const optional = {
+      headers : new HttpHeaders({
+        'Content-Type' : 'application/json'
+      })
+    }
+
+    let body = JSON.stringify(student);
+
+    return this.http.post(this.urlBase,body,optional);
+  }
+
+  //-----------------------------------------------------------//
+
+  public deleteStudent(id : string) : Observable<any> {
+
+    return this.http.delete(this.urlBase+id);
+  }
 }

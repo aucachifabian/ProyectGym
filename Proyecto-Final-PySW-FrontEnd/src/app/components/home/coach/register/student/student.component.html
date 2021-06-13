@@ -36,22 +36,8 @@
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                         <select name="arrangement" class="form-control selectpicker" [(ngModel)]="student.arrangement">
-                            <option *ngFor="let arrage of Arragement" [ngValue]="arrage">{{arrage.amount_day}} ,
+                            <option *ngFor="let a of arrangements" [ngValue]="a">{{a.amount_day}} ,
                                 {{arrage.price}}
-                            </option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <!-- Text selec-->
-            <div class="form-group">
-                <label class="col-md-4 control-labell">Coach</label>
-                <div class="col-md-4 selectContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                        <select name="coach" class="form-control selectpicker" [(ngModel)]="student.coach">
-                            <option *ngFor="let coa of Coach" [ngValue]="coa">{{coa.name}} ,
-                                {{coa.surname}}
                             </option>
                         </select>
                     </div>

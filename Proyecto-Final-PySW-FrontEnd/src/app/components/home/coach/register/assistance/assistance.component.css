@@ -3,7 +3,7 @@
    
 }
 
-.ASSITANCE{
+.assistence{
     background-color: #0E6F7A;
     margin-bottom: 30px;
     height: 110px;
@@ -13,4 +13,12 @@
 }
 .btn{
     background-color: #0E6F7A;
+}
+
+.red {
+    outline: 1px solid red;
+}
+
+.blue {
+    outline: blue 1px solid;
 }

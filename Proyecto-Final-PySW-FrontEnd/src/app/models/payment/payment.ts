@@ -4,10 +4,14 @@ import { Student } from "../student/student";
 export class Payment {
     
     public _id      : string;
-    public pay_day 	: Date;
-    public student 	: Student;
+    public student  : Student;
+    public pay_day  : Date;
     public pay_mode : string;
-    public arrangement  : Arrangement;
+    
+    public name_arrangement : string;
+    public amount_day   : number;
+    public price        : number;
+    public amount_hour  : string;
 
     constructor(){
     }

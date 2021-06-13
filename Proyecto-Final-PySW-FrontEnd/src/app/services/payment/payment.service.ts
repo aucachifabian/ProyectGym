@@ -1,14 +1,14 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Coach } from 'src/app/models/coach/coach';
+import { Payment } from 'src/app/models/payment/payment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CoachService {
+export class PaymentService {
 
-  private urlBase : string = "http://localhost:3000/api/coach/";
+  private urlBase : string = "http://localhost:3000/api/payment/";
 
   //-----------------------------------------------------------//
   
@@ -17,7 +17,7 @@ export class CoachService {
 
   //-----------------------------------------------------------//
 
-  public createCoach(coach : Coach) : Observable<any> {
+  public createPayment(payment : Payment) : Observable<any> {
 
     const optional = {
       headers : new HttpHeaders({
@@ -25,28 +25,28 @@ export class CoachService {
       })
     }
 
-    let body = JSON.stringify(coach);
+    let body = JSON.stringify(payment);
 
     return this.http.post(this.urlBase,body,optional);
   }
 
   //-----------------------------------------------------------//
 
-  public getCoachs() : Observable<any> {
+  public getPayments() : Observable<any> {
 
     return this.http.get(this.urlBase);
   } 
 
   //-----------------------------------------------------------//
 
-  public getCoach(id : string) : Observable<any> {
+  public getPayment(id : string) : Observable<any> {
 
     return this.http.get(this.urlBase+id);
   }
 
   //-----------------------------------------------------------//
 
-  public updateCoach(coach : Coach) : Observable<any> {
+  public updatePayment(payment : Payment) : Observable<any> {
 
     const optional = {
       headers : new HttpHeaders({
@@ -54,19 +54,15 @@ export class CoachService {
       })
     }
 
-    let body = JSON.stringify(coach);
+    let body = JSON.stringify(payment);
 
     return this.http.post(this.urlBase,body,optional);
   }
 
   //-----------------------------------------------------------//
 
-  public deleteCoach(id : string) : Observable<any> {
+  public deletePayment(id : string) : Observable<any> {
 
     return this.http.delete(this.urlBase+id);
   }
-
-
-
-
 }

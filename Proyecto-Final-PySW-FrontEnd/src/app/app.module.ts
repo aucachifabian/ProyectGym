@@ -13,9 +13,13 @@ import { RoutineComponent } from './components/home/coach/generate/routine/routi
 import { ArrangementComponent } from './components/home/coach/generate/arrangement/arrangement.component';
 import { PaymentComponent } from './components/home/coach/register/payment/payment.component';
 import { AssistanceComponent } from './components/home/coach/register/assistance/assistance.component';
-import { UserComponent } from './components/home/user/user.component';
-import { PupilComponent } from './components/home/coach/register/pupil/pupil.component';
-import { StudentComponent } from './components/home/student/student/student.component';
+import { UserComponent } from './components/home/login/user.component';
+import { StudentComponent } from './components/home/coach/register/student/student.component';
+import { TrainingComponent } from './components/home/coach/generate/training/training.component';
+import { DayRoutineComponent } from './components/home/coach/generate/day-routine/day-routine.component';
+import { StudentAssistenceComponent } from './components/home/student/student-assistence/student-assistence.component';
+import { StudentRoutineComponent } from './components/home/student/student-routine/student-routine.component';
+import { StudentPaymentComponent } from './components/home/student/student-payment/student-payment.component';
 
 
 
@@ -33,8 +37,12 @@ import { StudentComponent } from './components/home/student/student/student.comp
     PaymentComponent,
     AssistanceComponent,
     UserComponent,
-    PupilComponent,
     StudentComponent,
+    TrainingComponent,
+    DayRoutineComponent,
+    StudentAssistenceComponent,
+    StudentRoutineComponent,
+    StudentPaymentComponent
 
 
     //BrowserAnimationsModule,

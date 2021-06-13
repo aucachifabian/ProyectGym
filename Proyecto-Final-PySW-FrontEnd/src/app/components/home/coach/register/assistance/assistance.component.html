@@ -1,13 +1,18 @@
-<div class="ASSITANCE">
-    <input type="date" name="" id="">
+<section class="col-12 red">
 
-<p></p>
-    <select class="form-select" aria-label="Default select example">
-        <option selected>Search For Students</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-    </select>
-<p></p>
-    <button type="button" class="btn btn-outline-warning">Register Attendance</button>
-</div>
+    <div class="col-4 m-auto">
+        <label class="col-12 text-center m-auto" for="id_date">Date</label>
+        <input class="col-12 m-auto" type="date" name="date" id="id_date" [(ngModel)]="assistance.day"/>
+    </div>
+    
+    <div class="col-4 m-auto">
+        <label class="col-12 text-center m-auto" for="id_student">Student</label>
+        <select class="col-12" id="id_student" name="students" [(ngModel)]="assistance.student">
+            <option *ngFor="let s of students" [ngValue]="s">{{s.surname}}, {{s.name}}</option>
+        </select>
+    </div>
+    
+    <div class="col-4 m-auto my-5">
+        <button class="col-12 btn btn-outline-warning" type="button">Register Assistence</button>
+    </div>
+</section>

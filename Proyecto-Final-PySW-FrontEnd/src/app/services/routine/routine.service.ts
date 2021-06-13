@@ -1,14 +1,14 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Coach } from 'src/app/models/coach/coach';
+import { Routine } from 'src/app/models/routine/routine';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CoachService {
+export class RoutineService {
 
-  private urlBase : string = "http://localhost:3000/api/coach/";
+  private urlBase : string = "http://localhost:3000/api/routine/";
 
   //-----------------------------------------------------------//
   
@@ -17,7 +17,7 @@ export class CoachService {
 
   //-----------------------------------------------------------//
 
-  public createCoach(coach : Coach) : Observable<any> {
+  public createRoutine(routine : Routine) : Observable<any> {
 
     const optional = {
       headers : new HttpHeaders({
@@ -25,28 +25,28 @@ export class CoachService {
       })
     }
 
-    let body = JSON.stringify(coach);
+    let body = JSON.stringify(routine);
 
     return this.http.post(this.urlBase,body,optional);
   }
 
   //-----------------------------------------------------------//
 
-  public getCoachs() : Observable<any> {
+  public getRoutines() : Observable<any> {
 
     return this.http.get(this.urlBase);
   } 
 
   //-----------------------------------------------------------//
 
-  public getCoach(id : string) : Observable<any> {
+  public getRoutine(id : string) : Observable<any> {
 
     return this.http.get(this.urlBase+id);
   }
 
   //-----------------------------------------------------------//
 
-  public updateCoach(coach : Coach) : Observable<any> {
+  public updateRoutine(routine : Routine) : Observable<any> {
 
     const optional = {
       headers : new HttpHeaders({
@@ -54,19 +54,15 @@ export class CoachService {
       })
     }
 
-    let body = JSON.stringify(coach);
+    let body = JSON.stringify(routine);
 
     return this.http.post(this.urlBase,body,optional);
   }
 
   //-----------------------------------------------------------//
 
-  public deleteCoach(id : string) : Observable<any> {
+  public deleteRoutine(id : string) : Observable<any> {
 
     return this.http.delete(this.urlBase+id);
   }
-
-
-
-
 }
