@@ -27,8 +27,9 @@ import { TokenInterceptorService } from './services/login/token-interceptor.serv
 
 
 
-//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-//import { ToastrModule } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -46,11 +47,7 @@ import { TokenInterceptorService } from './services/login/token-interceptor.serv
     StudentAssistenceComponent,
     StudentRoutineComponent,
     StudentPaymentComponent,
-    LoginComponent
-
-
-    //BrowserAnimationsModule,
-    //ToastrModule.forRoot(),
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +55,16 @@ import { TokenInterceptorService } from './services/login/token-interceptor.serv
     FormsModule,
     HttpClientModule,
     NgxDataTableModule,
-    AlifeFileToBase64Module
+    AlifeFileToBase64Module,
+    CommonModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 1500,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+      progressBar : true,
+      progressAnimation : 'decreasing'
+    }),
   ],
   providers: [
     LoginService,
