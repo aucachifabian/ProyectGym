@@ -1,55 +1,68 @@
-<div class="wrapper fadeInDown">
-    <div id="formContent">
-        <!-- Tabs Titles -->
+<section class="col-12">
+    <!-- Img -->
+    <div class="col-12 text-center">
+        <img class="" src="../../../../../../assets/imgicon/users.jpg" id="icon" alt="User Icon" />
+    </div>
 
-        <!-- Icon -->
-        <div class="fadeIn first">
-            <img src="../../../../../../assets/imgicon/users.jpg" id="icon" alt="User Icon" />
+    <!-- Login Form -->
+    <form>
+        <div class="col-12 row row-cols-3 my-3">
+            <div class="">
+                <label class="col-12" for="id_dni">DNI</label>
+                <input class="col-10" type="text" id="id_dni" name="dni" [(ngModel)]="student.dni"/>
+            </div>
+
+            <div>
+                <label class="col-12" for="id_name">Name</label>
+                <input class="col-10" type="text" id="id_name" name="name" [(ngModel)]="student.name"/>
+            </div>
+                
+            <div>
+                <label class="col-12" for="id_surname">Surname</label>
+                <input class="col-10" type="text" id="id_surname" name="surname" [(ngModel)]="student.surname"/>
+            </div>
         </div>
 
-        <!-- Login Form -->
-        <form>
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="DNI"
-                [(ngModel)]="student.dni">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="Name"
-                [(ngModel)]="student.name">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="SurName"
-                [(ngModel)]="student.surname">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="Email"
-                [(ngModel)]="student.email">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="Number Phone"
-                [(ngModel)]="student.phone">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="Address"
-                [(ngModel)]="student.address">
-            <br><br>
-            <label class="col-md-4 control-label">Start Date</label>
-            <input type="date" id="password" class="fadeIn third" name="login" placeholder="Start Date"
-                [(ngModel)]="student.start_date">
-            <br><br>
-            <label class="col-md-4 control-label">Birth Date</label>
-            <input type="date" id="password" class="fadeIn third" name="login" placeholder="Birth Date"
-                [(ngModel)]="student.birth_date">
-            <br><br>
-            <div class="form-group">
-                <label class="col-md-4 control-labell">Arrangement</label>
-                <div class="col-md-4 selectContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                        <select name="arrangement" class="form-control selectpicker" [(ngModel)]="student.arrangement">
-                            <option *ngFor="let a of arrangements" [ngValue]="a">{{a.amount_day}} ,
-                                {{arrage.price}}
-                            </option>
-                        </select>
-                    </div>
-                </div>
+        <div class="col-12 row row-cols-3 my-3">
+            <div>
+                <label class="col-12" for="id_email">Email</label>
+                <input class="col-10" type="email" id="id_email" name="email" [(ngModel)]="student.email"/>
             </div>
-            <br>
-            <input type="submit" class="fadeIn fourth" value="Log In" (click)="registerStudent()">
-        </form>
-        <!-- Remind Passowrd -->
-        <!-- <div id="formFooter">
-            <a class="underlineHover" href="#">Forgot Password?</a>
-        </div> -->
+                
+            <div>
+                <label class="col-12" for="id_phone">Phone</label>
+                <input class="col-10" type="text" id="id_phone" name="phone" [(ngModel)]="student.phone"/>
+            </div>
+                
+            <div>
+                <label class="col-12" for="id_address">Address</label>
+                <input class="col-10" type="text" id="password" name="address" [(ngModel)]="student.address"/>
+            </div>
+        </div>
+            
+        <div class="col-12 row row-cols-3 my-3">
+            <div>
+                <label class="col-12" id="id_birth_date">Birth Date</label>
+                <input class="col-10" type="date" id="id_birth_date" name="birth_date" [(ngModel)]="student.birth_date"/>
+            </div>
 
-    </div>
-</div>
+            <div>
+                <label class="col-12" for="id_start_date">Start Date</label>
+                <input class="col-10" type="date" id="id_start_date" name="start_date" [(ngModel)]="student.start_date"/>
+            </div>
+                
+            <div>
+                <label class="col-12" for="id_arrangement">Arrangement</label>
+                <select class="col-10" id="id_arrangement" name="arrangement" [(ngModel)]="student.arrangement">
+                    <option *ngFor="let a of arrangements" [ngValue]="a">
+                        {{a.name}}, ${{a.price}}, Day: {{a_mount_day}}, Hour: {{a.amount_hour}}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="my-3">
+            <button class="d-block m-auto" type="button" (click)="registerStudent()">REGISTER</button>
+        </div>
+    </form>
+</section>

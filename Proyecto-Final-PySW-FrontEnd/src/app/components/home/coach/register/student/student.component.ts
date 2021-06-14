@@ -12,13 +12,12 @@ import { StudentService } from 'src/app/services/student/student.service';
 export class StudentComponent implements OnInit {
 
   public student: Student;
-
   public arrangements: Array<Arrangement>;
 
   //---------------------------------------------------------//
 
-  constructor(private studentService: StudentService,
-              private arrangementService: ArrangementService) {
+  constructor(private studentService : StudentService,
+              private arrangementService : ArrangementService) {
 
     this.student = new Student();
     this.getArragements();
@@ -32,6 +31,10 @@ export class StudentComponent implements OnInit {
   //---------------------------------------------------------//
 
   public registerStudent(): void {
+
+    this.student.end_date = new Date(1999,0);
+    this.student.amount_day = 0;
+
     this.studentService.createStudent(this.student).subscribe(
       result => {
         if (result == "1") {
