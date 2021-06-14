@@ -1,33 +1,33 @@
-<div class="wrapper fadeInDown">
-    <div id="formContent">
-        <!-- Tabs Titles -->
+<section class="">
+    <div class="text-center d-flex justify-content-center animation">
+        <div id="formContent">
 
-        <!-- Icon -->
-        <div class="fadeIn first">
-            <img src="./../../../../assets/imgicon/aptitud.png" id="icon" alt="User Icon" />
+            <!-- Img -->
+            <div class="col-12 py-3 my-3">
+                <img src="./../../../../assets/imgicon/aptitud.png" id="icon" alt="User Icon"/>
+            </div>
+
+            <!-- Login Form -->
+            <form class="text-start">
+                <div class="px-5 py-1">
+                    <label class="col-12" for="id_user_name">User name</label>
+                    <input class="col-12" type="text" id="id_user_name" name="user_name" [(ngModel)]="user.user_name"/>
+                </div>
+
+                <div class="px-5 py-1">
+                    <label class="col-12" for="id_password">Password</label>
+                    <input class="col-12" type="password" id="id_password"  name="password" [(ngModel)]="user.password"/>
+                </div>
+                
+                <div class="px-5 py-3">
+                    <button class="col-10 d-block m-auto" type="button" (click)="login()">LOG IN</button>
+                </div>
+            </form>
+
+            <!-- Forgot Passowrd -->
+            <div id="formFooter">
+                <a class="" href="#">Forgot Password?</a>
+            </div>
         </div>
-
-        <!-- Login Form -->
-        <form>
-            <div>
-                <label for="id_user_name">User name</label>
-                <input type="text" id="id_user_name" class="fadeIn second" name="user_name" [(ngModel)]="user.user_name" placeholder="user"/>
-            </div>
-
-            <div>
-                <label for="id_password">Password</label>
-                <input type="password" id="id_password" class="fadeIn third" name="password" [(ngModel)]="user.password" placeholder="password"/>
-            </div>
-            
-            <div>
-                <input type="button" class="fadeIn fourth" value="Log In" (click)="login()"/>
-            </div>
-        </form>
-
-        <!-- Remind Passowrd -->
-        <div id="formFooter">
-            <a class="underlineHover" href="#">Forgot Password?</a>
-        </div>
-
     </div>
-</div>
+</section>

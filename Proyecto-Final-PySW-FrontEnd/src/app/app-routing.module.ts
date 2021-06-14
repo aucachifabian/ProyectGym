@@ -6,9 +6,8 @@ import { StudentComponent } from './components/home/coach/register/student/stude
 import { LoginComponent } from './components/home/login/login.component';
 
 const routes: Routes = [
-  // { path : '', component : PupilComponent},
+  { path: '', component : LoginComponent},
   { path: 'Home', component : PaymentComponent},
-  { path: 'Login', component : LoginComponent},
   { path: 'Student', component : StudentComponent },
   { path: 'Assitance', component : AssistanceComponent },
   { path: '**', redirectTo: '/' }
