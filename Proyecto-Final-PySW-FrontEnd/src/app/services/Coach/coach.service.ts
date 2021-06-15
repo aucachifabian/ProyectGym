@@ -56,7 +56,7 @@ export class CoachService {
 
     let body = JSON.stringify(coach);
 
-    return this.http.post(this.urlBase,body,optional);
+    return this.http.put(this.urlBase,body,optional);
   }
 
   //-----------------------------------------------------------//

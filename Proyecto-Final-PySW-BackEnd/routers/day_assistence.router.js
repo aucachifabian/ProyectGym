@@ -7,6 +7,6 @@ router.post('/'     , assistenceCtrl.createAssistence);
 router.get('/'      , assistenceCtrl.getAssistences);
 router.get('/:id'   , assistenceCtrl.getAssistenceParams);
 router.delete('/:id', assistenceCtrl.deleteAssistence);
-router.put('/:id'   , assistenceCtrl.modifyAssistence);
+router.put('/'   , assistenceCtrl.modifyAssistence);
 
 module.exports = router;

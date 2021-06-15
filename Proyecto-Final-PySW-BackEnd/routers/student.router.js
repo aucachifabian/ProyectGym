@@ -8,6 +8,6 @@ router.post('/'     , autCtrl.verifyToken, studentCtrl.createStudent);
 router.get('/'      , autCtrl.verifyToken, studentCtrl.getStudents);
 router.get('/:id'   , studentCtrl.getStudentParams);
 router.delete('/:id', studentCtrl.deleteStudent);
-router.put('/:id'   , studentCtrl.modifyStudent);
+router.put('/'   , studentCtrl.modifyStudent);
 
 module.exports = router;

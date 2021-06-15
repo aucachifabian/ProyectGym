@@ -56,7 +56,7 @@ export class TrainingService {
 
     let body = JSON.stringify(traininig);
 
-    return this.http.post(this.urlBase,body,optional);
+    return this.http.put(this.urlBase,body,optional);
   }
 
   //-----------------------------------------------------------//

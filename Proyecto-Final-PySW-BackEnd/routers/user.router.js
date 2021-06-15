@@ -1,5 +1,5 @@
 const userCtrl = require('../controllers/user.controller');
-//const authCrtl = requi
+
 const express = require('express');
 const router = express.Router();
 
@@ -8,6 +8,6 @@ router.get('/'      , userCtrl.getUsers);
 router.post('/login' , userCtrl.loginUsuario);
 router.get('/:id'   , userCtrl.getUserParams);
 router.delete('/:id', userCtrl.deleteUser);
-router.put('/:id'   , userCtrl.modifyUser);
+router.put('/'   , userCtrl.modifyUser);
 
 module.exports = router;

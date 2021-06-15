@@ -56,7 +56,7 @@ export class DayRoutineService {
 
     let body = JSON.stringify(routine);
 
-    return this.http.post(this.urlBase,body,optional);
+    return this.http.put(this.urlBase,body,optional);
   }
 
   //-----------------------------------------------------------//

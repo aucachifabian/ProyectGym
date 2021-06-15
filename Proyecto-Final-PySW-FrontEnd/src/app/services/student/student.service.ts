@@ -56,7 +56,7 @@ export class StudentService {
 
     let body = JSON.stringify(student);
 
-    return this.http.post(this.urlBase,body,optional);
+    return this.http.put(this.urlBase,body,optional);
   }
 
   //-----------------------------------------------------------//

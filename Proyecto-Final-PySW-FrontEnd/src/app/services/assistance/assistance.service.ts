@@ -56,7 +56,7 @@ export class AssistanceService {
 
     let body = JSON.stringify(assistance);
 
-    return this.http.post(this.urlBase,body,optional);
+    return this.http.put(this.urlBase,body,optional);
   }
 
   //-----------------------------------------------------------//

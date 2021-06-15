@@ -56,7 +56,7 @@ export class UserService {
 
     let body = JSON.stringify(user);
 
-    return this.http.post(this.urlBase,body,optional);
+    return this.http.put(this.urlBase,body,optional);
   }
 
   //-----------------------------------------------------------//

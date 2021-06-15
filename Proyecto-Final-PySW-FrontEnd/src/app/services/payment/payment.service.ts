@@ -56,7 +56,7 @@ export class PaymentService {
 
     let body = JSON.stringify(payment);
 
-    return this.http.post(this.urlBase,body,optional);
+    return this.http.put(this.urlBase,body,optional);
   }
 
   //-----------------------------------------------------------//
