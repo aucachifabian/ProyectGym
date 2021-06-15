@@ -55,7 +55,7 @@ export class ArrangementService {
 
     let body = JSON.stringify(arrangement);
 
-    return this.http.post(this.urlBase,body,optional);
+    return this.http.put(this.urlBase,body,optional);
   }
 
   //-----------------------------------------------------------//

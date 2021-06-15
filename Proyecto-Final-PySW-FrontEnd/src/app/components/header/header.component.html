@@ -7,11 +7,15 @@
 <nav class="col-12">
     <ul class="nav nav-tabs justify-content-evenly text-center">
         <li class="col-md-3 col-sm-6 nav-item" *ngIf="loginService.isLoggedIn()">
-            <a class="nav-link text-dark" routerLinkActive="active" [routerLink]="['Student']">Student</a>
+            <a class="nav-link text-dark" routerLinkActive="active" [routerLink]="['student']">Student</a>
         </li>
 
         <li class="col-md-3 col-sm-6 nav-item" *ngIf="loginService.isLoggedIn()">
-            <a class="nav-link text-dark" routerLinkActive="active" [routerLink]="['Assitance']">Assitance</a>
+            <a class="nav-link text-dark" routerLinkActive="active" [routerLink]="['assitance']">Assitance</a>
+        </li>
+
+        <li class="col-md-3 col-sm-6 nav-item" *ngIf="loginService.isLoggedIn()">
+            <a class="nav-link text-dark" routerLinkActive="active" [routerLink]="['arrangement']">Arrangement</a>
         </li>
     </ul>
 

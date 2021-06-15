@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RoutineComponent } from './components/home/coach/generate/routine/routine.component';
-import { ArrangementComponent } from './components/home/coach/generate/arrangement/arrangement.component';
+import { ArrangementComponent } from './components/home/coach/generate/arrangement/arrangement/arrangement.component';
 import { PaymentComponent } from './components/home/coach/register/payment/payment.component';
 import { AssistanceComponent } from './components/home/coach/register/assistance/assistance.component';
 import { StudentComponent } from './components/home/coach/register/student/student.component';
@@ -30,6 +30,7 @@ import { TokenInterceptorService } from './services/login/token-interceptor.serv
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { FormArrangementComponent } from './components/home/coach/generate/arrangement/form-arrangement/form-arrangement.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { ToastrModule } from 'ngx-toastr';
     StudentRoutineComponent,
     StudentPaymentComponent,
     LoginComponent,
+    FormArrangementComponent,
   ],
   imports: [
     BrowserModule,

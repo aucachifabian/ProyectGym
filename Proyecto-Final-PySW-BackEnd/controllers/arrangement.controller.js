@@ -9,7 +9,7 @@ arrangementCtrl.createArrangement = async (req, res) => {
 
         res.json({
             'status': '1',
-            'msg': 'Arrangement save.'
+            'msg': 'Arrangement saved.'
         });
     } catch (error) {
         res.json({
@@ -56,12 +56,12 @@ arrangementCtrl.modifyArrangement = async (req, res) => {
         
         res.json({
             'status': '1',
-            'msg': 'Arrangement update'
+            'msg': 'Arrangement updated.'
         });
     } catch (error) {
         res.json({
             'status': '0',
-            'msg': 'Arrangement Error.'
+            'msg': 'Arrangement Error.'+error
         });
     };
 }

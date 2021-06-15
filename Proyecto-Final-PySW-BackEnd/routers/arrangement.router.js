@@ -8,6 +8,6 @@ router.post('/'     , arrangementCtrl.createArrangement);
 router.get('/'      , autCtrl.verifyToken, arrangementCtrl.getArrangements);
 router.get('/:id'   , autCtrl.verifyToken, arrangementCtrl.getArrangementParams);
 router.delete('/:id', arrangementCtrl.deleteArrangement);
-router.put('/:id'   , arrangementCtrl.modifyArrangement);
+router.put('/'   , arrangementCtrl.modifyArrangement);
 
 module.exports = router;
