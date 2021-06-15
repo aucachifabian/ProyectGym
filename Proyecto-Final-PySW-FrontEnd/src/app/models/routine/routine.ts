@@ -1,4 +1,4 @@
-import { Arrangement } from "../arrangement/arrangement";
+
 import { Coach } from "../coach/coach";
 import { Training } from "../training/training";
 
