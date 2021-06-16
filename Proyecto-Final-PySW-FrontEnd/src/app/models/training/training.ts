@@ -1,9 +1,10 @@
 export class Training {
 
-    public instrument 	: string;
+    public _id          : string;
+    public type 	    : string;
     public name 		: string;
-    public description 	: string;
-    public video  		: string;
+    public video 	    : string;
+    public img  		: string;
 
     constructor(){
     }

@@ -1,0 +1,44 @@
+<section class="col-12 row">
+
+    <!-------------->
+    <!--Button Add-->
+    <!-------------->
+    <div class="col-12 col-md-3 d-flex px-5 my-5 px-md-0 px-lg-3 my-md-0">
+        <button class="col-12 m-auto" (click)="addNewTraining()">Add new Training</button>
+    </div>
+
+    <!---------------->
+    <!-----Table------>
+    <!---------------->
+    <div class="col-12 col-md-9 table-responsive px-md-5">
+        <table class="col-12 table table-hover text-center">
+            <thead class="col-12">
+                <tr class="col-12">
+                    <th class="col-2">Instrument</th>
+                    <th class="col-2">Name</th>
+                    <th class="col-2">Description</th>
+                    <th class="col-2">Video</th>
+                    <th class="col-1"></th>
+                    <th class="col-1"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr class="col-12" *ngFor="let t of trainings">
+                    <td class="col-2">{{t.type}}</td>
+                    <td class="col-2">{{t.name}}</td>
+                    <td class="col-2">{{t.video}}</td>
+                    <td class="col-2">{{t.img}}</td>
+                    <td class="col-1">
+                        <button (click)="editTraining(t._id)">Edit</button>
+                    </td>   
+                    <td class="col-1">
+                        <button (click)="deleteTraining(t._id)">Delete</button>
+                    </td>          
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+

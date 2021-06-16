@@ -10,17 +10,20 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RoutineComponent } from './components/home/coach/generate/routine/routine.component';
-import { ArrangementComponent } from './components/home/coach/generate/arrangement/arrangement/arrangement.component';
 import { PaymentComponent } from './components/home/coach/register/payment/payment.component';
 import { AssistanceComponent } from './components/home/coach/register/assistance/assistance.component';
 import { StudentComponent } from './components/home/coach/register/student/student.component';
-import { TrainingComponent } from './components/home/coach/generate/training/training.component';
 import { DayRoutineComponent } from './components/home/coach/generate/day-routine/day-routine.component';
 import { StudentAssistenceComponent } from './components/home/student/student-assistence/student-assistence.component';
 import { StudentRoutineComponent } from './components/home/student/student-routine/student-routine.component';
 import { StudentPaymentComponent } from './components/home/student/student-payment/student-payment.component';
 import { LoginService } from './services/login/login.service';
 import { LoginComponent } from './components/home/login/login.component';
+
+import { ArrangementComponent } from './components/home/coach/generate/arrangement/arrangement/arrangement.component';
+import { FormArrangementComponent } from './components/home/coach/generate/arrangement/form-arrangement/form-arrangement.component';
+import { TrainingComponent } from './components/home/coach/generate/training/training/training.component';
+import { FormTrainingComponent } from './components/home/coach/generate/training/form-training/form-training.component';
 
 //import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './services/login/token-interceptor.service';
@@ -30,7 +33,6 @@ import { TokenInterceptorService } from './services/login/token-interceptor.serv
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { FormArrangementComponent } from './components/home/coach/generate/arrangement/form-arrangement/form-arrangement.component';
 
 
 @NgModule({
@@ -43,13 +45,14 @@ import { FormArrangementComponent } from './components/home/coach/generate/arran
     PaymentComponent,
     AssistanceComponent,
     StudentComponent,
-    TrainingComponent,
     DayRoutineComponent,
     StudentAssistenceComponent,
     StudentRoutineComponent,
     StudentPaymentComponent,
     LoginComponent,
     FormArrangementComponent,
+    FormTrainingComponent,
+    TrainingComponent
   ],
   imports: [
     BrowserModule,
