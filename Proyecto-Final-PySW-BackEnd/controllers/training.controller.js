@@ -15,7 +15,7 @@ trainingCtrl.createTraining = async (req, res) => {
     } catch (error) {
         res.json({
             'status': '0',
-            'msg': 'Training Error.'
+            'msg': 'Training Error.'+error
         });
     };
 }
@@ -27,15 +27,16 @@ trainingCtrl.getTrainings = async (req, res) => {
 }
 
 
-trainingCtrl.getATrainingParams = async (req, res) => {
-    const training = await Coach.findById(req.params.id);
+trainingCtrl.getTrainingParams = async (req, res) => {
+    const training = await Training.findById(req.params.id);
 
     res.json(training);
 }
 
 trainingCtrl.deleteTraining = async (req, res) => {
     try {
-        await Coach.deleteOne({ _id: req.params.id });
+        await Training.deleteOne({ _id: req.params.id });
+
         res.json({
             status: '1',
             msg: 'Training deleted'
@@ -49,10 +50,10 @@ trainingCtrl.deleteTraining = async (req, res) => {
 }
 
 trainingCtrl.modifyTraining = async (req, res) => {
-    const training = new Coach(req.body);
+    const training = new Training(req.body);
 
     try {
-        await coach.updateOne({ _id: req.body._id }, training);
+        await Training.updateOne({ _id: req.body._id }, training);
 
         res.json({
             'status': '1',

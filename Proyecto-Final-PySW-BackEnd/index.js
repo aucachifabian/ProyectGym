@@ -17,6 +17,7 @@ app.use('/api/payment'          , require('./routers/payment.router'));
 app.use('/api/routine'          , require('./routers/routine.router'));
 app.use('/api/student'          , require('./routers/student.router'));
 app.use('/api/user'             , require('./routers/user.router'));
+app.use('/api/training'         , require('./routers/training.router'));
 
 //setting 
 app.set('puerto', process.env.PORT || 3000);
