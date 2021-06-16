@@ -38,7 +38,7 @@ studentCtrl.getStudents = async (req, res) => {
 
 
 studentCtrl.getStudentParams = async (req, res) => {
-    const student = await Student.findById(req.params.id);
+    const student = await Student.findById(req.params.id).populate("arrangement");
 
     res.json(student);
 }

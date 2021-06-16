@@ -21,6 +21,10 @@
         <li class="col-md-3 col-sm-6 nav-item" *ngIf="loginService.isLoggedIn()">
             <a class="nav-link text-dark" routerLinkActive="active" [routerLink]="['training']">Training</a>
         </li>
+
+        <li class="col-md-3 col-sm-6 nav-item" *ngIf="loginService.isLoggedIn()">
+            <a class="nav-link text-dark" routerLinkActive="active" [routerLink]="['payment']">Payment</a>
+        </li>
     </ul>
 
     <div>

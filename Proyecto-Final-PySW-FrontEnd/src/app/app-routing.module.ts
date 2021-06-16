@@ -11,7 +11,7 @@ import { LoginComponent } from './components/home/login/login.component';
 
 const routes: Routes = [
   { path: '', component : LoginComponent},
-  { path: 'Home', component : PaymentComponent},
+  { path: 'payment', component : PaymentComponent},
   { path: 'arrangement', component : ArrangementComponent},
   { path: 'arrangement/form/:id', component : FormArrangementComponent},
   { path: 'training', component : TrainingComponent},

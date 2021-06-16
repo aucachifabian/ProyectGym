@@ -7,15 +7,15 @@ paymentCtrl.createPayment = async (req, res) => {
     var payment = new Payment(req.body);
     var student = new Student();
 
-    student = await Student.findById(payment.Student);
-    student.End_date = tool.addDays(30, payment.pay_day);
-console.log(student.End_Date)
+    student = await Student.findById(payment.student);
+    student.end_date.setDate(payment.pay_day.getDate() + 30) 
+
     try {
-        await student.save();
+        await Student.updateOne({ _id: student._id }, student);
         await payment.save();
 
         res.json({
-          'status': '1',
+            'status': '1',
             'msg': 'Payment saved and Student updated.'
 
         });
