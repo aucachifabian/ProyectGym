@@ -2,6 +2,7 @@ const User      = require('../models/user.model');
 const userCtrl  = {}
 const jwt       = require('jsonwebtoken');
 
+User.createIndexes();
 
 userCtrl.createUser = async (req, res) => {
     var user = new User(req.body);

@@ -6,7 +6,7 @@ const Training = require('./training.model');
 
 const RoutineSchema = new Schema({
    coach       : { type : Schema.Types.ObjectId, ref : Coach, required : true },
-   name        : { type : String, required : true },
+   type       : { type : String, required : true },
    serie       : { type : String, required : true },
    repetition  : { type : String, required : true },
    rest        : { type : String, required : true },

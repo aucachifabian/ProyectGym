@@ -1,11 +1,17 @@
 var express = require('express');
 var app = express();
-
-const {mongoose} = require('./database');
+const {mongoose} = require('./database')
 const cors = require('cors');
-
-//middlewares 
-app.use(express.json()); 
+const { urlencoded } = require('express');
+//middlewares
+app.use(express.json({limit:'10mb',    extended : true
+                  }));
+app.use(urlencoded({
+    limit : '10mb',
+    parameterLimit : 100000000,
+    extended : true
+}));
+//app.use(cors({origin: '*'}));
 app.use(cors({origin: 'http://localhost:4200'}));
 
 //Cargamos el modulo de direccionamiento de rutas para puntos 

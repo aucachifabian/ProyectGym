@@ -1,5 +1,6 @@
 const Payment = require('../models/payment.model');
 const Student = require('../models/student.model');
+const tool = require('../tools/date_methods')
 const paymentCtrl = {};
 
 paymentCtrl.createPayment = async (req, res) => {
@@ -7,8 +8,8 @@ paymentCtrl.createPayment = async (req, res) => {
     var student = new Student();
 
     student = await Student.findById(payment.Student);
-    student.End_date = payment.Pay_day;
-
+    student.End_date = tool.addDays(30, payment.pay_day);
+console.log(student.End_Date)
     try {
         await student.save();
         await payment.save();
@@ -16,6 +17,7 @@ paymentCtrl.createPayment = async (req, res) => {
         res.json({
           'status': '1',
             'msg': 'Payment saved and Student updated.'
+
         });
     } catch (error) {
         res.json({

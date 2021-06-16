@@ -9,7 +9,7 @@ const Day_RoutineSchema = new Schema({
     objective   : { type : String, required : true },
     intensity   : { type : String, required : true },
     arrangement : { type : Schema.Types.ObjectId, ref: Arrangement, required : true },
-    routine     : { type : Schema.Types.ObjectId, ref: Routine, required : true },
+    routine     : [{ type : Schema.Types.ObjectId, ref: Routine, required : true }],
 });
 
 module.exports = mongoose.models.day_routine || mongoose.model('Day_Routine', Day_RoutineSchema);
