@@ -4,18 +4,20 @@ import { ArrangementComponent } from './components/home/coach/generate/arrangeme
 import { FormArrangementComponent } from './components/home/coach/generate/arrangement/form-arrangement/form-arrangement.component';
 import { FormTrainingComponent } from './components/home/coach/generate/training/form-training/form-training.component';
 import { TrainingComponent } from './components/home/coach/generate/training/training/training.component';
+import { UserComponent } from './components/home/coach/generate/user/user.component';
 import { AssistanceComponent } from './components/home/coach/register/assistance/assistance.component';
 import { PaymentComponent } from './components/home/coach/register/payment/payment.component';
 import { StudentComponent } from './components/home/coach/register/student/student.component';
 import { LoginComponent } from './components/home/login/login.component';
 
 const routes: Routes = [
-  { path: '', component : LoginComponent},
-  { path: 'payment', component : PaymentComponent},
-  { path: 'arrangement', component : ArrangementComponent},
-  { path: 'arrangement/form/:id', component : FormArrangementComponent},
-  { path: 'training', component : TrainingComponent},
-  { path: 'training/form/:id', component : FormTrainingComponent},
+  { path: '', component : LoginComponent },
+  { path: 'payment', component : PaymentComponent },
+  { path: 'user', component : UserComponent },
+  { path: 'arrangement', component : ArrangementComponent },
+  { path: 'arrangement/form/:id', component : FormArrangementComponent },
+  { path: 'training', component : TrainingComponent },
+  { path: 'training/form/:id', component : FormTrainingComponent },
   { path: 'student', component : StudentComponent },
   { path: 'assitance', component : AssistanceComponent },
   { path: '**', redirectTo: '/' }

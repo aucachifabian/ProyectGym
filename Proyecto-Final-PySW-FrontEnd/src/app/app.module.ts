@@ -33,6 +33,7 @@ import { TokenInterceptorService } from './services/login/token-interceptor.serv
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { UserComponent } from './components/home/coach/generate/user/user.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { ToastrModule } from 'ngx-toastr';
     LoginComponent,
     FormArrangementComponent,
     FormTrainingComponent,
-    TrainingComponent
+    TrainingComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
