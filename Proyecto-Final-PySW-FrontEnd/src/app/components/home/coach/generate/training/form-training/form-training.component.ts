@@ -14,6 +14,7 @@ export class FormTrainingComponent implements OnInit {
 
   public training : Training;
   public action : string;
+  public msg    : string;
 
   //------------------------------------------------------------//
 
@@ -98,7 +99,15 @@ export class FormTrainingComponent implements OnInit {
      }
     );
   }
-  
+
+  //------------------------------------------------------------//
+
+  public onFileChanges(file) : void {
+    if(file[0] != null) {
+      this.training.img= file[0].base64;
+    }
+  }
+
   //------------------------------------------------------------//
   
   public returnTraining() : void {

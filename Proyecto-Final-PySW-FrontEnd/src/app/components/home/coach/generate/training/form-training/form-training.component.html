@@ -31,13 +31,20 @@
             </div>
         </div>
 
-        <div class="col-12 py-1">
+        <div class="col-12 py-1" *ngIf="action=='new'">
             <label class="col-12" for="id_img">Img *</label>
-            <input class="col-12" type="text" name="img" id="id_img" [(ngModel)]="training.img" required #img="ngModel"/>
-       
+            <input class="col-12" type="file" id="id_img" name="img" accept=".png, .jpg, .jpeg, .mbp" alife-file-to-base64 multiple (onFileChanged)="onFileChanges($event)" required [(ngModel)]="msg" #img="ngModel"/>
+            
             <div class="col-12 alert alert-danger" *ngIf="img.invalid && (img.dirty || img.touched)">
-                <div *ngIf="img.errors.required">Img day is required</div>
+                <div *ngIf="img.errors.required">Img is required</div>
             </div>
+        </div>
+
+        <div class="col-12 text-center py-1" *ngIf="action=='edit'">
+            <label class="col-12" for="id_img">Img</label>
+            <input class="col-12" type="file" id="id_img" name="img" accept=".png, .jpg, .jpeg, .mbp" alife-file-to-base64 multiple (onFileChanged)="onFileChanges($event)"/>
+            
+            <img [src]="training.img" alt="img"/>
         </div>
 
         <div class="col-12 py-2 px-md-3 px-lg-5">
