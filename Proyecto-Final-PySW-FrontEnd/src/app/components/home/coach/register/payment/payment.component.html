@@ -4,45 +4,52 @@
         <div>
             <label for="floatingInput">Select Student</label>
             <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="student"
-                [(ngModel)]="payment.student" (change)="buscar_student()">
+                [(ngModel)]="payment.student" (change)="buscar_student()" required #student="ngModel">
                 <option *ngFor="let stud of Student" [ngValue]="stud">{{stud.name}} ,
                     {{stud.surname}}
                 </option>
             </select>
+            <div class="col-12 alert alert-danger" *ngIf="student.invalid && (student.dirty || student.touched)">
+                <div *ngIf="student.errors.required">
+                    Select a Student</div>
+            </div>
         </div>
-            <div>
-                <input class="form-control form-control-lg" type="date" placeholder="Date"
-                    aria-label=".form-control-lg example" name="date" [(ngModel)]="payment.pay_day">
+        <div>
+            <input class="form-control form-control-lg" type="date" placeholder="Date"
+                aria-label=".form-control-lg example" name="date" [(ngModel)]="payment.pay_day">
+        </div>
+        <div>
+            <label for="floatingInput">Mode of Payment</label>
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                [(ngModel)]="payment.pay_mode" name="paymode" required #paymode="ngModel">
+                <option value="1">Chash</option>
+                <option value="2">Card</option>
+            </select>
+            <div class="col-12 alert alert-danger" *ngIf="paymode.invalid && (paymode.dirty || paymode.touched)">
+                <div *ngIf="paymode.errors.required">Mode of Payment is required</div>
             </div>
-            <div>
-                <label for="floatingInput">Mode of Payment</label>
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
-                    [(ngModel)]="payment.pay_mode" name="paymode">
-                    <option value="1">Chash</option>
-                    <option value="2">Card</option>
-                </select>
-            </div>
-            <div>
-                <label for="floatingInput">Arrangement</label>
-                <input class="form-control form-control-lg" type="text" placeholder="Name Arrangement"
-                    aria-label=".form-control-lg example" name="namearrangement" [(ngModel)]="payment.name_arrangement"
-                    disabled>
-            </div>
-            <div>
-                <label for="floatingInput">Amouth day</label>
-                <input class="form-control form-control-lg" type="number" placeholder="Amount day"
-                    aria-label=".form-control-lg example" name="amountday" [(ngModel)]="payment.amount_day" disabled>
-            </div>
-            <div>
-                <label for="floatingInput">Price</label>
-                <input class="form-control form-control-lg" type="number" placeholder="Price"
-                    aria-label=".form-control-lg example" name="price" [(ngModel)]="payment.price" disabled>
-            </div>
-            <div>
-                <label for="floatingInput">Amouth Hour</label>
-                <input class="form-control form-control-lg" type="number" placeholder="Amount Hour"
-                    aria-label=".form-control-lg example" name="amounthour" [(ngModel)]="payment.amount_hour" disabled>
-            </div>
+        </div>
+        <div>
+            <label for="floatingInput">Arrangement</label>
+            <input class="form-control form-control-lg" type="text" placeholder="Name Arrangement"
+                aria-label=".form-control-lg example" name="namearrangement" [(ngModel)]="payment.name_arrangement"
+                disabled>
+        </div>
+        <div>
+            <label for="floatingInput">Amouth day</label>
+            <input class="form-control form-control-lg" type="number" placeholder="Amount day"
+                aria-label=".form-control-lg example" name="amountday" [(ngModel)]="payment.amount_day" disabled>
+        </div>
+        <div>
+            <label for="floatingInput">Price</label>
+            <input class="form-control form-control-lg" type="number" placeholder="Price"
+                aria-label=".form-control-lg example" name="price" [(ngModel)]="payment.price" disabled>
+        </div>
+        <div>
+            <label for="floatingInput">Amouth Hour</label>
+            <input class="form-control form-control-lg" type="number" placeholder="Amount Hour"
+                aria-label=".form-control-lg example" name="amounthour" [(ngModel)]="payment.amount_hour" disabled>
+        </div>
     </form>
     <ul>
         <button type="button" class="btn btn-primary" (click)="createPayment()">Register Payment</button>

@@ -9,55 +9,107 @@
         <div class="col-12 row row-cols-3 my-3">
             <div class="">
                 <label class="col-12" for="id_dni">DNI</label>
-                <input class="col-10" type="text" id="id_dni" name="dni" [(ngModel)]="student.dni"/>
+                <input class="col-10" type="text" id="id_dni" name="dni" [(ngModel)]="student.dni" required
+                    #dni="ngModel" />
+                <div class="col-12 alert alert-danger" id="danger" *ngIf="dni.invalid && (dni.dirty || dni.touched)">
+                    <div *ngIf="dni.errors.required">
+                        enter DNI</div>
+                </div>
             </div>
 
             <div>
                 <label class="col-12" for="id_name">Name</label>
-                <input class="col-10" type="text" id="id_name" name="name" [(ngModel)]="student.name"/>
+                <input class="col-10" type="text" id="id_name" name="name" [(ngModel)]="student.name" required
+                    #name="ngModel" />
+                <div class="col-12 alert alert-danger" id="danger" *ngIf="name.invalid && (name.dirty || name.touched)">
+                    <div *ngIf="name.errors.required">
+                        enter Name</div>
+                </div>
             </div>
-                
+
             <div>
                 <label class="col-12" for="id_surname">Surname</label>
-                <input class="col-10" type="text" id="id_surname" name="surname" [(ngModel)]="student.surname"/>
+                <input class="col-10" type="text" id="id_surname" name="surname" [(ngModel)]="student.surname" required
+                    #surname="ngModel" />
+                <div class="col-12 alert alert-danger" id="danger"
+                    *ngIf="surname.invalid && (surname.dirty || surname.touched)">
+                    <div *ngIf="surname.errors.required">
+                        enter Surname</div>
+                </div>
             </div>
         </div>
 
         <div class="col-12 row row-cols-3 my-3">
             <div>
                 <label class="col-12" for="id_email">Email</label>
-                <input class="col-10" type="email" id="id_email" name="email" [(ngModel)]="student.email"/>
+                <input class="col-10" type="email" id="id_email" name="email" [(ngModel)]="student.email" required
+                    #email="ngModel" />
+                <div class="col-12 alert alert-danger" id="danger"
+                    *ngIf="email.invalid && (email.dirty || email.touched)">
+                    <div *ngIf="email.errors.required">
+                        enter Email</div>
+                </div>
             </div>
-                
+
             <div>
                 <label class="col-12" for="id_phone">Phone</label>
-                <input class="col-10" type="text" id="id_phone" name="phone" [(ngModel)]="student.phone"/>
+                <input class="col-10" type="text" id="id_phone" name="phone" [(ngModel)]="student.phone" required
+                    #phone="ngModel" />
+                <div class="col-12 alert alert-danger" id="danger"
+                    *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+                    <div *ngIf="phone.errors.required">
+                        enter Phone</div>
+                </div>
             </div>
-                
+
             <div>
                 <label class="col-12" for="id_address">Address</label>
-                <input class="col-10" type="text" id="password" name="address" [(ngModel)]="student.address"/>
+                <input class="col-10" type="text" id="password" name="address" [(ngModel)]="student.address" required
+                    #adress="ngModel" />
+                <div class="col-12 alert alert-danger" id="danger"
+                    *ngIf="adress.invalid && (adress.dirty || adress.touched)">
+                    <div *ngIf="adress.errors.required">
+                        enter Adress</div>
+                </div>
             </div>
         </div>
-            
+
         <div class="col-12 row row-cols-3 my-3">
             <div>
                 <label class="col-12" id="id_birth_date">Birth Date</label>
-                <input class="col-10" type="date" id="id_birth_date" name="birth_date" [(ngModel)]="student.birth_date"/>
+                <input class="col-10" type="date" id="id_birth_date" name="birth_date" [(ngModel)]="student.birth_date"
+                    required #brithdate="ngModel" />
+                <div class="col-12 alert alert-danger" id="danger"
+                    *ngIf="brithdate.invalid && (brithdate.dirty || brithdate.touched)">
+                    <div *ngIf="brithdate.errors.required">
+                        enter Brith Date</div>
+                </div>
             </div>
 
             <div>
                 <label class="col-12" for="id_start_date">Start Date</label>
-                <input class="col-10" type="date" id="id_start_date" name="start_date" [(ngModel)]="student.start_date"/>
+                <input class="col-10" type="date" id="id_start_date" name="start_date" [(ngModel)]="student.start_date"
+                    required #startdate="ngModel" />
+                <div class="col-12 alert alert-danger" id="danger"
+                    *ngIf="startdate.invalid && (startdate.dirty || startdate.touched)">
+                    <div *ngIf="startdate.errors.required">
+                        enter Start Date</div>
+                </div>
             </div>
-                
+
             <div>
                 <label class="col-12" for="id_arrangement">Arrangement</label>
-                <select class="col-10" id="id_arrangement" name="arrangement" [(ngModel)]="student.arrangement">
+                <select class="col-10" id="id_arrangement" name="arrangement" [(ngModel)]="student.arrangement" required
+                    #arragement="ngModel">
                     <option *ngFor="let a of arrangements" [ngValue]="a">
                         {{a.name}}, ${{a.price}}, Day: {{a_mount_day}}, Hour: {{a.amount_hour}}
                     </option>
                 </select>
+                <div class="col-12 alert alert-danger" id="danger"
+                    *ngIf="arragement.invalid && (arragement.dirty || arragement.touched)">
+                    <div *ngIf="arragement.errors.required">
+                        enter Arragement</div>
+                </div>
             </div>
         </div>
 
