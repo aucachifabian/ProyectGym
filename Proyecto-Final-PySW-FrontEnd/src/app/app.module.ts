@@ -1,3 +1,4 @@
+import { BeginnerComponent } from './components/home/coach/generate/beginner/beginner.component';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -34,6 +35,9 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { UserComponent } from './components/home/coach/generate/user/user.component';
+import { ChallengeComponent } from './components/home/coach/generate/challenge/challenge.component';
+import { AdvanceComponent } from './components/home/coach/generate/advance/advance.component';
+import { ButtocksComponent } from './components/home/coach/generate/buttocks/buttocks.component';
 
 
 @NgModule({
@@ -54,7 +58,11 @@ import { UserComponent } from './components/home/coach/generate/user/user.compon
     FormArrangementComponent,
     FormTrainingComponent,
     TrainingComponent,
-    UserComponent
+    UserComponent,
+    ChallengeComponent,
+    AdvanceComponent,
+    ButtocksComponent,
+    BeginnerComponent
   ],
   imports: [
     BrowserModule,
