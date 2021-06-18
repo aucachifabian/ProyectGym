@@ -25,6 +25,14 @@
         <li class="col-md-3 col-sm-6 nav-item" *ngIf="loginService.isLoggedIn()">
             <a class="nav-link text-dark" routerLinkActive="active" [routerLink]="['payment']">Payment</a>
         </li>
+
+        <li class="col-md-3 col-sm-6 nav-item" *ngIf="loginService.isLoggedIn()">
+            <a class="nav-link text-dark" routerLinkActive="active" [routerLink]="['routine']">Routine</a>
+        </li>
+
+        <li class="col-md-3 col-sm-6 nav-item" *ngIf="loginService.isLoggedIn()">
+            <a class="nav-link text-dark" routerLinkActive="active" [routerLink]="['user']">User</a>
+        </li>
     </ul>
 
     <div>

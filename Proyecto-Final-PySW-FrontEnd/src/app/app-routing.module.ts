@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ArrangementComponent } from './components/home/coach/generate/arrangement/arrangement/arrangement.component';
 import { FormArrangementComponent } from './components/home/coach/generate/arrangement/form-arrangement/form-arrangement.component';
+import { RoutineComponent } from './components/home/coach/generate/routine/routine.component';
 import { FormTrainingComponent } from './components/home/coach/generate/training/form-training/form-training.component';
 import { TrainingComponent } from './components/home/coach/generate/training/training/training.component';
 import { UserComponent } from './components/home/coach/generate/user/user.component';
@@ -19,6 +20,8 @@ const routes: Routes = [
   { path: 'training', component : TrainingComponent },
   { path: 'training/form/:id', component : FormTrainingComponent },
   { path: 'student', component : StudentComponent },
+  { path: 'routine', component : RoutineComponent },
+  { path: 'user', component : UserComponent },
   { path: 'assitance', component : AssistanceComponent },
   { path: '**', redirectTo: '/' }
 ];
