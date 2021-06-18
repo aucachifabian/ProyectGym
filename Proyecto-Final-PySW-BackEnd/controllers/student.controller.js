@@ -1,49 +1,47 @@
-const Student       = require('../models/student.model');
-const studentCtrl   = {};
+const Student = require('../models/student.model');
+const studentCtrl = {};
 
 
-studentCtrl.createStudent = async (req, res) => {
-    if(req.rol =="coach")
-     { var alum = new Student(req.body);
-       console.log(alum)
-       try {
-        await alum.save();
-        
-        res.json({
-      
-            'status': '1',
-            'msg': 'Student saved.'
-        });
-    } catch (error) {
+studentCtrl.createStudent = async(req, res) => {
+    if (req.rol == "coach") {
+        var alum = new Student(req.body);
+        console.log(alum)
+        try {
+            await alum.save();
+
+            res.json({
+
+                'status': '1',
+                'msg': 'Student saved.'
+            });
+        } catch (error) {
+            res.json({
+                'status': '0',
+                'msg': 'Student Error' + error
+            });
+        };
+    } else {
         res.json({
             'status': '0',
-            'msg': 'Student Error' + error
-        });
-    };
-  }
-  else
-  {
-    res.json({
-        'status': '0',
-        'msg': 'No tiene permiso de acceder a este modulo' 
-    })
+            'msg': 'No tiene permiso de acceder a este modulo'
+        })
     }
 }
 
-studentCtrl.getStudents = async (req, res) => {
+studentCtrl.getStudents = async(req, res) => {
     var alum = await Student.find().exec();
 
     res.json(alum);
 }
 
 
-studentCtrl.getStudentParams = async (req, res) => {
+studentCtrl.getStudentParams = async(req, res) => {
     const student = await Student.findById(req.params.id).populate("arrangement");
 
     res.json(student);
 }
 
-studentCtrl.deleteStudent = async (req, res) => {
+studentCtrl.deleteStudent = async(req, res) => {
     try {
         await Student.deleteOne({ _id: req.params.id });
 
@@ -59,7 +57,7 @@ studentCtrl.deleteStudent = async (req, res) => {
     };
 }
 
-studentCtrl.modifyStudent = async (req, res) => {
+studentCtrl.modifyStudent = async(req, res) => {
     const alum = new Student(req.body);
 
     try {
@@ -77,16 +75,32 @@ studentCtrl.modifyStudent = async (req, res) => {
     };
 }
 
-studentCtrl.checkValidate = async (req, res) => {
+studentCtrl.checkValidate = async(req, res) => {
     let id = req.body.student[0];
     const stud = await Student.findById(id);
     if (new Date(req.body.day) <= stud.end_date) {
         stud.amount_day = stud.amount_day + 1;
         await Student.updateOne({ _id: stud._id }, stud);
         return 1;
-    }
-    else {
+    } else {
         return 0;
+    }
+}
+
+
+studentCtrl.getStudentByDni = async(req, res) => {
+    const student = await Student.findOne({ dni: req.params.dni });
+
+    if (student != null) {
+        res.json({
+            'status': '1',
+            'student': student
+        });
+    } else {
+        res.json({
+            'status': '0',
+            'msg': 'DNI is wrong'
+        });
     }
 }
 

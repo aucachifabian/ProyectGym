@@ -11,7 +11,7 @@ export class CoachService {
   private urlBase : string = "http://localhost:3000/api/coach/";
 
   //-----------------------------------------------------------//
-  
+
   constructor(private http : HttpClient) {
   }
 
@@ -35,7 +35,7 @@ export class CoachService {
   public getCoachs() : Observable<any> {
 
     return this.http.get(this.urlBase);
-  } 
+  }
 
   //-----------------------------------------------------------//
 
@@ -66,7 +66,11 @@ export class CoachService {
     return this.http.delete(this.urlBase+id);
   }
 
+  //-----------------------------------------------------------//
 
+  public getCoachByDni(dni : string) : Observable<any> {
 
+    return this.http.get(this.urlBase+"dni/"+dni);
+  }
 
 }

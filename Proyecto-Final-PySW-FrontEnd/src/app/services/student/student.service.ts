@@ -11,7 +11,7 @@ export class StudentService {
   private urlBase : string = "http://localhost:3000/api/student/";
 
   //-----------------------------------------------------------//
-  
+
   constructor(private http : HttpClient) {
   }
 
@@ -35,7 +35,7 @@ export class StudentService {
   public getStudents() : Observable<any> {
 
     return this.http.get(this.urlBase);
-  } 
+  }
 
   //-----------------------------------------------------------//
 
@@ -64,5 +64,12 @@ export class StudentService {
   public deleteStudent(id : string) : Observable<any> {
 
     return this.http.delete(this.urlBase+id);
+  }
+
+  //-----------------------------------------------------------//
+
+  public getStudentByDni(dni : string) : Observable<any> {
+
+    return this.http.get(this.urlBase+"dni/"+dni);
   }
 }

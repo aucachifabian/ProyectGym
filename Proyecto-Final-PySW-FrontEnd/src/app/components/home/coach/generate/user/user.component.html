@@ -1,1 +1,52 @@
-<p>user works!</p>
+<section class="col-12 row">
+    <div class="col-6">
+        <form class="col-12" #formSearch="ngForm">
+            <div class="col-12 my-3">
+                <label class="col-12" for="id_type_user">Type user</label>
+                <select class="col-12" name="type_user" id="id_type_user" [(ngModel)]="value" required #type_user="ngModel">
+                  <option value="coach">Coach</option>
+                  <option value="student">Student</option>
+              </select>
+
+                <div class="col-12 alert alert-danger" *ngIf="type_user.invalid && (type_user.dirty || type_user.touched)">
+                    <div *ngIf="type_user.errors.required">Type user is required</div>
+                </div>
+            </div>
+
+            <div class="col-12 my-3">
+                <label class="col-12" for="id_dni">Dni</label>
+                <input class="col-12" type="text" name="dni" id="id_dni" [(ngModel)]="dni" required #document="ngModel" />
+
+                <div class="col-12 alert alert-danger" *ngIf="document.invalid && (document.dirty || document.touched)">
+                    <div *ngIf="document.errors.required">Dni is required</div>
+                </div>
+            </div>
+
+            <div class="col-12 my-3 text-center">
+                <button class="btn bg-primary" [disabled]="formSearch.invalid" (click)="search()">Search</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-6">
+        <form class="col-12" #formUser="ngForm">
+            <div class="col-12 my-3">
+                <label class="col-12" for="id_user_name">User name</label>
+                <input class="col-12" type="text" name="user_name" id="id_user_name" disabled [(ngModel)]="user.user_name" />
+            </div>
+
+            <div class="col-12 my-3">
+                <label class="col-12" for="id_password">Password</label>
+                <input class="col-12" type="text" name="password" id="id_password" disabled [(ngModel)]="user.password" />
+            </div>
+
+            <div class="col-12 my-3 text-center">
+                <button class="col-12" class="btn bg-primary" [disabled]="!btnSearch" (click)="getPassword()">Get Password</button>
+            </div>
+
+            <div class="col-12 my-3 text-center">
+                <button class="btn bg-primary" [disabled]="!btnPassword" (click)="saveUser(formUser,formSearch)">Save new User</button>
+            </div>
+        </form>
+    </div>
+</section>

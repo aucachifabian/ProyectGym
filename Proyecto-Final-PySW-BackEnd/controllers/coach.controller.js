@@ -1,7 +1,7 @@
 const Coach = require('../models/coach.model');
 const coachCtrl = {};
 
-coachCtrl.createCoach = async (req, res) => {
+coachCtrl.createCoach = async(req, res) => {
     var coach = new Coach(req.body);
 
     try {
@@ -19,20 +19,20 @@ coachCtrl.createCoach = async (req, res) => {
     };
 }
 
-coachCtrl.getCoachs = async (req, res) => {
+coachCtrl.getCoachs = async(req, res) => {
     var coach = await Coach.find().exec();
 
     res.json(coach);
 }
 
 
-coachCtrl.getCoachParams = async (req, res) => {
+coachCtrl.getCoachParams = async(req, res) => {
     const coach = await Coach.findById(req.params.id);
 
     res.json(coach);
 }
 
-coachCtrl.deleteCoach = async (req, res) => {
+coachCtrl.deleteCoach = async(req, res) => {
     try {
         await Coach.deleteOne({ _id: req.params.id });
 
@@ -48,12 +48,12 @@ coachCtrl.deleteCoach = async (req, res) => {
     };
 }
 
-coachCtrl.modifyCoach = async (req, res) => {
+coachCtrl.modifyCoach = async(req, res) => {
     const coach = new Coach(req.body);
 
     try {
         await Coach.updateOne({ _id: req.body._id }, coach);
-        
+
         res.json({
             'status': '1',
             'msg': 'Coach updated'
@@ -64,6 +64,23 @@ coachCtrl.modifyCoach = async (req, res) => {
             'msg': 'Coach Error'
         });
     };
+}
+
+
+coachCtrl.getCoachByDni = async(req, res) => {
+    const coach = await Coach.findOne({ dni: req.params.dni });
+
+    if (coach != null) {
+        res.json({
+            'status': '1',
+            'coach': coach
+        });
+    } else {
+        res.json({
+            'status': '0',
+            'msg': 'DNI is wrong'
+        });
+    }
 }
 
 module.exports = coachCtrl;

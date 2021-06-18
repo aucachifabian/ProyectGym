@@ -4,7 +4,8 @@ import { Student } from "../student/student";
 export class User {
 
     public _id          : string;
-    public owner 	 	: Student | Coach;
+    public coach 	 	: Coach;
+    public student      : Student;
     public type_user 	: string;
     public password	    : string;
     public user_name 	: string;
