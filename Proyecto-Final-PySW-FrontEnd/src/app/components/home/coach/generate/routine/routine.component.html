@@ -1,1 +1,153 @@
-<p>routine works!</p>
+<div>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Routine abdominales Firmes</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" routerLinkActive="active" [routerLink]="['RoutineBeginner']">Beginner</a></li>
+                <li><a class="dropdown-item" href="#">Intermediate</a></li>
+                <li><a class="dropdown-item" href="#">Advanced</a></li>
+
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Routine perdida de peso </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Routine Buttocks and legs </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="#">Challenge</a>
+        </li>
+    </ul>
+</div>
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="" class="d-block w-20" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="" class="d-block w-20" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="" class="d-block w-20" alt="...">
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+
+    <div class="card body">
+        <form>
+            <div class="mb-3">
+                <label for="id" class="form-label">Id Routine</label>
+                <input name="id" type="text" class="form control" [(ngModel)]="routine._id">
+            </div>
+            <div class="mb-3">
+                <label for="idCoach" class="form-label">Coach</label>
+                <input name="coach" type="text" class="form control" [(ngModel)]="routine.coach">
+            </div>
+            <div class="mb-3">
+                <label for="idObjetive" class="form-label">Objetive</label>
+                <input name="objetive" type="text" class="form control" [(ngModel)]="routine.name">
+            </div>
+            <div class="mb-3">
+                <label for="idSerie" class="form-label">Serie</label>
+                <input name="serie" type="text" class="form control" [(ngModel)]="routine.serie">
+            </div>
+            <div class="mb-3">
+                <label for="idRepetition" class="form-label">Repetition</label>
+                <input name="repetition" type="text" class="form control" [(ngModel)]="routine.repetition">
+            </div>
+            <div class="mb-3">
+                <label for="idRest" class="form-label">Rest</label>
+                <input name="res" type="text" class="form control" [(ngModel)]="routine.rest">
+            </div>
+            <div class="mb-3">
+                <label for="idIntensy" class="form-label">Intensy</label>
+                <input name="intensy" type="text" class="form control" [(ngModel)]="routine.intensity">
+            </div>
+            <div class="mb-3">
+                <label for="idTraining" class="form-label">Training</label>
+                <input name="training" type="text" class="form control" [(ngModel)]="routine.training">
+            </div>
+
+
+            <button class="btn btn-primary" (click)="guardarRoutine()">GUARDAR</button>
+            <button class="btn btn-primary" (click)="limpiarRoutine()">LIMPIAR</button>
+
+        </form>
+    </div>
+</div>
+<div>
+    <div class="row">
+        <h3 class="col-12 text-center text-primary text-decoration-underline">LIST ROUTINE</h3>
+    </div>
+
+
+
+
+    <table class="table table-striped border border-1" [mfData]="listRoutines" #mf="mfDataTable" [mfRowsOnPage]="5">
+        <thead>
+            <tr>
+
+                <th style="width: 20%">
+                    <mfDefaultSorter by="id">Id Routine</mfDefaultSorter>
+                </th>
+                <th style="width: 20%">
+                    <mfDefaultSorter by="coach">Coach</mfDefaultSorter>
+                </th>
+                <th style="width: 20%">
+                    <mfDefaultSorter by="name">Objetive</mfDefaultSorter>
+                </th>
+                <th style="width: 20%">
+                    <mfDefaultSorter by="Serie">Serie</mfDefaultSorter>
+                </th>
+                <th style="width: 20%">
+                    <mfDefaultSorter by="repetition">Repetition</mfDefaultSorter>
+                </th>
+                <th style="width: 20%">
+                    <mfDefaultSorter by="rest">Rest</mfDefaultSorter>
+
+                </th>
+                <th style="width: 20%">
+                    <mfDefaultSorter by="intensy">Intensy</mfDefaultSorter>
+
+                </th>
+                <th style="width: 20%">
+                    <mfDefaultSorter by="training">Training</mfDefaultSorter>
+
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let routine   of mf.DataTable">
+                <td>{{routine._id}}</td>
+                <td>{{routine.coach}}</td>
+                <td>{{routine.name}}</td>
+                <td>{{routine.serie}}</td>
+                <td>{{routine.repetition}}</td>
+                <td>{{routine.intensy}}</td>
+                <td>{{routine.training}}</td>
+
+
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">
+                    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <button class="btn btn-danger">Descargar Rutina Pdf</button>
+
+
+</div>
