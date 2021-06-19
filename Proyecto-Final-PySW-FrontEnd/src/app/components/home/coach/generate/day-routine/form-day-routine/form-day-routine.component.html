@@ -1,0 +1,111 @@
+<!------------------------------>
+<!-- Register/Edit Arrangement-->
+<!------------------------------>
+
+<section class="col-12 d-flex row">
+    <div class="col-12 row">
+    <button class="btn btn-success col-2 ms-5 mb-2" (click)="form = !form">btn</button>
+    <div class="col-5"></div>
+    <div class="col-3">
+         <p> </p>
+    </div>
+</div>
+    <form *ngIf="form" class="col-6 " #formRoutine="ngForm">
+        <div class="col-12 py-1">
+            <label class="col-12" for="id_type">* Name</label>
+            <input class="col-12" type="text" name="type" id="id_type" [(ngModel)]="routineWork.objective" required #type="ngModel"/>
+
+            <div class="col-12 alert alert-danger" *ngIf="type.invalid && (type.dirty || type.touched)">
+                <div *ngIf="type.errors.required">Objective is required</div>
+            </div>   
+        </div>
+
+        <div class="col-12 py-1">
+            <label class="col-12" for="id_intensity">* Intensity</label>
+            <input class="col-12" type="text" name="intensity" id="id_intensity" [(ngModel)]="routineWork.intensity" required #intensity="ngModel"/>
+            <div class="col-12 alert alert-danger" *ngIf="intensity.invalid && (intensity.dirty || intensity.touched)">
+                <div *ngIf="intensity.errors.required">intensity is required</div>
+            </div>
+        </div>
+
+        <div class="col-12 py-1">
+            <label class="col-12" for="id_Serie">* Cant Routines </label>
+            <input class="col-12" type="text" disabled name="serie" id="id_Serie" [(ngModel)]="routineWork.day" required #serie="ngModel"/>
+       
+            <div class="col-12 alert alert-danger" *ngIf="serie.invalid && (serie.dirty || serie.touched)">
+                <div *ngIf="serie.errors.required">Amount Routines is required</div>
+            </div>
+        </div>
+
+
+
+        <div>
+            <label class="col-12" for="id_arrangement">Arrangement</label>
+            <select class="col-10" id="id_arrangement" name="arrangement" (change)="routineWork.day = routineWork.arrangement.amount_day*4 " [(ngModel)]="routineWork.arrangement">
+                <option *ngFor="let a of arrangements" [ngValue]="a">
+                    {{a.name}}
+                </option>
+            </select>
+        </div>
+
+        <div class="col-12 py-2 px-md-3 px-lg-5">
+            <button class="col-12" *ngIf="action=='new'" [disabled]="formRoutine.invalid" (click)="registerDayRoutine(formRoutine)">Register</button>
+            <button class="col-12" *ngIf="action=='edit'" [disabled]="formRoutine.invalid" (click)="saveDayRoutine(formRoutine)">Save</button>
+        </div>
+
+        <div class="col-12 py-2 px-md-3 px-lg-5">
+            <button class="col-12" (click)="returnArrangement()">Return</button>
+        </div>
+    </form>
+    <div *ngIf="!form" class="col-6  m-auto p-3 row">
+    <table class="table table-active" [mfData]="routines" #mf="mfDataTable" [mfRowsOnPage]="5">
+        <thead class="col-12">
+            <tr class="col-12">
+                <th class="col-6 text-start ms-0">
+                    <mfDefaultSorter by="name">Tipo</mfDefaultSorter>
+                </th>
+
+                <th class="col-3">
+                    <mfDefaultSorter by="type">Nivel</mfDefaultSorter>
+                </th>
+
+                <th class="col-3">
+                    <mfDefaultSorter>Action</mfDefaultSorter>
+                </th>
+            </tr>
+        </thead>
+
+        <tbody class="col-12">
+            <tr class="col-12" *ngFor="let t of mf.data">
+                <td class="col-3">{{t.type}}</td>
+                <td class="col-6">{{t.intensity}}</td>
+                <td class="col-3">
+                    <button class="btn btn-secondary" (click)="addRoutine(t)">
+                    select
+                    </button>
+                </td>   
+             </tr>
+        </tbody>
+        <tfoot class="col-12">
+            <tr>
+                <td class="mx-auto">
+                    <mfBootstrapPaginator></mfBootstrapPaginator>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    </div>
+
+        <div class="accumulator col-6">
+            <div class="row list-group-item outer">
+                <div class="inner" *ngFor="let pal of routineWork.routine; let i = index" [attr.data-index]="i">
+                    <p class="bg-secondary text-white ps-2 mt-1 rounded-3">
+                        {{pal.type}} {{pal.intensity}}
+                        <button class="btn btn-close bg-secondary text-white mt-0 mb-0 p-0" (click)="deleteRoutine(i)">
+                        </button>
+                    </p>
+                </div>
+            
+        </div>
+    </div>
+</section>

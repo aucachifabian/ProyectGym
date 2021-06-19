@@ -14,7 +14,8 @@ import { RoutineComponent } from './components/home/coach/generate/routine/routi
 import { PaymentComponent } from './components/home/coach/register/payment/payment.component';
 import { AssistanceComponent } from './components/home/coach/register/assistance/assistance.component';
 import { StudentComponent } from './components/home/coach/register/student/student.component';
-import { DayRoutineComponent } from './components/home/coach/generate/day-routine/day-routine.component';
+import { FormDayRoutineComponent } from './components/home/coach/generate/day-routine/form-day-routine/form-day-routine.component';
+import { DayRoutineComponent } from './components/home/coach/generate/day-routine/day-routine/day-routine.component';
 import { StudentAssistenceComponent } from './components/home/student/student-assistence/student-assistence.component';
 import { StudentRoutineComponent } from './components/home/student/student-routine/student-routine.component';
 import { StudentPaymentComponent } from './components/home/student/student-payment/student-payment.component';
@@ -62,7 +63,8 @@ import { ButtocksComponent } from './components/home/coach/generate/buttocks/but
     ChallengeComponent,
     AdvanceComponent,
     ButtocksComponent,
-    BeginnerComponent
+    BeginnerComponent,
+    FormDayRoutineComponent
   ],
   imports: [
     BrowserModule,

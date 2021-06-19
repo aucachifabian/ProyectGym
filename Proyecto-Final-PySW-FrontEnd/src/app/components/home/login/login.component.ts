@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   private returnUrl : string;
 
   constructor(private route : ActivatedRoute,
-              private router : Router,
+              private router : Router, 
               private loginService : LoginService) {
 
     this.user = new User();

@@ -11,7 +11,7 @@ import { StudentService } from 'src/app/services/student/student.service';
 })
 export class StudentComponent implements OnInit {
 
-  public student: Student;
+  public student: Student; 
   public arrangements: Array<Arrangement>;
 
   //---------------------------------------------------------//
@@ -40,6 +40,8 @@ export class StudentComponent implements OnInit {
         if (result == "1") {
           alert("oks");
         }
+        else
+        alert(result.msg);
       },
       error => {
         console.log(error);

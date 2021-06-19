@@ -1,0 +1,93 @@
+* {
+    padding: 0;
+    margin: 0%;
+  }
+
+  *:focus {
+    outline: none;
+  }
+  
+  .red {
+    outline: red 1px solid;
+  }
+  
+  .blue {
+    outline: blue 1px solid;
+  }
+  /********************Input********************/
+  
+  input {
+    border: none;
+    color: #0d0d0d;
+    padding: 5px;
+    font-size: 15px;
+    border: 2px solid #f6f6f6;
+    border-radius: 5px;
+  }
+  
+  input:focus {
+    border-width: 2px;
+    border-color: #39ace7;
+  }
+  
+  /********************Label********************/
+  
+  label {
+    color: #808080;
+  }
+  
+  /********************Button********************/
+  
+  button {
+    background-color: #56baed;
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    font-size: 15px;
+    box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #39ace7;
+  }
+  
+  button:active {
+    transform: scale(0.97);
+  }
+  
+  button:disabled {
+    opacity: 0.5;
+  }
+
+.accumulator
+{
+  background-image: url('../../../../../../../assets/img/fondFitnes.png');
+  background-size: 100% 100%;
+}
+
+
+
+.outer {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(208, 217, 221, 0.432);
+    padding: 0;
+    border: 1px solid #000;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+
+
+.inner {
+    width: auto;
+    vertical-align: middle;
+    display: inline-block; 
+    margin-left : 5px;
+    font-size: 15px;
+}
+
+.inner button{
+  font-size: 15px;
+}
