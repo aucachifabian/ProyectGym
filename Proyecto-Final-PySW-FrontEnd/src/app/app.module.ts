@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxDataTableModule} from "angular-9-datatable";
 import { AlifeFileToBase64Module } from 'alife-file-to-base64';
+import { GoogleMapsModule } from '@angular/google-maps'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -75,6 +76,7 @@ import { ButtocksComponent } from './components/home/coach/generate/buttocks/but
     AlifeFileToBase64Module,
     CommonModule,
     BrowserAnimationsModule,
+    GoogleMapsModule,
     ToastrModule.forRoot({
       timeOut: 1500,
       positionClass: 'toast-bottom-right',
