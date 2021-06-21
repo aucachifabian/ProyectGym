@@ -98,6 +98,14 @@ export class FormArrangementComponent implements OnInit {
      }
     );
   }
+
+  //------------------------------------------------------------//
+
+  public onFileChanges(file) : void {
+    if(file[0] != null) {
+      this.arrangement.img= file[0].base64;
+    }
+  }
   
   //------------------------------------------------------------//
   

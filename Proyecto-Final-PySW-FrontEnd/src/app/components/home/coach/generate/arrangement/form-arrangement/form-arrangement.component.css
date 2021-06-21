@@ -59,3 +59,8 @@ button:active {
 button:disabled {
   opacity: 0.5;
 }
+
+img {
+  width: 200px;
+  height: 200px;
+}

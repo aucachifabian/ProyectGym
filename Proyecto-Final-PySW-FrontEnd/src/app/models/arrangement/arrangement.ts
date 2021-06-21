@@ -4,7 +4,7 @@ export class Arrangement {
     public name    : string;
     public price   : number;
     public amount_day   : number;
-    public amount_hour  : string;
+    public img  : string;
     
     constructor(){
     }

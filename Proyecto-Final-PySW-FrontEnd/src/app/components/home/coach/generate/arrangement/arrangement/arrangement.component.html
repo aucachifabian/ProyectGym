@@ -1,4 +1,4 @@
-<section class="col-12 row">
+<section class="col-12 container row">
 
     <!-------------->
     <!--Button Add-->
@@ -17,7 +17,7 @@
                     <th class="col-2">Name</th>
                     <th class="col-2">Price</th>
                     <th class="col-2">Day</th>
-                    <th class="col-2">Hour</th>
+                    <th class="col-2"></th>
                     <th class="col-1"></th>
                     <th class="col-1"></th>
                 </tr>
@@ -28,7 +28,9 @@
                     <td class="col-2">{{a.name}}</td>
                     <td class="col-2">{{a.price}}</td>
                     <td class="col-2">{{a.amount_day}}</td>
-                    <td class="col-2">{{a.amount_hour}}</td>
+                    <td class="col-2">
+                        <img [src]="a.img" alt="">
+                    </td>
                     <td class="col-1">
                         <button (click)="editArrangement(a._id)">Edit</button>
                     </td>   

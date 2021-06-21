@@ -1,10 +1,10 @@
-<header class="col-12">
+<header class="col-12 container" *ngIf="loginService.isLoggedIn()">
     <h1 class="text-center mt-5">Proyecto Final PySW 2021</h1>
+
+    <hr/>
 </header>
 
-<hr/>
-
-<nav class="col-12">
+<nav class="col-12 container" *ngIf="loginService.isLoggedIn()">
     <ul class="nav nav-tabs justify-content-evenly text-center">
         <li class="col-md-3 col-sm-6 nav-item" *ngIf="loginService.isLoggedIn()">
             <a class="nav-link text-dark" routerLinkActive="active" [routerLink]="['student']">Student</a>
@@ -39,6 +39,7 @@
         <a *ngIf="!loginService.isLoggedIn()" [routerLink]="['Login']">(Login)</a>
         <a *ngIf="loginService.isLoggedIn()" [routerLink]="['Login']" (click)="logout()">{{loginService.isLogged()}} (logout)</a>
     </div>
+
+    <hr/>
 </nav>
 
-<hr/>

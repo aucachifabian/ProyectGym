@@ -40,6 +40,7 @@ import { UserComponent } from './components/home/coach/generate/user/user.compon
 import { ChallengeComponent } from './components/home/coach/generate/challenge/challenge.component';
 import { AdvanceComponent } from './components/home/coach/generate/advance/advance.component';
 import { ButtocksComponent } from './components/home/coach/generate/buttocks/buttocks.component';
+import { HomeComponent } from './components/home/home/home.component';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { ButtocksComponent } from './components/home/coach/generate/buttocks/but
     AdvanceComponent,
     ButtocksComponent,
     BeginnerComponent,
-    FormDayRoutineComponent
+    FormDayRoutineComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

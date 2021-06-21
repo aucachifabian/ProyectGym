@@ -11,10 +11,12 @@ import { UserComponent } from './components/home/coach/generate/user/user.compon
 import { AssistanceComponent } from './components/home/coach/register/assistance/assistance.component';
 import { PaymentComponent } from './components/home/coach/register/payment/payment.component';
 import { StudentComponent } from './components/home/coach/register/student/student.component';
+import { HomeComponent } from './components/home/home/home.component';
 import { LoginComponent } from './components/home/login/login.component';
 
 const routes: Routes = [
-  { path: '', component : LoginComponent },
+  { path: '', component : HomeComponent },
+  { path: 'login', component : LoginComponent },
   { path: 'payment', component : PaymentComponent },
   { path: 'user', component : UserComponent },
   { path: 'arrangement', component : ArrangementComponent },

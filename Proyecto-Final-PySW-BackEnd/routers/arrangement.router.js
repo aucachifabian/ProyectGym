@@ -5,8 +5,8 @@ const express = require('express');
 const router = express.Router();
 
 router.post('/'     , arrangementCtrl.createArrangement);
-router.get('/'      , autCtrl.verifyToken, arrangementCtrl.getArrangements);
-router.get('/:id'   , autCtrl.verifyToken, arrangementCtrl.getArrangementParams);
+router.get('/'      , arrangementCtrl.getArrangements);
+router.get('/:id'   , arrangementCtrl.getArrangementParams);
 router.delete('/:id', arrangementCtrl.deleteArrangement);
 router.put('/'   , arrangementCtrl.modifyArrangement);
 
