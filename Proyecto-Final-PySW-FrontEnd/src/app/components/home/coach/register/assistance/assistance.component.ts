@@ -49,7 +49,7 @@ export class AssistanceComponent implements OnInit {
 
   public getStudents() : void {
     this.students    = new Array<Student>();
-    /*
+  
     this.studentService.getStudents().subscribe(
       result => {
         result.forEach(element => {
@@ -65,7 +65,6 @@ export class AssistanceComponent implements OnInit {
         console.log(error);
       }
     )
-    */
   }
 
 

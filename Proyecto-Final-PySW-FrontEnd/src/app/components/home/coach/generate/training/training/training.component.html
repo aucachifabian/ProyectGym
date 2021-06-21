@@ -1,68 +1,69 @@
-<section class="col-12 row">
+<section class="container">
+    <div class="col-12 row">
+        <!-------------->
+        <!--Button Add-->
+        <!-------------->
+        <div class="col-12 col-md-3 px-5 my-5 px-md-0 px-lg-3 my-md-0">
+            <button class="col-12 blue-light" (click)="addNewTraining()">Add new Training</button>
+        </div>
 
-    <!-------------->
-    <!--Button Add-->
-    <!-------------->
-    <div class="col-12 col-md-3 px-5 my-5 px-md-0 px-lg-3 my-md-0">
-        <button class="col-12 blue-light" (click)="addNewTraining()">Add new Training</button>
-    </div>
+        <!---------------->
+        <!-----Table------>
+        <!---------------->
+        <div class="col-12 col-md-9 table-responsive text-center px-md-5">
+            <table class="col-12 table table-hover" [mfData]="trainings" #mf="mfDataTable" [mfRowsOnPage]="5">
+                <thead class="col-12">
+                    <tr class="col-12">
+                        <th class="col-2">
+                            <mfDefaultSorter by="type">Type</mfDefaultSorter>
+                        </th>
 
-    <!---------------->
-    <!-----Table------>
-    <!---------------->
-    <div class="col-12 col-md-9 table-responsive text-center px-md-5">
-        <table class="col-12 table table-hover" [mfData]="trainings" #mf="mfDataTable" [mfRowsOnPage]="5">
-            <thead class="col-12">
-                <tr class="col-12">
-                    <th class="col-2">
-                        <mfDefaultSorter by="type">Type</mfDefaultSorter>
-                    </th>
+                        <th class="col-2">
+                            <mfDefaultSorter by="name">Name</mfDefaultSorter>
+                        </th>
 
-                    <th class="col-2">
-                        <mfDefaultSorter by="name">Name</mfDefaultSorter>
-                    </th>
+                        <th class="col-2">
+                            <mfDefaultSorter>Video</mfDefaultSorter>
+                        </th>
 
-                    <th class="col-2">
-                        <mfDefaultSorter>Video</mfDefaultSorter>
-                    </th>
+                        <th class="col-2">
+                            <mfDefaultSorter>Img</mfDefaultSorter>
+                        </th>
 
-                    <th class="col-2">
-                        <mfDefaultSorter>Img</mfDefaultSorter>
-                    </th>
+                        <th class="col-1"></th>
+                        <th class="col-1"></th>
+                    </tr>
+                </thead>
 
-                    <th class="col-1"></th>
-                    <th class="col-1"></th>
-                </tr>
-            </thead>
+                <tbody>
+                    <tr class="col-12" *ngFor="let t of mf.data">
+                        <td class="col-2">{{t.type}}</td>
+                        <td class="col-2">{{t.name}}</td>
+                        <td class="col-2">{{t.video}}</td>
+                        <td class="col-2">
+                            <img [src]="t.img" alt="img"/>
+                        </td>
+                        <td class="col-1">
+                            <button class="white-light" (click)="editTraining(t._id)">
+                                <img class="icon" src="../../../../../../../assets/imgSVG/edit.svg" alt=""/>
+                            </button>
+                        </td>   
+                        <td class="col-1">
+                            <button class="red-light " (click)="deleteTraining(t._id)">
+                                <img class="icon" src="../../../../../../../assets/imgSVG/x.svg" alt=""/>
+                            </button>
+                        </td>          
+                    </tr>
+                </tbody>
 
-            <tbody>
-                <tr class="col-12" *ngFor="let t of mf.data">
-                    <td class="col-2">{{t.type}}</td>
-                    <td class="col-2">{{t.name}}</td>
-                    <td class="col-2">{{t.video}}</td>
-                    <td class="col-2">
-                        <img [src]="t.img" alt="img"/>
-                    </td>
-                    <td class="col-1">
-                        <button class="white-light" (click)="editTraining(t._id)">
-                            <img class="icon" src="../../../../../../../assets/imgSVG/edit.svg" alt=""/>
-                        </button>
-                    </td>   
-                    <td class="col-1">
-                        <button class="red-light " (click)="deleteTraining(t._id)">
-                            <img class="icon" src="../../../../../../../assets/imgSVG/x.svg" alt=""/>
-                        </button>
-                    </td>          
-                </tr>
-            </tbody>
-
-            <tfoot>
-                <tr>
-                    <td>
-                        <mfBootstrapPaginator></mfBootstrapPaginator>
-                    </td>
-                </tr>
-            </tfoot>
-        </table>
+                <tfoot>
+                    <tr>
+                        <td>
+                            <mfBootstrapPaginator></mfBootstrapPaginator>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
     </div>
 </section>
