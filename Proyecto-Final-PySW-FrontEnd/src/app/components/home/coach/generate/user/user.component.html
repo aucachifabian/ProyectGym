@@ -15,10 +15,11 @@
 
             <div class="col-12 my-3">
                 <label class="col-12" for="id_dni">Dni</label>
-                <input class="col-12" type="text" name="dni" id="id_dni" [(ngModel)]="dni" required #document="ngModel" />
+                <input class="col-12" type="text" minlength="6" name="dni" id="id_dni" [(ngModel)]="dni" required #document="ngModel" />
 
                 <div class="col-12 alert alert-danger" *ngIf="document.invalid && (document.dirty || document.touched)">
-                    <div *ngIf="document.errors.required">Dni is required</div>
+                    <div *ngIf="document.errors.required">enter DNI</div>
+                    <div *ngIf="document.errors.minlength">Must be 6 characters</div>
                 </div>
             </div>
 
