@@ -1,6 +1,7 @@
 #container {
     width: 100%;
-    height: 330px
+    height: 330px;
+    margin-top: 136px;
 }
 
 #part1 {
@@ -268,4 +269,27 @@
     #part1 {
         height: 250px
     }
+}
+
+button{
+    margin-top: -115px;
+    margin-right: 11px;
+    margin-left: 17px;
+} 
+
+ .mapa{
+   background-color: red;
+
+}
+
+#CONTACTO{
+
+    font-family: fantasy;
+    font-size: 50px;
+
+}
+.Contactos{
+
+    margin-left: 630px;
+    margin-top: -420px;
 }

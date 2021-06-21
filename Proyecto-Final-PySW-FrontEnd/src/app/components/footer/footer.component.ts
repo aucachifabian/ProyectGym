@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
+
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +8,47 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+
+  zoom = 12
+  center: google.maps.LatLngLiteral
+  options: google.maps.MapOptions = {
+    zoomControl: false,
+    scrollwheel: false,
+    disableDoubleClickZoom: true,
+    mapTypeId: 'hybrid',
+    maxZoom: 15,
+    minZoom: 8,
+
+  }
+
+  position = {
+    lat: -24.185185,
+    lng: -65.299332
+  }
+
+  label = {
+    color: "red",
+  }
+
+  title = "gmaps"
+
   constructor() { }
 
   ngOnInit(): void {
+
   }
+
+  zoomIn() {
+    if (this.zoom < this.options.maxZoom) this.zoom++
+  }
+
+  zoomOut() {
+    if (this.zoom > this.options.minZoom) this.zoom--
+  }
+
+  click(event: google.maps.MouseEvent) {
+    console.log(event)
+  }
+
 
 }
