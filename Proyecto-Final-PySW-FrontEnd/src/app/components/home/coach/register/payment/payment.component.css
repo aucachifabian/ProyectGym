@@ -1,8 +1,19 @@
+section > * {
+  padding: 0%;
+  margin: 0%;
+}
+
+*:focus {
+  outline: none;
+}
+
 .contenedor{
-    width: 500px;
     background-color: whitesmoke;
     border-radius: 90%;
 }
+
+
+
 
 button {
     margin-top: 10px;
@@ -17,6 +28,10 @@ button {
   
   button:hover{
     background-color: #39ace7;
+  }
+
+  button:disabled{
+    opacity: 0.5;
   }
   
   button:active {

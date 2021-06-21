@@ -17,7 +17,7 @@ app.use(cors({origin: 'http://localhost:4200'}));
 //Cargamos el modulo de direccionamiento de rutas para puntos 
 app.use('/api/arrangement'      , require('./routers/arrangement.router'));
 app.use('/api/coach'            , require('./routers/coach.router'));
-app.use('/api/day/assistence'   , require('./routers/day_assistence.router'));
+app.use('/api/assistance'       , require('./routers/assistence.router'));
 app.use('/api/day/routine'      , require('./routers/day_routine.router'));
 app.use('/api/payment'          , require('./routers/payment.router'));
 app.use('/api/routine'          , require('./routers/routine.router'));

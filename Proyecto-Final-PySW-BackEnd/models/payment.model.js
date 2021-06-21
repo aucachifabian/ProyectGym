@@ -9,7 +9,6 @@ const PaymentSchema = new Schema({
     pay_day     : { type : Date, required : true},
     name_arrangement : { type : String, required : true},
     amount_day       : { type : Number, required : true},
-    amount_hour      : { type : String, required : true},
     price            : { type : Number, required : true},
 });
 

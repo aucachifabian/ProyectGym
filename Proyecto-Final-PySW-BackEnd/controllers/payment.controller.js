@@ -1,6 +1,5 @@
 const Payment = require('../models/payment.model');
 const Student = require('../models/student.model');
-const tool = require('../tools/date_methods')
 const paymentCtrl = {};
 
 paymentCtrl.createPayment = async (req, res) => {
@@ -8,6 +7,8 @@ paymentCtrl.createPayment = async (req, res) => {
     var student = new Student();
 
     student = await Student.findById(payment.student);
+ 
+    student.end_date = payment.pay_day; 
     student.end_date.setDate(payment.pay_day.getDate() + 30) 
 
     try {

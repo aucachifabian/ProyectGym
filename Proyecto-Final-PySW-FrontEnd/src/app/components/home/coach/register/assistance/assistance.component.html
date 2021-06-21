@@ -7,12 +7,16 @@
     
     <div class="col-4 m-auto">
         <label class="col-12 text-center m-auto" for="id_student">Student</label>
-        <select class="col-12" id="id_student" name="students" [(ngModel)]="assistance.student">
+        <select class="col-12" id="id_student" name="student" [(ngModel)]="student" required #check="ngModel">
             <option *ngFor="let s of students" [ngValue]="s">{{s.surname}}, {{s.name}}</option>
         </select>
+        
+        <div class="col-12 alert alert-danger" *ngIf="check.invalid && (check.dirty || check.touched)">
+            <div *ngIf="check.errors.required">Select Student is required</div>
+        </div>
     </div>
     
     <div class="col-4 m-auto my-5">
-        <button class="col-12 btn btn-outline-warning" type="button">Register Assistence</button>
+        <button class="col-12 btn btn-outline-warning" [disabled]="check.invalid" type="button" (click)="registerStudent()">Register Assistence</button>
     </div>
 </section>

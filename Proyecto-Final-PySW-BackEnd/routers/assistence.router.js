@@ -1,4 +1,4 @@
-const assistenceCtrl = require('../controllers/day_assistence.controller');
+const assistenceCtrl = require('../controllers/assistence.controller');
 
 const express = require('express');
 const router = express.Router();

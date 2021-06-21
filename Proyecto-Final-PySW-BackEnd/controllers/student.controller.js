@@ -77,10 +77,12 @@ studentCtrl.modifyStudent = async(req, res) => {
 
 studentCtrl.checkValidate = async(req, res) => {
     let id = req.body.student[0];
-    const stud = await Student.findById(id);
-    if (new Date(req.body.day) <= stud.end_date) {
-        stud.amount_day = stud.amount_day + 1;
-        await Student.updateOne({ _id: stud._id }, stud);
+    const student = await Student.findById(id);
+
+    if (new Date(req.body.day) <= student.end_date) {
+        student.amount_day = student.amount_day + 1;
+        await Student.updateOne({ _id: student._id }, student);
+        
         return 1;
     } else {
         return 0;
@@ -89,7 +91,7 @@ studentCtrl.checkValidate = async(req, res) => {
 
 
 studentCtrl.getStudentByDni = async(req, res) => {
-    const student = await Student.findOne({ dni: req.params.dni });
+    const student = await Student.findOne({ dni: req.params.dni }).populate("arrangement");
 
     if (student != null) {
         res.json({

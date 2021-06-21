@@ -11,7 +11,6 @@ export class Payment {
     public name_arrangement : string;
     public amount_day   : number;
     public price        : number;
-    public amount_hour  : string;
 
     constructor(){
     }

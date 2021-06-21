@@ -4,6 +4,8 @@ import { Student } from 'src/app/models/student/student';
 import { PaymentService } from 'src/app/services/payment/payment.service';
 import { StudentService } from 'src/app/services/student/student.service';
 import * as printJS from 'print-js';
+import { ToastrService } from 'ngx-toastr';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-payment',
@@ -12,68 +14,78 @@ import * as printJS from 'print-js';
 })
 export class PaymentComponent implements OnInit {
 
-  Student: Array<Student>;
-  student: Student;
+  public formDni : string;
+  public payment : Payment;
+  public student : string;
 
-  payment = new Payment()
-
+  /**************************************************************/
 
   constructor(private paymentService: PaymentService,
-    private studentService: StudentService) {
-    this.getStudents()
+              private studentService: StudentService,
+              private toastr : ToastrService) {
+
+    this.payment = new Payment();
   }
+
+  /**************************************************************/
+
   ngOnInit(): void {
   }
 
+  /**************************************************************/
 
   print() {
     printJS('printJS-form', 'html');
   }
 
-  createPayment() {
+  /**************************************************************/
+
+  public searchDni() : void {
+    this.studentService.getStudentByDni(this.formDni).subscribe(
+      result => {
+        if(result.status == "1"){
+          this.toastr.success("","Success");
+
+          this.student = result.student.name +" "+ result.student.surname;
+          this.payment.student = result.student._id;
+          this.payment.name_arrangement = result.student.arrangement.name;
+          this.payment.price = result.student.arrangement.price;
+          this.payment.amount_day = result.student.arrangement.amount_day;
+        }
+        else {
+          this.toastr.error(result.msg, "Error");
+        }
+      },
+
+      error => {
+        this.toastr.error("ERROR","ERROR");
+      }
+    );
+  }
+
+  /**************************************************************/
+
+  public createPayment(formSearch : NgForm, formPrint : NgForm) : void {
     this.paymentService.createPayment(this.payment).subscribe(
       result => {
-        console.log(result);
-        console.log(this.payment);
+        if(result.status == "1"){
+          this.toastr.success(result.msg,"Success");
+          formSearch.reset();
+          formPrint.reset();
+          this.formDni = "";
+          this.payment = new Payment();
+          this.student = "";
+        }
+        else {
+          this.toastr.error(result.msg,"Error");
+        }
       },
-      err => {
+      error => {
+        this.toastr.error("ERROR","ERROR");
       }
-    )
+    );
   }
 
-  getStudents() {
-    this.studentService.getStudents().subscribe(
-      result => {
-        this.Student = new Array<Student>();
-        result.forEach(element => {
-          this.student = new Student();
-          Object.assign(this.student, element);
-          this.Student.push(this.student);
-        });
-        console.log(this.Student);
-      },
-      err => {
-        console.log(err);
-      }
-    )
-  }
-
-  async buscar_student() {
-    await this.studentService.getStudent(this.payment.student._id).subscribe(
-      reslt => {
-        this.payment.name_arrangement = reslt.arrangement.name
-        this.payment.amount_hour = reslt.arrangement.amount_hour
-        this.payment.amount_day = reslt.arrangement.amount_day
-        this.payment.price = reslt.arrangement.price
-        console.log(reslt.arrangement)
-      },
-      err => {
-        console.log(err)
-      }
-    )
-  }
-
-
-
+  /**************************************************************/
 
 }
