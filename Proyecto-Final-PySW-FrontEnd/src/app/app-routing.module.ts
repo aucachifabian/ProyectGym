@@ -4,7 +4,8 @@ import { ArrangementComponent } from './components/home/coach/generate/arrangeme
 import { FormArrangementComponent } from './components/home/coach/generate/arrangement/form-arrangement/form-arrangement.component';
 import { DayRoutineComponent } from './components/home/coach/generate/day-routine/day-routine/day-routine.component';
 import { FormDayRoutineComponent } from './components/home/coach/generate/day-routine/form-day-routine/form-day-routine.component';
-import { RoutineComponent } from './components/home/coach/generate/routine/routine.component';
+import { FormRoutineComponent } from './components/home/coach/generate/routine/form-routine/form-routine.component';
+import { RoutineComponent } from './components/home/coach/generate/routine/routine/routine.component';
 import { FormTrainingComponent } from './components/home/coach/generate/training/form-training/form-training.component';
 import { TrainingComponent } from './components/home/coach/generate/training/training/training.component';
 import { UserComponent } from './components/home/coach/generate/user/user.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'user', component : UserComponent },
   { path: 'student', component : StudentComponent },
   { path: 'routine', component : RoutineComponent },
+  { path: 'routine/form/:id', component : FormRoutineComponent },
   { path: 'assitance', component : AssistanceComponent },
   { path: 'arrangement', component : ArrangementComponent },
   { path: 'arrangement/form/:id', component : FormArrangementComponent },

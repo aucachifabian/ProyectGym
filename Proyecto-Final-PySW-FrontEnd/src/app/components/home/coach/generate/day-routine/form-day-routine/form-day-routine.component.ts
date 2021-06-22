@@ -217,7 +217,6 @@ export class FormDayRoutineComponent implements OnInit, AfterViewInit {
          { this.routineWork.arrangement = this.arrangement;    
            this.routineWork.day = this.arrangement.amount_day*4;
            this.routineWork.routine.splice(this.arrangement.amount_day*4);
-           this.step2="active";
          }
          else
          {

@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Arrangement } from 'src/app/models/arrangement/arrangement';
 import { DayRoutine } from 'src/app/models/day_routine/day-routine';
-import { ArrangementService } from 'src/app/services/arrangement/arrangement.service';
 import { DayRoutineService } from 'src/app/services/day_routine/day-routine.service';
 
 @Component({
@@ -13,9 +10,8 @@ import { DayRoutineService } from 'src/app/services/day_routine/day-routine.serv
   styleUrls: ['./day-routine.component.css']
 })
 export class DayRoutineComponent implements OnInit {
-  public arrangements : Array<Arrangement>;
   public dayRoutines : Array<DayRoutine>;
-  constructor(private arrangementService : ArrangementService,
+  constructor(
     private toastr : ToastrService,
     private router : Router, private dayRoutineService : DayRoutineService) { 
 }

@@ -1,0 +1,47 @@
+<section class="col-12 row">
+
+    <!-------------->
+    <!--Button Add-->
+    <!-------------->
+    <div class="col-12 col-md-3 d-flex px-5 my-5 px-md-0 px-lg-3 my-md-0">
+        <button class="col-12 m-auto" (click)="addNewRoutine()">Add new routine</button>
+    </div>
+
+    <!---------------->
+    <!-----Table------>
+    <!---------------->
+    <div class="col-12 col-md-9 table-responsive px-md-5">
+        <table class="col-12 table table-hover text-center">
+            <thead class="col-12">
+                <tr class="col-12">
+                    <th class="col-2">Tipo</th>
+                    <th class="col-2">Repeticiones</th>
+                    <th class="col-2">Series</th>
+                    <th class="col-2">Descanso</th>
+                    <th class="col-2">Intensidad</th>
+                    <th class="col-2">Ejercicios</th>
+                    <th class="col-1"></th>
+                    <th class="col-1"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr class="col-12" *ngFor="let a of routines">
+                    <td class="col-2">{{a.type}}</td>
+                    <td class="col-2">{{a.repetition}}</td>
+                    <td class="col-1">{{a.serie}}</td>
+                    <td class="col-2">{{a.rest}}</td>
+                    <td class="col-2">{{a.intensity}}</td>
+                    <td class="col-2"><p *ngFor="let b of a.training"> {{ b.name }},</p></td>
+                    <td class="col-1">
+                        <button (click)="editRoutine(a._id)">Edit</button>
+                    </td>   
+                    <td class="col-1">
+                        <button (click)="deleteRoutine(a._id)">Delete</button>
+                    </td>          
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+    <button class="btn btn-danger">Descargar Rutina Pdf</button>

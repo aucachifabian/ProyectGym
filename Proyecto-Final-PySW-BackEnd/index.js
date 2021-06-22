@@ -4,11 +4,11 @@ const {mongoose} = require('./database')
 const cors = require('cors');
 const { urlencoded } = require('express');
 //middlewares
-app.use(express.json({limit:'100mb',    extended : true
+app.use(express.json({limit:'1000mb',    extended : true
                   }));
 app.use(urlencoded({
-    limit : '100mb',
-    parameterLimit : 100000000000,
+    limit : '1000mb',
+    parameterLimit : 1000000000000000000000000,
     extended : true
 }));
 //app.use(cors({origin: '*'}));

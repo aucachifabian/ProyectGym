@@ -13,7 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { RoutineComponent } from './components/home/coach/generate/routine/routine.component';
+import { RoutineComponent } from './components/home/coach/generate/routine/routine/routine.component';
 import { PaymentComponent } from './components/home/coach/register/payment/payment.component';
 import { AssistanceComponent } from './components/home/coach/register/assistance/assistance.component';
 import { StudentComponent } from './components/home/coach/register/student/student.component';
@@ -31,7 +31,7 @@ import { FormTrainingComponent } from './components/home/coach/generate/training
 import { UserComponent } from './components/home/coach/generate/user/user.component';
 import { HomeComponent } from './components/home/home/home.component';
 import { StudentHomeComponent } from './components/home/student/student-home/student-home.component';
-
+import { FormRoutineComponent } from './components/home/coach/generate/routine/form-routine/form-routine.component';
 
 //import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './services/login/token-interceptor.service';
@@ -58,7 +58,8 @@ import { TokenInterceptorService } from './services/login/token-interceptor.serv
     UserComponent,
     FormDayRoutineComponent,
     HomeComponent,
-    StudentHomeComponent
+    StudentHomeComponent,
+    FormRoutineComponent
   ],
   imports: [
     BrowserModule,
