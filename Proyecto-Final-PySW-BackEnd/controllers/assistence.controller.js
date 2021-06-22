@@ -90,4 +90,26 @@ assistenceCtrl.modifyAssistence = async (req, res) => {
     };
 }
 
+
+assistenceCtrl.getAssistenceByIdStudent = async(req, res) => {
+
+    const assistance = await Assistence.find({ student : req.params.student });
+    
+    if (assistance.length >= 1) {
+        res.json({
+            'status': '1',
+            'assistance': assistance
+        });
+    } else {
+        res.json({
+            'status': '0',
+            'msg': 'No have assistance'
+        });
+    }
+}
+
+
+
+
+
 module.exports = assistenceCtrl;

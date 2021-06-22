@@ -71,8 +71,6 @@ userCtrl.modifyUser = async (req, res) => {
 
 
 userCtrl.loginUsuario = async (req, res) => {
-    console.log(req.body);
-
     const criteria = {
         user_name   : req.body.user_name,
         password    : req.body.password
@@ -80,8 +78,6 @@ userCtrl.loginUsuario = async (req, res) => {
 
    await User.findOne(criteria, function(err, user) {
         if (err) {
-            //console.log("paso x1");
-
             res.json({
                 'status': '0',
                 'msg'   : 'error'
@@ -89,35 +85,38 @@ userCtrl.loginUsuario = async (req, res) => {
         };
         
         if (!user) {
-            console.log("paso x2");
-
             res.json({
                 'status': '0',
                 'msg'   : "not found" 
             });
 
         } else {
-          //  console.log("paso x3");
-
             const unToken = jwt.sign({_id : user._id, rol : user.type_user}, "secretkey");
-            console.log(" student :  " + user.student)
-            console.log("  coach  :  "  + user.coach)
-            res.json({
-                'status'    : '1',
-                'msg'       : 'success',
-                'type_user' : user.type_user,
-                 'userStudent' : user.student,
-                 "userCoach" : user.coach,
-                //'owner'     : user.owner,
-                'token'     : unToken
-                
-            });
-          
 
-        //    console.log("paso x4");
+            if(user.type_user == "coach"){
+                res.json({
+                    'status'    : '1',
+                    'msg'       : 'success',
+                    'type_user' : user.type_user,
+                    'owner'     : user.coach.dni,
+                    'token'     : unToken,
+                    'name'      : user.coach.name,
+                    'surname'   : user.coach.surname
+                });
+            }
+            else {
+                res.json({
+                    'status'    : '1',
+                    'msg'       : 'success',
+                    'type_user' : user.type_user,
+                    'owner'     : user.student.dni,
+                    'token'     : unToken,
+                    'name'      : user.student.name,
+                    'surname'   : user.student.surname
+                });
+            }
         };
-      //  console.log("paso x5");
-    }).populate("student").populate("coach");
+    }).populate("coach").populate("student");
 }
    
 

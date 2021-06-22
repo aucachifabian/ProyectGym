@@ -75,4 +75,23 @@ paymentCtrl.modifyPayment = async (req, res) => {
     };
 }
 
+
+paymentCtrl.getPaymentByIdStudent = async(req, res) => {
+
+    
+    const payment = await Payment.find({ student : req.params.student });
+ 
+    if (payment.length >= 1) {
+        res.json({
+            'status': '1',
+            'payment': payment
+        });
+    } else {
+        res.json({
+            'status': '0',
+            'msg': 'No have payment'
+        });
+    }
+}
+
 module.exports = paymentCtrl;

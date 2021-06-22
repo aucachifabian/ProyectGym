@@ -1,4 +1,3 @@
-import { BeginnerComponent } from './components/home/coach/generate/beginner/beginner.component';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -6,6 +5,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxDataTableModule} from "angular-9-datatable";
 import { AlifeFileToBase64Module } from 'alife-file-to-base64';
 import { GoogleMapsModule } from '@angular/google-maps'
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,25 +24,17 @@ import { StudentRoutineComponent } from './components/home/student/student-routi
 import { StudentPaymentComponent } from './components/home/student/student-payment/student-payment.component';
 import { LoginService } from './services/login/login.service';
 import { LoginComponent } from './components/home/login/login.component';
-
 import { ArrangementComponent } from './components/home/coach/generate/arrangement/arrangement/arrangement.component';
 import { FormArrangementComponent } from './components/home/coach/generate/arrangement/form-arrangement/form-arrangement.component';
 import { TrainingComponent } from './components/home/coach/generate/training/training/training.component';
 import { FormTrainingComponent } from './components/home/coach/generate/training/form-training/form-training.component';
+import { UserComponent } from './components/home/coach/generate/user/user.component';
+import { HomeComponent } from './components/home/home/home.component';
+import { StudentHomeComponent } from './components/home/student/student-home/student-home.component';
+
 
 //import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './services/login/token-interceptor.service';
-
-
-
-import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
-import { UserComponent } from './components/home/coach/generate/user/user.component';
-import { ChallengeComponent } from './components/home/coach/generate/challenge/challenge.component';
-import { AdvanceComponent } from './components/home/coach/generate/advance/advance.component';
-import { ButtocksComponent } from './components/home/coach/generate/buttocks/buttocks.component';
-import { HomeComponent } from './components/home/home/home.component';
 
 
 @NgModule({
@@ -62,12 +56,9 @@ import { HomeComponent } from './components/home/home/home.component';
     FormTrainingComponent,
     TrainingComponent,
     UserComponent,
-    ChallengeComponent,
-    AdvanceComponent,
-    ButtocksComponent,
-    BeginnerComponent,
     FormDayRoutineComponent,
-    HomeComponent
+    HomeComponent,
+    StudentHomeComponent
   ],
   imports: [
     BrowserModule,

@@ -65,4 +65,11 @@ export class PaymentService {
 
     return this.http.delete(this.urlBase+id);
   }
+
+  //-----------------------------------------------------------//
+
+  public getPaymentByIdStudent(id : string) : Observable<any> {
+
+    return this.http.get(this.urlBase+"id/"+id);
+  }
 }

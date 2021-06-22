@@ -1,1 +1,33 @@
-<p>student-assistence works!</p>
+<section class="container">
+    <div class="col-12 row">
+        <div class="col-8 col-md-9 table-responsive text-center m-auto">
+            <table class="col-12 table table-hover" [mfData]="assistances" #mf="mfDataTable" [mfRowsOnPage]="5">
+                <thead class="col-12">
+                    <tr class="col-12">
+                        <th class="col-2">
+                            <mfDefaultSorter by="day">Day</mfDefaultSorter>
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr class="col-12" *ngFor="let a of mf.data">
+                        <td>{{a.day | date: 'dd/MM/yyyy'}}</td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <td>
+                            <mfBootstrapPaginator></mfBootstrapPaginator>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div class="col-2 m-auto">
+            <button class="col-12 btn btn-primary" type="button" (click)="back()">BACK</button>
+        </div>
+    </div>
+</section>

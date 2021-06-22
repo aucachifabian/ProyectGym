@@ -6,6 +6,7 @@ const router = express.Router();
 router.post('/'     , assistenceCtrl.createAssistence);
 router.get('/'      , assistenceCtrl.getAssistences);
 router.get('/:id'   , assistenceCtrl.getAssistenceParams);
+router.get('/id/:student'   , assistenceCtrl.getAssistenceByIdStudent);
 router.delete('/:id', assistenceCtrl.deleteAssistence);
 router.put('/'   , assistenceCtrl.modifyAssistence);
 

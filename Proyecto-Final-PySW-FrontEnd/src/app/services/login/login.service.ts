@@ -35,31 +35,32 @@ export class LoginService {
   public logout() : void {
     sessionStorage.removeItem("type_user");
     sessionStorage.removeItem("token");
+    sessionStorage.removeItem("owner");
+    sessionStorage.removeItem("name");
+    sessionStorage.removeItem("username");
   }
 
   //-------------------------------------------------------------//
 
-  public isLoggedIn() : boolean {
-    var type_user = sessionStorage.getItem("type_user");
-
-    if( type_user != null){
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
-
-  //-------------------------------------------------------------//
-
-  public isLogged() {
+  public isLogged() : string {
     return sessionStorage.getItem("type_user");
   }
 
   //-------------------------------------------------------------//
 
-  public getToken() : string {
+  public isOwner() : string {
+    return sessionStorage.getItem("owner");
+  }
 
+  //-------------------------------------------------------------//
+
+  public isPerson() : string {
+    return (sessionStorage.getItem("surname")+" "+sessionStorage.getItem("name"));
+  }
+
+  //-------------------------------------------------------------//
+
+  public getToken() : string {
     if( sessionStorage.getItem("token") != null ){
       return sessionStorage.getItem("token");
     }

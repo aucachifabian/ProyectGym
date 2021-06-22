@@ -13,22 +13,29 @@ import { PaymentComponent } from './components/home/coach/register/payment/payme
 import { StudentComponent } from './components/home/coach/register/student/student.component';
 import { HomeComponent } from './components/home/home/home.component';
 import { LoginComponent } from './components/home/login/login.component';
+import { StudentAssistenceComponent } from './components/home/student/student-assistence/student-assistence.component';
+import { StudentHomeComponent } from './components/home/student/student-home/student-home.component';
+import { StudentPaymentComponent } from './components/home/student/student-payment/student-payment.component';
+import { StudentRoutineComponent } from './components/home/student/student-routine/student-routine.component';
 
 const routes: Routes = [
   { path: '', component : HomeComponent },
   { path: 'login', component : LoginComponent },
   { path: 'payment', component : PaymentComponent },
   { path: 'user', component : UserComponent },
+  { path: 'student', component : StudentComponent },
+  { path: 'routine', component : RoutineComponent },
+  { path: 'assitance', component : AssistanceComponent },
   { path: 'arrangement', component : ArrangementComponent },
   { path: 'arrangement/form/:id', component : FormArrangementComponent },
   { path: 'training', component : TrainingComponent },
   { path: 'training/form/:id', component : FormTrainingComponent },
-  { path: 'student', component : StudentComponent },
-  { path: 'routine', component : RoutineComponent },
-  { path: 'user', component : UserComponent },
-  { path: 'assitance', component : AssistanceComponent },
   { path: 'dayRoutine', component : DayRoutineComponent },
   { path: 'dayRoutine/form/:id', component : FormDayRoutineComponent },
+  { path: 'student/home', component : StudentHomeComponent },
+  { path: 'student/assistance/:id', component : StudentAssistenceComponent },
+  { path: 'student/payment/:id', component : StudentPaymentComponent },
+  { path: 'student/routine/:id', component : StudentRoutineComponent },
   { path: '**', redirectTo: '/' }
 ]; 
 

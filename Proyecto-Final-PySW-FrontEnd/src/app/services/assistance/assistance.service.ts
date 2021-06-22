@@ -66,5 +66,11 @@ export class AssistanceService {
     return this.http.delete(this.urlBase+id);
   }
 
+  //-----------------------------------------------------------//
+
+  public getAssistanceByIdStudent(id : string) : Observable<any> {
+
+    return this.http.get(this.urlBase+"id/"+id);
+  }
   
 }

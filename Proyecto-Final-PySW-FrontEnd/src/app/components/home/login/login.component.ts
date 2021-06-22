@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/user/user';
 import { LoginService } from 'src/app/services/login/login.service';
 
@@ -11,18 +12,22 @@ import { LoginService } from 'src/app/services/login/login.service';
 export class LoginComponent implements OnInit {
 
   public user : User;
-  private returnUrl : string;
+
+  /**********************************************************/
 
   constructor(private route : ActivatedRoute,
               private router : Router, 
-              private loginService : LoginService) {
+              private loginService : LoginService,
+              private toastr : ToastrService) {
+  }
 
+  /**********************************************************/
+
+  ngOnInit(): void {
     this.user = new User();
   }
 
-  ngOnInit(): void {
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/Home';
-  }
+  /**********************************************************/
 
   public login() : void {
     this.loginService.login(this.user).subscribe(
@@ -32,18 +37,34 @@ export class LoginComponent implements OnInit {
         if (user.status == "1"){
           sessionStorage.setItem("token", user.token);
           sessionStorage.setItem("type_user", user.type_user);
+          sessionStorage.setItem("owner", user.owner);
+          sessionStorage.setItem("name", user.name);
+          sessionStorage.setItem("surname", user.surname);
+          this.toastr.success(user.msg,"Success");
 
-          this.router.navigateByUrl(this.returnUrl);
+          
+          if(user.type_user == "coach"){
+            console.log("hola1");
+            this.router.navigate(["/payment"]);
+            
+          }
+
+          if(user.type_user == "student"){
+            console.log("hola2");
+            this.router.navigate(["student/home"]);
+          }
         }
         else {
-          alert("error");
+          this.toastr.error(user.msg,"Error");
         }
       },
 
       error => {
-        console.log(error);
+        this.toastr.error("ERROR","ERROR");
       }
     );
   }
 
+  /**********************************************************/
+  
 }

@@ -1,45 +1,55 @@
-<header class="container" *ngIf="loginService.isLoggedIn()">
-    <h1 class="text-center mt-5">Proyecto Final PySW 2021</h1>
+<header class="container my-5" *ngIf="loginService.isLogged() == 'coach' || loginService.isLogged() == 'student'">
+    <div class="col-12 row">
+        <h2 class="col-12 text-center">Welcome {{loginService.isLogged() | titlecase}} {{loginService.isPerson()}}</h2>
 
-    <hr/>
+        <h4 class="col-12 text-end">
+            <a class="col-12"  [routerLink]="['Login']" (click)="logout()">(Exit)</a>
+        </h4>
+    </div>
 </header>
 
-<nav class="container" *ngIf="loginService.isLoggedIn()">
+<!---------------------------------------------------------------->
+<!-------------------------COACH---------------------------------->
+<!---------------------------------------------------------------->
+<nav class="container justify-content-evenly" *ngIf="loginService.isLogged() == 'coach'">
+    <hr/>
+
     <ul class="nav nav-tabs justify-content-evenly text-center">
-        <li class="col-md-3 col-sm-6 nav-item" *ngIf="loginService.isLoggedIn()">
+        <li class="col-md-3 col-sm-6 nav-item">
             <a class="nav-link text-dark" routerLinkActive="active" [routerLink]="['student']">Student</a>
         </li>
 
-        <li class="col-md-3 col-sm-6 nav-item" *ngIf="loginService.isLoggedIn()">
+        <li class="col-md-3 col-sm-6 nav-item">
             <a class="nav-link text-dark" routerLinkActive="active" [routerLink]="['assitance']">Assitance</a>
         </li>
 
-        <li class="col-md-3 col-sm-6 nav-item" *ngIf="loginService.isLoggedIn()">
+        <li class="col-md-3 col-sm-6 nav-item">
             <a class="nav-link text-dark" routerLinkActive="active" [routerLink]="['arrangement']">Arrangement</a>
         </li>
 
-        <li class="col-md-3 col-sm-6 nav-item" *ngIf="loginService.isLoggedIn()">
+        <li class="col-md-3 col-sm-6 nav-item">
             <a class="nav-link text-dark" routerLinkActive="active" [routerLink]="['training']">Training</a>
         </li>
 
-        <li class="col-md-3 col-sm-6 nav-item" *ngIf="loginService.isLoggedIn()">
+        <li class="col-md-3 col-sm-6 nav-item">
             <a class="nav-link text-dark" routerLinkActive="active" [routerLink]="['payment']">Payment</a>
         </li>
 
-        <li class="col-md-3 col-sm-6 nav-item" *ngIf="loginService.isLoggedIn()">
+        <li class="col-md-3 col-sm-6 nav-item">
             <a class="nav-link text-dark" routerLinkActive="active" [routerLink]="['routine']">Routine</a>
         </li>
 
-        <li class="col-md-3 col-sm-6 nav-item" *ngIf="loginService.isLoggedIn()">
+        <li class="col-md-3 col-sm-6 nav-item">
             <a class="nav-link text-dark" routerLinkActive="active" [routerLink]="['user']">User</a>
+        </li>
+
+        <li class="col-md-3 col-sm-6 nav-item">
+            <a class="nav-link text-dark" routerLinkActive="active" [routerLink]="['dayRoutine']">Day-Routine</a>
         </li>
     </ul>
 
-    <div>
-        <a *ngIf="!loginService.isLoggedIn()" [routerLink]="['Login']">(Login)</a>
-        <a *ngIf="loginService.isLoggedIn()" [routerLink]="['Login']" (click)="logout()">{{loginService.isLogged()}} (logout)</a>
-    </div>
-
     <hr/>
 </nav>
+
+
 
