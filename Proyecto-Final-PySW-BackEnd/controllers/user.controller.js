@@ -23,7 +23,7 @@ userCtrl.createUser = async (req, res) => {
 }
 
 userCtrl.getUsers = async (req, res) => {
-    var user = await User.find().populate("owner.coach").populate("owner.student");
+    var user = await User.find().populate("coach").populate("student");
 
     res.json(user);
 }
@@ -100,20 +100,24 @@ userCtrl.loginUsuario = async (req, res) => {
           //  console.log("paso x3");
 
             const unToken = jwt.sign({_id : user._id, rol : user.type_user}, "secretkey");
-            
-
+            console.log(" student :  " + user.student)
+            console.log("  coach  :  "  + user.coach)
             res.json({
                 'status'    : '1',
                 'msg'       : 'success',
                 'type_user' : user.type_user,
+                 'userStudent' : user.student,
+                 "userCoach" : user.coach,
                 //'owner'     : user.owner,
                 'token'     : unToken
+                
             });
+          
 
         //    console.log("paso x4");
         };
       //  console.log("paso x5");
-    }).populate("owner.student").populate("owner.coach");
+    }).populate("student").populate("coach");
 }
    
 

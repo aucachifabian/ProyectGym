@@ -21,14 +21,14 @@ routineCtrl.createRoutine = async (req, res) => {
 }
 
 routineCtrl.getRoutines = async (req, res) => {
-    var routine = await Routine.find().populate("routine");
+    var routine = await Routine.find().populate("routine").populate("arrangement");
 
     res.json(routine);
 }
 
 
 routineCtrl.getRoutineParams = async (req, res) => {
-    const routine = await Routine.findById(req.params.id).populate("routine");
+    const routine = await Routine.findById(req.params.id).populate("routine").populate("arrangement");
 
     res.json(routine);
 }

@@ -20,7 +20,7 @@ routineCtrl.createRoutine = async (req, res) => {
 }
 
 routineCtrl.getRoutines = async (req, res) => {
-    var routine = await Routine.find().exec();
+    var routine = await Routine.find().populate("training");
 
     res.json(routine);
 }
