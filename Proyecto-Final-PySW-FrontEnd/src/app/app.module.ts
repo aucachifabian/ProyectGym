@@ -34,7 +34,9 @@ import { HomeComponent } from './components/home/home/home.component';
 import { StudentHomeComponent } from './components/home/student/student-home/student-home.component';
 import { FormRoutineComponent } from './components/home/coach/generate/routine/form-routine/form-routine.component';
 import { CoachComponent } from './components/home/coach/register/coach/coach.component';
+import { CoachTableComponent } from './components/home/coach/register/coach-table/coach-table.component';
 import { StatisticComponent } from './components/home/coach/statistic/statistic.component';
+
 
 //import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './services/login/token-interceptor.service';
@@ -64,7 +66,9 @@ import { TokenInterceptorService } from './services/login/token-interceptor.serv
     StudentHomeComponent,
     FormRoutineComponent,
     CoachComponent,
-    StatisticComponent
+    CoachTableComponent,
+    StatisticComponent,
+    
   ],
   imports: [
     BrowserModule,

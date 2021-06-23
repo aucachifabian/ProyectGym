@@ -76,7 +76,10 @@
         </div>
 
         <div class="my-3">
-            <button class="d-block m-auto" type="button" (click)="createCoach()">REGISTER</button>
+            <button class="d-block m-auto" type="button" (click)="createCoach()" *ngIf="accion == 'new'">REGISTER</button>
+            <div class="my-3">
+                <button class="d-block m-auto" type="button" (click)="updateCoach()" *ngIf="accion == 'update'">UPDATE</button>
+            </div>
         </div>
 
     </form>

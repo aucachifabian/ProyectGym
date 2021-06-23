@@ -10,6 +10,7 @@ import { FormTrainingComponent } from './components/home/coach/generate/training
 import { TrainingComponent } from './components/home/coach/generate/training/training/training.component';
 import { UserComponent } from './components/home/coach/generate/user/user.component';
 import { AssistanceComponent } from './components/home/coach/register/assistance/assistance.component';
+import { CoachTableComponent } from './components/home/coach/register/coach-table/coach-table.component';
 import { CoachComponent } from './components/home/coach/register/coach/coach.component';
 import { PaymentComponent } from './components/home/coach/register/payment/payment.component';
 import { StudentComponent } from './components/home/coach/register/student/student.component';
@@ -21,6 +22,7 @@ import { StudentHomeComponent } from './components/home/student/student-home/stu
 import { StudentPaymentComponent } from './components/home/student/student-payment/student-payment.component';
 import { StudentRoutineComponent } from './components/home/student/student-routine/student-routine.component';
 
+
 const routes: Routes = [
   { path: '', component : HomeComponent },
   { path: 'login', component : LoginComponent },
@@ -28,6 +30,8 @@ const routes: Routes = [
   { path: 'user', component : UserComponent },
   { path: 'student', component : StudentComponent },
   { path: 'coach', component : CoachComponent },
+  { path: 'coach/:id', component : CoachComponent },
+  { path: 'coachtable', component : CoachTableComponent },
   { path: 'assitance', component : AssistanceComponent },
   { path: 'statistic', component : StatisticComponent },
   { path: 'routine', component : RoutineComponent },
