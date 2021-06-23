@@ -72,5 +72,19 @@ export class AssistanceService {
 
     return this.http.get(this.urlBase+"id/"+id);
   }
+
+  //-----------------------------------------------------------//
+
+  public getAssistanceByDay(day : number) : Observable<any> {
+
+    return this.http.get(this.urlBase+"day/"+day);
+  }
+
+  //-----------------------------------------------------------//
+
+  public getAssistanceByMonthly(monthly : number) : Observable<any> {
+
+    return this.http.get(this.urlBase+"monthly/"+monthly);
+  }
   
 }

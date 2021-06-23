@@ -8,6 +8,7 @@ import { GoogleMapsModule } from '@angular/google-maps'
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,10 +33,11 @@ import { UserComponent } from './components/home/coach/generate/user/user.compon
 import { HomeComponent } from './components/home/home/home.component';
 import { StudentHomeComponent } from './components/home/student/student-home/student-home.component';
 import { FormRoutineComponent } from './components/home/coach/generate/routine/form-routine/form-routine.component';
+import { CoachComponent } from './components/home/coach/register/coach/coach.component';
+import { StatisticComponent } from './components/home/coach/statistic/statistic.component';
 
 //import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './services/login/token-interceptor.service';
-import { CoachComponent } from './components/home/coach/register/coach/coach.component';
 
 
 @NgModule({
@@ -61,7 +63,8 @@ import { CoachComponent } from './components/home/coach/register/coach/coach.com
     HomeComponent,
     StudentHomeComponent,
     FormRoutineComponent,
-    CoachComponent
+    CoachComponent,
+    StatisticComponent
   ],
   imports: [
     BrowserModule,
@@ -73,6 +76,7 @@ import { CoachComponent } from './components/home/coach/register/coach/coach.com
     CommonModule,
     BrowserAnimationsModule,
     GoogleMapsModule,
+    ChartsModule,
     ToastrModule.forRoot({
       timeOut: 1500,
       positionClass: 'toast-bottom-right',

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Assistance } from 'src/app/models/assistance/assistance';
 import { Student } from 'src/app/models/student/student';
@@ -21,27 +22,32 @@ export class AssistanceComponent implements OnInit {
   constructor(private assistanceService : AssistanceService,
               private studentService : StudentService,
               private toast : ToastrService) {
-    this.assistance = new Assistance();
-    this.student = new Student();
-
-    this.getStudents();
   }
 
   //---------------------------------------------------------------------//
 
   ngOnInit(): void {
+    this.assistance = new Assistance();
+    this.student = new Student();
+
+    this.getStudents();
+
+    
   }
 
   //---------------------------------------------------------------------//
 
-  public registerStudent() : void {
+  public registerStudent(formAssistence : NgForm) : void {
     this.assistance.student = new Array<Student>();
     this.assistance.student.push(this.student);
-
+  
     this.assistanceService.createAssistance(this.assistance).subscribe(
       result => {
         if (result.status == "1"){
           this.toast.success(result.msg,"Success");
+          formAssistence.reset();
+          this.assistance =  new Assistance();
+          this.student  = new Student();
         }
         else {
           this.toast.error(result.msg,"Error");
