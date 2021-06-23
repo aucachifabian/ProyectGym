@@ -10,6 +10,7 @@ import { FormTrainingComponent } from './components/home/coach/generate/training
 import { TrainingComponent } from './components/home/coach/generate/training/training/training.component';
 import { UserComponent } from './components/home/coach/generate/user/user.component';
 import { AssistanceComponent } from './components/home/coach/register/assistance/assistance.component';
+import { CoachComponent } from './components/home/coach/register/coach/coach.component';
 import { PaymentComponent } from './components/home/coach/register/payment/payment.component';
 import { StudentComponent } from './components/home/coach/register/student/student.component';
 import { HomeComponent } from './components/home/home/home.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'payment', component : PaymentComponent },
   { path: 'user', component : UserComponent },
   { path: 'student', component : StudentComponent },
+  { path: 'coach', component : CoachComponent },
   { path: 'routine', component : RoutineComponent },
   { path: 'routine/form/:id', component : FormRoutineComponent },
   { path: 'assitance', component : AssistanceComponent },

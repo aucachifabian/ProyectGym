@@ -35,6 +35,7 @@ import { FormRoutineComponent } from './components/home/coach/generate/routine/f
 
 //import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './services/login/token-interceptor.service';
+import { CoachComponent } from './components/home/coach/register/coach/coach.component';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { TokenInterceptorService } from './services/login/token-interceptor.serv
     FormDayRoutineComponent,
     HomeComponent,
     StudentHomeComponent,
-    FormRoutineComponent
+    FormRoutineComponent,
+    CoachComponent
   ],
   imports: [
     BrowserModule,
