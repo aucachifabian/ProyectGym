@@ -27,7 +27,7 @@ routineCtrl.getRoutines = async (req, res) => {
 
 
 routineCtrl.getRoutineParams = async (req, res) => {
-    const routine = await Routine.findById(req.params.id);
+    const routine = await Routine.findById(req.params.id).populate("training");
 
     res.json(routine);
 }

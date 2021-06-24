@@ -44,13 +44,10 @@ export class LoginComponent implements OnInit {
 
           
           if(user.type_user == "coach"){
-            console.log("hola1");
             this.router.navigate(["/payment"]);
-            
           }
 
           if(user.type_user == "student"){
-            console.log("hola2");
             this.router.navigate(["student/home"]);
           }
         }

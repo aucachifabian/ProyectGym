@@ -37,7 +37,7 @@ export class LoginService {
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("owner");
     sessionStorage.removeItem("name");
-    sessionStorage.removeItem("username");
+    sessionStorage.removeItem("surname");
   }
 
   //-------------------------------------------------------------//
