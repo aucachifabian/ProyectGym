@@ -1,25 +1,60 @@
-<section class="container">
-    <!-- Img -->
-    <div class="col-12 text-center">
-        <img class="" src="../../../../../../assets/imgicon/users.jpg" id="icon" alt="User Icon" />
+<section class=" test">
+    <div class="row">
+        <div class="col-xl-4 col-md-4 col-sm-6 col-12 mb-5">
+            <div class="card">
+                <img src="../../../../../../assets/imgicon/cur1.jpg" width="200" height="300" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h4 class="titulo">Gratuito</h4>
+
+                    <p class="card-text">Certificados Oficiales .- </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-4 col-sm-6 col-12 mb-5">
+            <div class="card">
+                <img src="../../../../../../assets/imgicon/cur2.jpg" width="200" height="300" class="card-img-top" alt="...">
+                <div class="card-body">
+
+                    <h4 class="titulo">Descuento por planilla</h4>
+
+                    <p class="card-text">Con certificados de aprobación.-</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-md-4 col-sm-6 col-12 mb-5">
+            <div class="card">
+                <img src="../../../../../../assets/imgicon/cur3.jpg" width="200" height="300" class="card-img-top" alt="...">
+                <div class="card-body">
+
+                    <h4 class="titulo">Gratuito</h4>
+
+                    <p class="card-text">Transmitido por You Tuve .-</p>
+                </div>
+            </div>
+        </div>
     </div>
+
+
 
     <!-- Login Form -->
     <form>
+
         <div class="col-12 row row-cols-3 my-3">
-            <div class="">
+            <div>
                 <label class="col-12" for="id_dni">DNI</label>
+                <span> </span>
                 <input class="col-10" type="text" id="id_dni" minlength="6" name="dni" [(ngModel)]="student.dni" required #dni="ngModel" />
                 <div class="col-12 alert alert-danger" id="danger" *ngIf="dni.invalid && (dni.dirty || dni.touched)">
 
                     <div *ngIf="dni.errors.minlength">must be 6 characters</div>
-                    <div *ngIf="dni.errors.required"> enter DNI</div>
+                    <div *ngIf="dni.errors.required">enter DNI</div>
+
                 </div>
             </div>
 
             <div>
                 <label class="col-12" for="id_name">Name</label>
-                <input class="col-10" type="text" id="id_name" name="name" [(ngModel)]="student.name" required #name="ngModel" />
+                <input class="col-10" type="text" id="id_name" placeholder="name" name="name" [(ngModel)]="student.name" required #name="ngModel" />
                 <div class="col-12 alert alert-danger" id="danger" *ngIf="name.invalid && (name.dirty || name.touched)">
                     <div *ngIf="name.errors.required">
                         enter Name</div>
@@ -39,7 +74,7 @@
         <div class="col-12 row row-cols-3 my-3">
             <div>
                 <label class="col-12" for="id_email">Email</label>
-                <input class="col-10" type="email" id="id_email" placeholder="user@gmail.com" name="email" [(ngModel)]="student.email" required #email="ngModel" />
+                <input class="col-10" type="email" id="id_email" placeholder="usuario@gmail.com" name="email" [(ngModel)]="student.email" required #email="ngModel" />
                 <div class="col-12 alert alert-danger" id="danger" *ngIf="email.invalid && (email.dirty || email.touched)">
                     <div *ngIf="email.errors.required">
                         enter Email</div>
@@ -87,11 +122,11 @@
             <div>
                 <label class="col-12" for="id_arrangement">Arrangement</label>
                 <select class="col-10" id="id_arrangement" name="arrangement" [(ngModel)]="student.arrangement" required #arragement="ngModel">
-                  <option disabled selected value="a"> Select Arrangement</option>
-                  <option *ngFor="let a of arrangements" [ngValue]="a">
-                        {{a.name}}, ${{a.price}}, Day: {{a_mount_day}}, Hour: {{a.amount_hour}}
-                    </option>
-                </select>
+                <option disabled selected >Selected arrangement</option>
+                <option  *ngFor="let a of arrangements" [ngValue]="a">
+                      {{a.name}}, ${{a.price}}, Day: {{a_mount_day}}, Hour: {{a.amount_hour}}
+                  </option>
+              </select>
                 <div class="col-12 alert alert-danger" id="danger" *ngIf="arragement.invalid && (arragement.dirty || arragement.touched)">
                     <div *ngIf="arragement.errors.required">
                         enter Arragement</div>
