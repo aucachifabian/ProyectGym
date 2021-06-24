@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Coach } from 'src/app/models/coach/coach';
 import { CoachService } from 'src/app/services/coach/coach.service';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-form-coach',
@@ -20,7 +21,8 @@ export class FormCoachComponent implements OnInit {
   constructor(private coachService: CoachService,
               private activateRoute: ActivatedRoute,
               private router : Router,
-              private toastr : ToastrService) {
+              private toastr : ToastrService,
+              public loginService : LoginService) {
   }
 
   /***************************************************/
@@ -68,8 +70,7 @@ export class FormCoachComponent implements OnInit {
       result => {
         if (result.status == "1") {
           this.toastr.success(result.msg,"Success");
-          formCoach.reset();
-          this.coach = new Coach();
+          this.return(formCoach);
         }
         else
           this.toastr.error(result.msg,"Error");
@@ -97,6 +98,8 @@ export class FormCoachComponent implements OnInit {
   
   public return(formCoach : NgForm) : void {
     formCoach.reset();
+    this.coach = new Coach();
+    this.action = "";
     this.router.navigate(["coach/"]);
   }
 }

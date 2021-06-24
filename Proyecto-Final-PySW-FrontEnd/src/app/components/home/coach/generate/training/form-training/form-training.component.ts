@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Training } from 'src/app/models/training/training';
+import { LoginService } from 'src/app/services/login/login.service';
 import { TrainingService } from 'src/app/services/training/training.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class FormTrainingComponent implements OnInit {
   constructor(private trainingService : TrainingService,
               private toastr : ToastrService,
               private activateRoute : ActivatedRoute,
-              private router : Router) { 
+              private router : Router,
+              public loginService : LoginService) { 
   }
 
   //------------------------------------------------------------//

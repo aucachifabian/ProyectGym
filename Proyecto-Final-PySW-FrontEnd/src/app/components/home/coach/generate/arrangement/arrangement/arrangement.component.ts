@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Arrangement } from 'src/app/models/arrangement/arrangement';
 import { ArrangementService } from 'src/app/services/arrangement/arrangement.service';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-arrangement',
@@ -18,7 +19,8 @@ export class ArrangementComponent implements OnInit {
 
   constructor(private arrangementService : ArrangementService,
               private toastr : ToastrService,
-              private router : Router) { 
+              private router : Router,
+              public loginService : LoginService) { 
   }
 
   //------------------------------------------------------------//

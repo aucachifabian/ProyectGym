@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/user/user';
 import { CoachService } from 'src/app/services/coach/coach.service';
+import { LoginService } from 'src/app/services/login/login.service';
 import { StudentService } from 'src/app/services/student/student.service';
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -24,7 +25,8 @@ export class UserComponent implements OnInit {
   constructor(private studentService : StudentService,
               private coachService   : CoachService,
               private userService : UserService,
-              private toastr : ToastrService) {
+              private toastr : ToastrService,
+              public loginService : LoginService) {
 
   }
 
@@ -45,6 +47,7 @@ export class UserComponent implements OnInit {
             this.user.type_user = this.value;
             this.user.user_name = result.coach.dni;
             this.btnSearch = true;
+            this.toastr.success(result.msg,"Success");
           }
           else {
             this.toastr.error(result.msg,"Error");
@@ -65,6 +68,7 @@ export class UserComponent implements OnInit {
             this.user.type_user = this.value;
             this.user.user_name = result.student.dni;
             this.btnSearch = true;
+            this.toastr.success(result.msg,"Success");
           }
           else{
             this.toastr.error(result.msg,"Error");

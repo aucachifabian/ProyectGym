@@ -56,7 +56,7 @@ button:active {
   transform: scale(0.97);
 }
 
-img {
+.img-plan {
   width: 150px;
   height: 150px;
 }

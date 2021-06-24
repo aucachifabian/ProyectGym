@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Arrangement } from 'src/app/models/arrangement/arrangement';
 import { ArrangementService } from 'src/app/services/arrangement/arrangement.service';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-form-arrangement',
@@ -20,7 +21,8 @@ export class FormArrangementComponent implements OnInit {
   constructor(private arrangementService : ArrangementService,
               private toastr : ToastrService,
               private activateRoute : ActivatedRoute,
-              private router : Router) { 
+              private router : Router,
+              public loginService : LoginService) { 
   }
 
   //------------------------------------------------------------//

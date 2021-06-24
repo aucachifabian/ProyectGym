@@ -5,6 +5,7 @@ import { Color, Label } from 'ng2-charts';
 import { Assistance } from 'src/app/models/assistance/assistance';
 import { PaymentService } from 'src/app/services/payment/payment.service';
 import { Payment } from 'src/app/models/payment/payment';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-statistic',
@@ -34,7 +35,8 @@ export class StatisticComponent implements OnInit {
   /***************************************************/
 
   constructor(private asssitanceService : AssistanceService,
-              private paymentService : PaymentService) { 
+              private paymentService : PaymentService,
+              public loginService : LoginService) { 
   }
 
   /***************************************************/

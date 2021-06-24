@@ -1,4 +1,4 @@
-<section class="container">
+<section class="container" *ngIf="this.loginService.isLogged() == 'coach'">
     <form class="col-12 d-block" #formAssistence="ngForm">
         <div class="col-4 m-auto">
             <label class="col-12 text-center m-auto" for="id_date">Date</label>
@@ -31,4 +31,10 @@
             <button class="col-12 btn btn-outline-warning" [disabled]="formAssistence.invalid" type="button" (click)="registerStudent(formAssistence)">Register Assistence</button>
         </div>
     </form>
+</section>
+
+<section class="col-12 text-center" *ngIf="this.loginService.isLogged() != 'coach'">
+    <h1 class="col-12">PAGE NOT FOUND</h1>
+    <h6 class="col-12">We're sorry. The page you are looking for cannot be found.</h6>
+    <img class="col-12 img-block" src="../../../../../assets/seguridad.jpg" alt="seguridad">
 </section>

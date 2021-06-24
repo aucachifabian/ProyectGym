@@ -1,4 +1,4 @@
-<section class="container">
+<section class="container" *ngIf="this.loginService.isLogged() == 'coach'">
     <div class="col-12 row">
         <div class="col-6">
             <form class="col-12" #formSearch="ngForm">
@@ -52,4 +52,10 @@
             </form>
         </div>
     </div>
+</section>
+
+<section class="col-12 text-center" *ngIf="this.loginService.isLogged() != 'coach'">
+    <h1 class="col-12">PAGE NOT FOUND</h1>
+    <h6 class="col-12">We're sorry. The page you are looking for cannot be found.</h6>
+    <img class="col-12" src="../../../../../assets/seguridad.jpg" alt="seguridad">
 </section>

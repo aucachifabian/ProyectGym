@@ -1,6 +1,6 @@
-<section class="container">
+<section class="container" *ngIf="this.loginService.isLogged() == 'coach'">
     <div class="col-12 text-center">
-        <img class="" src="../../../../../../assets/imgicon/imgCoach.jpg" id="icon" alt="User Icon" />
+        <img class="img-fom" src="../../../../../../assets/imgicon/imgCoach.jpg" id="icon" alt="User Icon" />
     </div>
 
    
@@ -70,4 +70,10 @@
             <button class="d-block m-auto my-1" type="button" (click)="return(formCoach)">RETURN</button>
         </div>
     </form>
+</section>
+
+<section class="col-12 text-center" *ngIf="this.loginService.isLogged() != 'coach'">
+    <h1 class="col-12">PAGE NOT FOUND</h1>
+    <h6 class="col-12">We're sorry. The page you are looking for cannot be found.</h6>
+    <img class="col-12 img-block" src="../../../../../assets/seguridad.jpg" alt="seguridad">
 </section>

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Coach } from 'src/app/models/coach/coach';
 import { CoachService } from 'src/app/services/coach/coach.service';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-coach',
@@ -17,7 +18,8 @@ export class CoachComponent implements OnInit {
 
   constructor(private coachService : CoachService,
               private router: Router,
-              private toastr : ToastrService) {
+              private toastr : ToastrService,
+              public loginService : LoginService) {
   }
 
    /*****************************************************/

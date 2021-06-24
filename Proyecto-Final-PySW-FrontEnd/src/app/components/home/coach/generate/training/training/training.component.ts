@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Training } from 'src/app/models/training/training';
+import { LoginService } from 'src/app/services/login/login.service';
 import { TrainingService } from 'src/app/services/training/training.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class TrainingComponent implements OnInit {
 
   constructor(private trainingService : TrainingService,
               private toastr : ToastrService,
-              private router : Router) { 
+              private router : Router,
+              public loginService : LoginService) { 
   }
 
   //------------------------------------------------------------//

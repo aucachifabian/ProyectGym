@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Assistance } from 'src/app/models/assistance/assistance';
 import { Student } from 'src/app/models/student/student';
 import { AssistanceService } from 'src/app/services/assistance/assistance.service';
+import { LoginService } from 'src/app/services/login/login.service';
 import { StudentService } from 'src/app/services/student/student.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class AssistanceComponent implements OnInit {
 
   constructor(private assistanceService : AssistanceService,
               private studentService : StudentService,
-              private toast : ToastrService) {
+              private toast : ToastrService,
+              public loginService : LoginService) {
   }
 
   //---------------------------------------------------------------------//
