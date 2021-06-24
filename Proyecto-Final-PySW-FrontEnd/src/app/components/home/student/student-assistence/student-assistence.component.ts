@@ -22,7 +22,8 @@ export class StudentAssistenceComponent implements OnInit {
   constructor(private toastr : ToastrService,
               private assistanceService : AssistanceService,
               private activateRoute : ActivatedRoute,
-              private router : Router) { 
+              private router : Router,
+              public loginService : LoginService) { 
   }
 
   /***************************************************/

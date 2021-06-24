@@ -17,7 +17,7 @@ export class StudentHomeComponent implements OnInit {
   /***************************************************/
 
   constructor(private studentService : StudentService,
-              private loginService : LoginService,
+              public loginService : LoginService,
               private toastr : ToastrService,
               private router : Router) { 
   }

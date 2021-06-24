@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Payment } from 'src/app/models/payment/payment';
+import { LoginService } from 'src/app/services/login/login.service';
 import { PaymentService } from 'src/app/services/payment/payment.service';
 
 @Component({
@@ -18,7 +19,8 @@ export class StudentPaymentComponent implements OnInit {
   constructor(private paymentService : PaymentService,
               private toastr : ToastrService,
               private router : Router,
-              private activateRoute : ActivatedRoute) { 
+              private activateRoute : ActivatedRoute,
+              public loginService : LoginService) { 
   }
 
   /**************************************************/

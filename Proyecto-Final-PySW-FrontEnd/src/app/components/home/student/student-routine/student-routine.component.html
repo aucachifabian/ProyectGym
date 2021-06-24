@@ -1,1 +1,8 @@
-<p>student-routine works!</p>
+<section class="container" *ngIf="this.loginService.isOwner() == 'student'">
+</section>
+
+<section class="col-12 text-center" *ngIf="this.loginService.isOwner() != 'student'">
+    <h1 class="col-12">PAGE NOT FOUND</h1>
+    <h6 class="col-12">We're sorry. The page you are looking for cannot be found.</h6>
+    <img class="col-12" src="../../../../../assets/seguridad.jpg" alt="seguridad">
+</section>
