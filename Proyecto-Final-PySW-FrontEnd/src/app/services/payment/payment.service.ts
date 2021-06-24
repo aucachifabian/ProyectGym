@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { DayRoutine } from 'src/app/models/day_routine/day-routine';
 import { Payment } from 'src/app/models/payment/payment';
 
 @Injectable({
@@ -17,16 +18,16 @@ export class PaymentService {
 
   //-----------------------------------------------------------//
 
-  public createPayment(payment : Payment) : Observable<any> {
-
+  public createPayment(paymentWork : Payment, routineDay:DayRoutine) : Observable<any> {
     const optional = {
       headers : new HttpHeaders({
         'Content-Type' : 'application/json'
       })
     }
-
-    let body = JSON.stringify(payment);
-
+    let body = { payment : paymentWork,
+                 routine : routineDay
+                }
+    
     return this.http.post(this.urlBase,body,optional);
   }
 

@@ -1,31 +1,42 @@
 const Payment = require('../models/payment.model');
 const Student = require('../models/student.model');
+const Arrangement = require('../models/arrangement.model');
+const day_routineModel = require('../models/day_routine.model');
 const paymentCtrl = {};
 
 paymentCtrl.createPayment = async (req, res) => {
-    var payment = new Payment(req.body);
-    var student = new Student();
-
-    student = await Student.findById(payment.student);
- 
-    student.end_date = payment.pay_day; 
-    student.end_date.setDate(payment.pay_day.getDate() + 30) 
-
     try {
-        await Student.updateOne({ _id: student._id }, student);
-        await payment.save();
-
-        res.json({
-            'status': '1',
-            'msg': 'Payment saved and Student updated.'
-
-        });
+        var payment = new Payment(req.body.payment);
+        var student = new Student();
+        var arrangement = await Arrangement.findOne({ name : payment.name_arrangement });
+        student = await Student.findById(payment.student);
+        student.arrangement = arrangement;
+        student.day_routine = new day_routineModel(req.body.routine);
+        student.end_date = payment.pay_day;
+        student.end_date.setDate(payment.pay_day.getDate() + 30);
+        student.amount_day = 0;
+        try {
+            await Student.updateOne({ _id: student._id }, student);
+            await payment.save();
+            res.json({
+                'status': '1',
+                'msg': 'Payment saved and Student updated.',
+                'student': student._id,
+                'payment':payment._id,
+                'end_date' : student.end_date
+            });
+        } catch (error) {
+            res.json({
+                'status': '0',
+                'msg': 'Payment Error.'
+            });
+        };
     } catch (error) {
         res.json({
             'status': '0',
-            'msg': 'Payment Error.'
+            'msg': 'Error en los parametros.'
         });
-    };
+    }
 }
 
 paymentCtrl.getPayments = async (req, res) => {

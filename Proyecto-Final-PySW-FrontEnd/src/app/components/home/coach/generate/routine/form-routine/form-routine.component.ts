@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Routine } from 'src/app/models/routine/routine';
 import { Training } from 'src/app/models/training/training';
+import { LoginService } from 'src/app/services/login/login.service';
 import { RoutineService } from 'src/app/services/routine/routine.service';
 import { TrainingService } from 'src/app/services/training/training.service';
 import Swal from 'sweetalert2';
@@ -29,7 +30,8 @@ export class FormRoutineComponent implements OnInit {
               private activateRoute : ActivatedRoute,
               private router : Router,
               private trainingService : TrainingService,
-              private routineService : RoutineService
+              private routineService : RoutineService,
+              public loginService : LoginService
               ) { 
              this.step1 = "disable";
               this.step2 = "disable";
@@ -77,6 +79,7 @@ export class FormRoutineComponent implements OnInit {
            this.saveRoutine(this.routineWork);
         else
            this.registerRoutine(formRoutine);
+        
         this.chooseNextStep();
   }
 
@@ -174,39 +177,6 @@ export class FormRoutineComponent implements OnInit {
        this.step2="active"
    }
 
-   async changeArrangement()
-   { if(this.action=='edit')
-     {   let a = await this.confirmChange();
-         if(a)
-         {// this.routineWork.arrangement = this.arrangement;    
-          // this.routineWork.day = this.arrangement.amount_day*4;
-          // this.routineWork.routine.splice(this.arrangement.amount_day*4);
-           this.step2="active";
-         }
-       }
-       else
-       {
-         this.step2="disable";
-       }
-   }
-
-   async confirmChange():Promise<boolean>{
-   let a = false;
-    await Swal.fire({  
-      title: 'Esta seguro de querer modificar el plan?',  
-      text: 'Podria perder informacion de las rutinas Asignadas',  
-      icon: 'warning',  
-      showCancelButton: true,  
-      confirmButtonText: 'Si, cambiar Plan',  
-      cancelButtonText: 'No, conservar Plan Actual'  
-    }).then((result) => {  
-      if (result.value) {   
-        a = true;
-       } 
-    })
-    return a;
-   }
-
    async chooseNextStep()
    {
     await Swal.fire({
@@ -228,6 +198,8 @@ export class FormRoutineComponent implements OnInit {
       this.step2 = "disable";
       this.step3 = "disable"; 
       this.form = true;
+      this.routineWork = new Routine();
+      this.routineWork.training = new Array<Training>();
        this.router.navigate(["routine/form/", "new"]);
       }
     })

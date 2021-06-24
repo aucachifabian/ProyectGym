@@ -8,6 +8,7 @@ import { DayRoutine } from 'src/app/models/day_routine/day-routine';
 import { Routine } from 'src/app/models/routine/routine';
 import { ArrangementService } from 'src/app/services/arrangement/arrangement.service';
 import { DayRoutineService } from 'src/app/services/day_routine/day-routine.service';
+import { LoginService } from 'src/app/services/login/login.service';
 import { RoutineService } from 'src/app/services/routine/routine.service';
 import Swal from 'sweetalert2';
 import { __await } from 'tslib';
@@ -16,7 +17,7 @@ import { __await } from 'tslib';
   templateUrl: './form-day-routine.component.html',
   styleUrls: ['./form-day-routine.component.css',] 
 })
-export class FormDayRoutineComponent implements OnInit, AfterViewInit {
+export class FormDayRoutineComponent implements OnInit {
 
   public arrangement : Arrangement;
   public action : string;
@@ -34,15 +35,14 @@ export class FormDayRoutineComponent implements OnInit, AfterViewInit {
               private activateRoute : ActivatedRoute,
               private router : Router,
               private routineService : RoutineService,
-              private dayRoutineService : DayRoutineService
+              private dayRoutineService : DayRoutineService,
+              public loginService : LoginService
               ) { 
              this.step1 = "disable";
               this.step2 = "disable";
               this.step3 = "disable";
               }
-  ngAfterViewInit(): void {
-    throw new Error('Method not implemented.');
-  }
+
 
   //------------------------------------------------------------//
 
@@ -99,6 +99,8 @@ export class FormDayRoutineComponent implements OnInit, AfterViewInit {
         if(result.status == "1"){
           formRoutine.reset();
           this.step3 = "active";
+          this.routineWork = new DayRoutine();
+          this.routineWork.routine = new Array<Routine>();
         }
         else {
           this.toastr.error("Error", "Rutina no Guardada.");
@@ -119,8 +121,8 @@ export class FormDayRoutineComponent implements OnInit, AfterViewInit {
         if(result.status == "1"){
           formRoutine.reset();
           this.routineWork = new DayRoutine();
-          this.routineWork.routine = new Array<Routine>();
           this.step3 = "active";
+          this.routineWork.routine = new Array<Routine>();
         }
         else {
           this.toastr.error("Error.", "routine not registerd.");
@@ -140,7 +142,7 @@ export class FormDayRoutineComponent implements OnInit, AfterViewInit {
   public returnDayRoutine() : void {
     this.routineWork = new DayRoutine();
     this.action = "";
-    this.router.navigate(["dayRoutine/"]);
+    this.router.navigate(["dayRoutine"]);
   }
   
   //------------------------------------------------------------//
@@ -192,6 +194,7 @@ export class FormDayRoutineComponent implements OnInit, AfterViewInit {
       {
        this.routineWork.routine.push(name);
        this.step2 = "disable";
+       this.toastr.success("Confirmacion.","Rutina N° " + this.routineWork.routine.length + " agregada correctamente");
       }
   }
 

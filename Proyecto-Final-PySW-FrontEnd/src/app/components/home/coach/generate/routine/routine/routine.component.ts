@@ -4,6 +4,7 @@ import { Routine } from 'src/app/models/routine/routine';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { RoutineService } from 'src/app/services/routine/routine.service';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-routine',
@@ -14,7 +15,9 @@ export class RoutineComponent implements OnInit {
   public routines : Array<Routine>;
   constructor(
     private toastr : ToastrService,
-    private router : Router, private routineService : RoutineService) { 
+    private router : Router,
+    private routineService : RoutineService,
+    public loginService : LoginService) { 
 }
 
   ngOnInit(): void {
