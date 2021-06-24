@@ -10,8 +10,8 @@ import { FormTrainingComponent } from './components/home/coach/generate/training
 import { TrainingComponent } from './components/home/coach/generate/training/training/training.component';
 import { UserComponent } from './components/home/coach/generate/user/user.component';
 import { AssistanceComponent } from './components/home/coach/register/assistance/assistance.component';
-import { CoachTableComponent } from './components/home/coach/register/coach-table/coach-table.component';
-import { CoachComponent } from './components/home/coach/register/coach/coach.component';
+import { CoachComponent } from './components/home/coach/register/coach/coach/coach.component';
+import { FormCoachComponent } from './components/home/coach/register/coach/form-coach/form-coach.component';
 import { PaymentComponent } from './components/home/coach/register/payment/payment.component';
 import { StudentComponent } from './components/home/coach/register/student/student.component';
 import { StatisticComponent } from './components/home/coach/statistic/statistic.component';
@@ -29,11 +29,10 @@ const routes: Routes = [
   { path: 'payment', component : PaymentComponent },
   { path: 'user', component : UserComponent },
   { path: 'student', component : StudentComponent },
-  { path: 'coach', component : CoachComponent },
-  { path: 'coach/:id', component : CoachComponent },
-  { path: 'coachtable', component : CoachTableComponent },
   { path: 'assitance', component : AssistanceComponent },
   { path: 'statistic', component : StatisticComponent },
+  { path: 'coach', component : CoachComponent },
+  { path: 'coach/form/:id', component : FormCoachComponent },
   { path: 'routine', component : RoutineComponent },
   { path: 'routine/form/:id', component : FormRoutineComponent },
   { path: 'arrangement', component : ArrangementComponent },

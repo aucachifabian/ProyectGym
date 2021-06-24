@@ -68,3 +68,7 @@ section > * {
     text-align: center;
     width: 150px;
   }
+  
+  button:disabled {
+    opacity: 0.5;
+  }

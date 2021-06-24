@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CoachTableComponent } from './coach-table.component';
+import { FormCoachComponent } from './form-coach.component';
 
-describe('CoachTableComponent', () => {
-  let component: CoachTableComponent;
-  let fixture: ComponentFixture<CoachTableComponent>;
+describe('FormCoachComponent', () => {
+  let component: FormCoachComponent;
+  let fixture: ComponentFixture<FormCoachComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CoachTableComponent ]
+      declarations: [ FormCoachComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CoachTableComponent);
+    fixture = TestBed.createComponent(FormCoachComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

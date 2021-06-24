@@ -10,36 +10,39 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ChartsModule } from 'ng2-charts';
 
+//import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptorService } from './services/login/token-interceptor.service';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { RoutineComponent } from './components/home/coach/generate/routine/routine/routine.component';
 import { PaymentComponent } from './components/home/coach/register/payment/payment.component';
 import { AssistanceComponent } from './components/home/coach/register/assistance/assistance.component';
 import { StudentComponent } from './components/home/coach/register/student/student.component';
-import { FormDayRoutineComponent } from './components/home/coach/generate/day-routine/form-day-routine/form-day-routine.component';
-import { DayRoutineComponent } from './components/home/coach/generate/day-routine/day-routine/day-routine.component';
 import { StudentAssistenceComponent } from './components/home/student/student-assistence/student-assistence.component';
 import { StudentRoutineComponent } from './components/home/student/student-routine/student-routine.component';
 import { StudentPaymentComponent } from './components/home/student/student-payment/student-payment.component';
 import { LoginService } from './services/login/login.service';
 import { LoginComponent } from './components/home/login/login.component';
-import { ArrangementComponent } from './components/home/coach/generate/arrangement/arrangement/arrangement.component';
-import { FormArrangementComponent } from './components/home/coach/generate/arrangement/form-arrangement/form-arrangement.component';
-import { TrainingComponent } from './components/home/coach/generate/training/training/training.component';
-import { FormTrainingComponent } from './components/home/coach/generate/training/form-training/form-training.component';
 import { UserComponent } from './components/home/coach/generate/user/user.component';
 import { HomeComponent } from './components/home/home/home.component';
 import { StudentHomeComponent } from './components/home/student/student-home/student-home.component';
-import { FormRoutineComponent } from './components/home/coach/generate/routine/form-routine/form-routine.component';
-import { CoachComponent } from './components/home/coach/register/coach/coach.component';
-import { CoachTableComponent } from './components/home/coach/register/coach-table/coach-table.component';
 import { StatisticComponent } from './components/home/coach/statistic/statistic.component';
 
+import { ArrangementComponent } from './components/home/coach/generate/arrangement/arrangement/arrangement.component';
+import { FormArrangementComponent } from './components/home/coach/generate/arrangement/form-arrangement/form-arrangement.component';
+import { DayRoutineComponent } from './components/home/coach/generate/day-routine/day-routine/day-routine.component';
+import { FormDayRoutineComponent } from './components/home/coach/generate/day-routine/form-day-routine/form-day-routine.component';
+import { TrainingComponent } from './components/home/coach/generate/training/training/training.component';
+import { FormTrainingComponent } from './components/home/coach/generate/training/form-training/form-training.component';
+import { RoutineComponent } from './components/home/coach/generate/routine/routine/routine.component';
+import { FormRoutineComponent } from './components/home/coach/generate/routine/form-routine/form-routine.component';
+import { CoachComponent } from './components/home/coach/register/coach/coach/coach.component';
+import { FormCoachComponent } from './components/home/coach/register/coach/form-coach/form-coach.component';
 
-//import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TokenInterceptorService } from './services/login/token-interceptor.service';
+
+
 
 
 @NgModule({
@@ -47,27 +50,27 @@ import { TokenInterceptorService } from './services/login/token-interceptor.serv
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    RoutineComponent,
-    ArrangementComponent,
+    StudentHomeComponent,
     PaymentComponent,
     AssistanceComponent,
     StudentComponent,
-    DayRoutineComponent,
+    UserComponent,
     StudentAssistenceComponent,
     StudentRoutineComponent,
     StudentPaymentComponent,
     LoginComponent,
-    FormArrangementComponent,
-    FormTrainingComponent,
-    TrainingComponent,
-    UserComponent,
-    FormDayRoutineComponent,
     HomeComponent,
-    StudentHomeComponent,
+    StatisticComponent,
+    ArrangementComponent,
+    FormArrangementComponent,
+    TrainingComponent,
+    FormTrainingComponent,
+    DayRoutineComponent,
+    FormDayRoutineComponent,
+    RoutineComponent,
     FormRoutineComponent,
     CoachComponent,
-    CoachTableComponent,
-    StatisticComponent,
+    FormCoachComponent,
     
   ],
   imports: [

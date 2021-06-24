@@ -1,0 +1,69 @@
+<section class="container">
+    <div class="col-12 row">
+        <div class="col-12 col-md-3 px-5 my-5 px-md-0 px-lg-3 my-md-0">
+            <button class="col-12 btn btn-success" (click)="addNewCoach()">Add new Coach</button>
+        </div>
+
+        <div class="col-12 col-md-9 table-responsive text-center px-md-5">
+            <table class="col-12 table table-hover" [mfData]="coachs" #mf="mfDataTable" [mfRowsOnPage]="5">
+                <thead class="col-12">
+                    <tr class="col-12">
+                        <th>#</th>
+
+                        <th>
+                            <mfDefaultSorter by="dni">DNI</mfDefaultSorter>
+                        </th>
+
+                        <th>
+                            <mfDefaultSorter by="name">Name</mfDefaultSorter>
+                        </th>
+
+                        <th>
+                            <mfDefaultSorter by="surname">Surname</mfDefaultSorter>
+                        </th>
+
+                        <th>
+                            <mfDefaultSorter by="phone">Phone</mfDefaultSorter>
+                        </th>
+
+                        <th>
+                            <mfDefaultSorter by="email">Email</mfDefaultSorter>
+                        </th>
+
+                        <th>
+                            <mfDefaultSorter by="Birth Date">Birth Date</mfDefaultSorter>
+                        </th>
+
+                        <th>
+                            <mfDefaultSorter></mfDefaultSorter>
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let item of coachs index as i">
+                        <th>{{i+1}}</th>
+                        <td>{{item.dni}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.surname}}</td>
+                        <td>{{item.phone}}</td>
+                        <td>{{item.email}}</td>
+                        <td>{{item.birth_date  | date: 'dd/MM/yyyy'}}</td>
+                        <td>
+                            <button class="col-12 btn btn-success my-1" (click)="updateCoach(item)">update</button>
+                            <button class="col-12 btn btn-danger my-1" (click)="deleteCoach(item._id)">delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <td>
+                            <mfBootstrapPaginator></mfBootstrapPaginator>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</section>
