@@ -1,18 +1,17 @@
-.form-select{
+.form-select {
     width: 50%;
-   
 }
 
-.assistence{
+.assistence {
     background-color: #0E6F7A;
     margin-bottom: 30px;
     height: 110px;
     width: 30%;
     padding: 10px;
-
 }
-.btn{
-    background-color: #0E6F7A;
+
+.btn {
+    background-color: black;
 }
 
 .red {
@@ -21,4 +20,27 @@
 
 .blue {
     outline: blue 1px solid;
+}
+
+
+/**********************centro***********/
+
+.test {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    background-image: linear-gradient(white, red, black)
+}
+
+
+/********************Button********************/
+
+button {
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    background-image: linear-gradient(white, red, black);
 }

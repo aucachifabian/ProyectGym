@@ -1,55 +1,55 @@
-
-  
-  *:focus {
+*:focus {
     outline: none;
-  }
-  
-  .red {
+}
+
+.red {
     outline: red 1px solid;
-  }
-  
-  .blue {
+}
+
+.blue {
     outline: blue 1px solid;
-  }
-  /********************Input********************/
-  
-  input {
+}
+
+
+/********************Input********************/
+
+input {
     border: none;
     color: #0d0d0d;
     padding: 5px;
     font-size: 15px;
     border: 2px solid #f6f6f6;
     border-radius: 5px;
-  }
-  
-  input:focus {
+}
+
+input:focus {
     border-width: 2px;
     border-color: #39ace7;
-  }
-  
-  /********************Label********************/
-  
-  label {
+}
+
+
+/********************Label********************/
+
+label {
     color: #808080;
-  }
-  
-  /********************Button********************/
-  
-  button {
-    background-color: #56baed;
+}
+
+
+/********************Button********************/
+
+button {
     border: none;
     color: white;
     padding: 10px 10px;
     font-size: 15px;
-    box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
     border-radius: 5px;
-  }
-  
-  button:hover {
+    background-image: linear-gradient(white, red, black);
+}
+
+button:hover {
     background-color: #39ace7;
-  }
-  
-  button:active {
+}
+
+button:active {
     transform: scale(0.97);
-  }
-  
+}

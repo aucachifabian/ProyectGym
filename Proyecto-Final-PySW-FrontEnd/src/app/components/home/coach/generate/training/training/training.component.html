@@ -1,4 +1,4 @@
-<section class="container">
+<section class="fon container">
     <div class="col-12 row">
         <!-------------->
         <!--Button Add-->
@@ -41,18 +41,18 @@
                         <td class="col-2">{{t.name}}</td>
                         <td class="col-2">{{t.video}}</td>
                         <td class="col-2">
-                            <img [src]="t.img" alt="img"/>
+                            <img [src]="t.img" alt="img" />
                         </td>
                         <td class="col-1">
                             <button class="white-light" (click)="editTraining(t._id)">
                                 <img class="icon" src="../../../../../../../assets/imgSVG/edit.svg" alt=""/>
                             </button>
-                        </td>   
+                        </td>
                         <td class="col-1">
                             <button class="red-light " (click)="deleteTraining(t._id)">
                                 <img class="icon" src="../../../../../../../assets/imgSVG/x.svg" alt=""/>
                             </button>
-                        </td>          
+                        </td>
                     </tr>
                 </tbody>
 
