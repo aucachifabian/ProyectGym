@@ -6,9 +6,9 @@ const router = express.Router();
 
 router.post('/', autCtrl.verifyToken, studentCtrl.createStudent);
 router.get('/', autCtrl.verifyToken, studentCtrl.getStudents);
-router.get('/:id', studentCtrl.getStudentParams);
-router.get('/dni/:dni', studentCtrl.getStudentByDni);
-router.delete('/:id', studentCtrl.deleteStudent);
-router.put('/', studentCtrl.modifyStudent);
+router.get('/:id', autCtrl.verifyToken, studentCtrl.getStudentParams);
+router.get('/dni/:dni', autCtrl.verifyToken, studentCtrl.getStudentByDni);
+router.delete('/:id', autCtrl.verifyToken, studentCtrl.deleteStudent);
+router.put('/', autCtrl.verifyToken, studentCtrl.modifyStudent);
 
 module.exports = router;

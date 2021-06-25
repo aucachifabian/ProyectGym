@@ -1,13 +1,15 @@
 const paymentCtrl = require('../controllers/payment.controller');
+const autCtrl = require('../controllers/auth.controller');
+
 
 const express = require('express');
 const router = express.Router();
 
-router.post('/'     , paymentCtrl.createPayment);
-router.get('/'      , paymentCtrl.getPayments);
-router.get('/:id'   , paymentCtrl.getPaymentParams);
-router.get('/id/:student'   , paymentCtrl.getPaymentByIdStudent);
-router.delete('/:id', paymentCtrl.deletePayment);
-router.put('/'   , paymentCtrl.modifyPayment);
+router.post('/'     , autCtrl.verifyToken, paymentCtrl.createPayment);
+router.get('/'      , autCtrl.verifyToken, paymentCtrl.getPayments);
+router.get('/:id'   , autCtrl.verifyToken, paymentCtrl.getPaymentParams);
+router.get('/id/:student'   , autCtrl.verifyToken, paymentCtrl.getPaymentByIdStudent);
+router.delete('/:id', autCtrl.verifyToken, paymentCtrl.deletePayment);
+router.put('/'   , autCtrl.verifyToken, paymentCtrl.modifyPayment);
 
 module.exports = router;
