@@ -1,68 +1,64 @@
-<<<<<<< HEAD
 <section class="container" *ngIf="this.loginService.isLogged() == 'coach'">
-=======
-<section class=" trasf container">
->>>>>>> 91cd3a5c6ff20fe98d705e3053268119afd9c4b1
-    <div class="col-12 row">
-        <div class="col-6">
-            <form class="col-12" #formSearch="ngForm">
-                <div class="col-12 my-3">
-                    <label class="col-12" for="id_type_user">Type user</label>
-                    <select class="col-12" name="type_user" id="id_type_user" [(ngModel)]="value" required #type_user="ngModel">
+
+    <section class=" trasf container">
+
+        <div class="col-12 row">
+            <div class="col-6">
+                <form class="col-12" #formSearch="ngForm">
+                    <div class="col-12 my-3">
+                        <label class="col-12" for="id_type_user">Type user</label>
+                        <select class="col-12" name="type_user" id="id_type_user" [(ngModel)]="value" required #type_user="ngModel">
                     <option value="coach">Coach</option>
                     <option value="student">Student</option>
                 </select>
 
-                    <div class="col-12 alert alert-danger" *ngIf="type_user.invalid && (type_user.dirty || type_user.touched)">
-                        <div *ngIf="type_user.errors.required">Type user is required</div>
+                        <div class="col-12 alert alert-danger" *ngIf="type_user.invalid && (type_user.dirty || type_user.touched)">
+                            <div *ngIf="type_user.errors.required">Type user is required</div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-12 my-3">
-                    <label class="col-12" for="id_dni">Dni</label>
-                    <input class="col-12" type="text" minlength="6" name="dni" id="id_dni" [(ngModel)]="dni" required #document="ngModel" />
+                    <div class="col-12 my-3">
+                        <label class="col-12" for="id_dni">Dni</label>
+                        <input class="col-12" type="text" minlength="6" name="dni" id="id_dni" [(ngModel)]="dni" required #document="ngModel" />
 
-                    <div class="col-12 alert alert-danger" *ngIf="document.invalid && (document.dirty || document.touched)">
-                        <div *ngIf="document.errors.required">enter DNI</div>
-                        <div *ngIf="document.errors.minlength">Must be 6 characters</div>
+                        <div class="col-12 alert alert-danger" *ngIf="document.invalid && (document.dirty || document.touched)">
+                            <div *ngIf="document.errors.required">enter DNI</div>
+                            <div *ngIf="document.errors.minlength">Must be 6 characters</div>
+                        </div>
                     </div>
-                </div>
 
-                <div class="col-12 my-3 text-center">
-                    <button class="button" [disabled]="formSearch.invalid" (click)="search()">Search</button>
-                </div>
-            </form>
+                    <div class="col-12 my-3 text-center">
+                        <button class="button" [disabled]="formSearch.invalid" (click)="search()">Search</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-6">
+                <form class="col-12" #formUser="ngForm">
+                    <div class="col-12 my-3">
+                        <label class="col-12" for="id_user_name">User name</label>
+                        <input class="col-12" type="text" name="user_name" id="id_user_name" disabled [(ngModel)]="user.user_name" />
+                    </div>
+
+                    <div class="col-12 my-3">
+                        <label class="col-12" for="id_password">Password</label>
+                        <input class="col-12" type="text" name="password" id="id_password" disabled [(ngModel)]="user.password" />
+                    </div>
+
+                    <div class="col-12 my-3 text-center">
+                        <button class="col-12" class="button" [disabled]="!btnSearch" (click)="getPassword()">Get Password</button>
+                    </div>
+
+                    <div class="col-12 my-3 text-center">
+                        <button class="button" [disabled]="!btnPassword" (click)="saveUser(formUser,formSearch)">Save new User</button>
+                    </div>
+                </form>
+            </div>
         </div>
-
-        <div class="col-6">
-            <form class="col-12" #formUser="ngForm">
-                <div class="col-12 my-3">
-                    <label class="col-12" for="id_user_name">User name</label>
-                    <input class="col-12" type="text" name="user_name" id="id_user_name" disabled [(ngModel)]="user.user_name" />
-                </div>
-
-                <div class="col-12 my-3">
-                    <label class="col-12" for="id_password">Password</label>
-                    <input class="col-12" type="text" name="password" id="id_password" disabled [(ngModel)]="user.password" />
-                </div>
-
-                <div class="col-12 my-3 text-center">
-                    <button class="col-12" class="button" [disabled]="!btnSearch" (click)="getPassword()">Get Password</button>
-                </div>
-
-                <div class="col-12 my-3 text-center">
-                    <button class="button" [disabled]="!btnPassword" (click)="saveUser(formUser,formSearch)">Save new User</button>
-                </div>
-            </form>
-        </div>
-    </div>
+    </section>
+    <<<<<<< HEAD <section class="col-12 text-center" *ngIf="this.loginService.isLogged() != 'coach'">
+        <h1 class="col-12">PAGE NOT FOUND</h1>
+        <h6 class="col-12">We're sorry. The page you are looking for cannot be found.</h6>
+        <img class="col-12" src="../../../../../assets/seguridad.jpg" alt="seguridad">
 </section>
-<<<<<<< HEAD
-
-<section class="col-12 text-center" *ngIf="this.loginService.isLogged() != 'coach'">
-    <h1 class="col-12">PAGE NOT FOUND</h1>
-    <h6 class="col-12">We're sorry. The page you are looking for cannot be found.</h6>
-    <img class="col-12" src="../../../../../assets/seguridad.jpg" alt="seguridad">
-</section>
-=======
->>>>>>> 91cd3a5c6ff20fe98d705e3053268119afd9c4b1
+======= >>>>>>> 91cd3a5c6ff20fe98d705e3053268119afd9c4b1

@@ -60,6 +60,14 @@ button:active {
 }
 
 .img-plan {
-  width: 150px;
-  height: 150px;
+    width: 150px;
+    height: 150px;
+}
+
+.test {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    background-image: linear-gradient(white, red, black)
 }
