@@ -29,7 +29,7 @@ import { UserComponent } from './components/home/coach/generate/user/user.compon
 import { HomeComponent } from './components/home/home/home.component';
 import { StudentHomeComponent } from './components/home/student/student-home/student-home.component';
 import { StatisticComponent } from './components/home/coach/statistic/statistic.component';
-
+import { FacebookModule } from 'ngx-fb';
 import { ArrangementComponent } from './components/home/coach/generate/arrangement/arrangement/arrangement.component';
 import { FormArrangementComponent } from './components/home/coach/generate/arrangement/form-arrangement/form-arrangement.component';
 import { DayRoutineComponent } from './components/home/coach/generate/day-routine/day-routine/day-routine.component';
@@ -41,6 +41,7 @@ import { FormRoutineComponent } from './components/home/coach/generate/routine/f
 import { CoachComponent } from './components/home/coach/register/coach/coach/coach.component';
 import { FormCoachComponent } from './components/home/coach/register/coach/form-coach/form-coach.component';
 import { NgxBarcodeModule } from 'ngx-barcode';
+import { PostingComponent } from './components/posting/posting/posting.component';
 
 
 
@@ -72,7 +73,8 @@ import { NgxBarcodeModule } from 'ngx-barcode';
     FormRoutineComponent,
     CoachComponent,
     FormCoachComponent,
-    
+    PostingComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -85,6 +87,7 @@ import { NgxBarcodeModule } from 'ngx-barcode';
     BrowserAnimationsModule,
     GoogleMapsModule,
     ChartsModule,
+    FacebookModule.forRoot(),
     NgxBarcodeModule,
     ToastrModule.forRoot({
       timeOut: 1500,
@@ -103,5 +106,5 @@ import { NgxBarcodeModule } from 'ngx-barcode';
     }
   ],
   bootstrap: [AppComponent]
-}) 
+})
 export class AppModule { }

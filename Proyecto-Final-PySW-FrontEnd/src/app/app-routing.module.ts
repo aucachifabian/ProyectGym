@@ -1,3 +1,4 @@
+import { PostingComponent } from './components/posting/posting/posting.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ArrangementComponent } from './components/home/coach/generate/arrangement/arrangement/arrangement.component';
@@ -45,8 +46,9 @@ const routes: Routes = [
   { path: 'student/assistance/:id', component : StudentAssistenceComponent },
   { path: 'student/payment/:id', component : StudentPaymentComponent },
   { path: 'student/routine/:id', component : StudentRoutineComponent },
+  { path: 'posting', component : PostingComponent},
   { path: '**', redirectTo: '/' }
-]; 
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
