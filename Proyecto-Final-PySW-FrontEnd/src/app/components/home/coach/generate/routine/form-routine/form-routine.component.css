@@ -6,7 +6,7 @@
   *:focus {
     outline: none;
   }
-  
+
   .red {
     outline: red 1px solid;
   }
@@ -266,4 +266,15 @@ span.round-tab i{
 .term-check{
 	font-size: 14px;
 	font-weight: 400;
+}
+
+.card-animation div img {
+  height: 160px;
+}
+
+.cards :hover{
+  background-color: rgb(5, 39, 39);
+  padding: 0px;
+  margin: 0px;
+  color: #ddd !important;
 }

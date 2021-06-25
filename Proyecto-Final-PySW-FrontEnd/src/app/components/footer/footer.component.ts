@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { Router } from '@angular/router'
 
 
 @Component({
@@ -32,7 +33,7 @@ export class FooterComponent implements OnInit {
 
   title = "gmaps"
 
-  constructor() { }
+  constructor(public router : Router) { }
 
   ngOnInit(): void {
 

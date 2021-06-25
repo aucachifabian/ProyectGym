@@ -116,23 +116,72 @@
 
 
 
-    <div *ngIf="!form" class="col-11 mt-2 m-auto p-3 row">
-        <div class="col-lg-2 col-md-2 col-sm-6 col-10 mx-auto" *ngFor="let t of trainings">
-            <div class="btn card mt-3 col-11 mx-auto ms-1 px-0 card-animation" (click)="addTraining(t)">
-                <div class="col-10 mx-auto mt-2">
-                    <h5 class="card-title">{{t.type}}</h5>
-                    <img class="img-thumbnail card-img-top" [src]="t.img" alt="img" />
-                    <div class="card-body">
-                        <p class="card-text card-title">{{t.name}}</p>
-                        <!-- <a class="btn mb-2 mt-2 px-4 float-end btn-class" >
-                            select
-                        </a>--->
+    <div *ngIf="!form" class="col-12 mt-2 m-auto p-3 row carousel">
+        <div class="col-12 mx-auto row">
+            <h2 class="col-12 text-center">OUR TRAININGS</h2>
+            <div class="col-12 row mx-auto row my-3 text-center">
+                <div class="col-1 d-flex">
+                    <button class="col-12 border-0 br-100 m-auto" type="button" (click)="next('Left')">
+                        <img class="col-6" src="assets/imgSVG/arrow-left.svg" alt="Left" />
+                    </button>
+                </div>
+
+                <div class="col-3 d-flex">
+                    <div class="col-10 mx-auto cards">
+                        <div class="btn card mt-3 col-11 mx-auto ms-1 px-0 card-animation" (click)="addTraining(t)">
+                            <div class="col-10 mx-auto mt-2">
+                                <h5 class="card-title">{{trainings[index].type}}</h5>
+                                <img class="img-thumbnail h-200 card-img-top img-fluid" [src]="trainings[index].img" alt="img" />
+                                <div class="card-body">
+                                    <p class="card-text card-title">{{trainings[index].name}}</p>
+                                    <!-- <a class="btn mb-2 mt-2 px-4 float-end btn-class" >
+                                        select
+                                    </a>--->
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </div>
+                <div class="col-3 d-flex">
+                    <div class="col-10 mx-auto cards">
+                        <div class="btn card mt-3 col-11 mx-auto ms-1 px-0 card-animation" (click)="addTraining(t)">
+                            <div class="col-10 mx-auto mt-2">
+                                <h5 class="card-title">{{ trainings[ calcNext(index) ].type }}</h5>
+                                <img class="img-thumbnail h-200 card-img-top" [src]="trainings[ calcNext(index) ].img" alt="img" />
+                                <div class="card-body">
+                                    <p class="card-text card-title">{{ trainings[ calcNext(index) ].name}}</p>
+                                    <!-- <a class="btn mb-2 mt-2 px-4 float-end btn-class" >
+                                        select
+                                    </a>--->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 d-flex">
+                    <div class="col-10 mx-auto cards">
+                        <div class="btn card mt-3 col-11 mx-auto ms-1 px-0 card-animation" (click)="addTraining(t)">
+                            <div class="col-10 mx-auto mt-2">
+                                <h5 class="card-title">{{ trainings[ calcNext(index+1) ].type }}</h5>
+                                <img class="img-thumbnail h-200 card-img-top" [src]="trainings[ calcNext(index+1) ].img" alt="img" />
+                                <div class="card-body">
+                                    <p class="card-text card-title">{{ trainings[ calcNext(index+1) ].name}}</p>
+                                    <!-- <a class="btn mb-2 mt-2 px-4 float-end btn-class" >
+                                        select
+                                    </a>--->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1 d-flex">
+                    <button class="col-12 border-0 br-100 m-auto" type="button" (click)="next('Right')">
+                        <img class="col-6" src="assets/imgSVG/arrow-right.svg" alt="Right" />
+                    </button>
                 </div>
             </div>
         </div>
-
-
+        
 
         <div class="row mt-3">
             <hr> 
@@ -153,6 +202,10 @@
             </div>
         </div>
     </div>  
+
+
+
+
 </section>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

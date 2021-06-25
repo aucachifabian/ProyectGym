@@ -24,6 +24,7 @@ export class FormRoutineComponent implements OnInit {
    public step1:  String;
    public step2:  String;
    public step3:  String;
+   public index: number;
   //------------------------------------------------------------//
 
   constructor(private toastr : ToastrService,
@@ -33,16 +34,17 @@ export class FormRoutineComponent implements OnInit {
               private routineService : RoutineService,
               public loginService : LoginService
               ) { 
+              this.getTraining();
              this.step1 = "disable";
               this.step2 = "disable";
               this.step3 = "disable";
-            
+              this.form = true;
+              this.index = 0;
             }
 
   //------------------------------------------------------------//
 
   ngOnInit(): void {
-    this.form = true;
      this.activateRoute.params.subscribe(
       params => {
         this.routineWork = new Routine();
@@ -72,6 +74,43 @@ export class FormRoutineComponent implements OnInit {
     );
   }
   
+  next(direction)
+  {
+    if(direction=="Left")
+    {  
+      if(this.index==0)
+      {
+        this.index = this.trainings.length;
+      }
+      else
+      {
+         this.index = this.index-1;
+      }
+    }
+    else
+    {
+      if(this.index==this.trainings.length)
+      {
+        this.index=0;
+      }
+      else
+      {
+         this.index = this.index+1;
+      }
+    }
+  }
+
+  calcNext(index)
+  {
+    if(index>=this.trainings.length)
+    {
+      return index-this.trainings.length;
+    }
+    else
+    {
+        return index+1;
+    }
+  }
 
   save(formRoutine : NgForm) : void {
         let a;  
@@ -135,9 +174,9 @@ export class FormRoutineComponent implements OnInit {
   }
   
 
-  public getTraining() : void {
+  public async getTraining() : Promise<void> {
     this.trainings = new Array<Training>();
-    this.trainingService.getTrainings().subscribe(
+    await this.trainingService.getTrainings().subscribe(
       result => {
         result.forEach(element => {
           let vTraining : Training = new Training();

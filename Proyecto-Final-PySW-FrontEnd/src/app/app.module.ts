@@ -103,5 +103,5 @@ import { NgxBarcodeModule } from 'ngx-barcode';
     }
   ],
   bootstrap: [AppComponent]
-})
+}) 
 export class AppModule { }

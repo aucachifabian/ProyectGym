@@ -10,20 +10,26 @@
     <!---------------->
     <!-----Table------>
     <!---------------->
-    <div class="col-12 col-md-9 table-responsive px-md-5">
-        <table class="col-12 table table-hover text-center">
+    <div class="col-12 col-md-9 table-responsive px-md-5" >
+        <table class="col-12 table table-hover text-center" [mfData]="dayRoutines" #mf="mfDataTable" [mfRowsOnPage]="6">
             <thead class="col-12">
                 <tr class="col-12">
-                    <th class="col-2">Objetivo</th>
-                    <th class="col-2">Intensidad</th>
-                    <th class="col-2">Amount_Routines</th>
+                    <th class="col-2">
+                        <mfDefaultSorter by="dni">Objective</mfDefaultSorter>
+                    </th>
+                    <th class="col-2">
+                        <mfDefaultSorter by="dni">Intensity</mfDefaultSorter>
+                    </th>
+                    <th class="col-2">
+                        <mfDefaultSorter by="dni">Amount_Routine</mfDefaultSorter>
+                    </th>
                     <th class="col-1"></th>
                     <th class="col-1"></th>
                 </tr>
             </thead>
 
             <tbody>
-                <tr class="col-12" *ngFor="let a of dayRoutines">
+                <tr class="col-12" *ngFor="let a of mf.data">
                     <td class="col-2">{{a.objective}}</td>
                     <td class="col-2">{{a.intensity}}</td>
                     <td class="col-2">{{a.day}}</td>
@@ -35,6 +41,14 @@
                     </td>          
                 </tr>
             </tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                        <mfBootstrapPaginator></mfBootstrapPaginator>
+                        <h6> Total Routines : {{ dayRoutines.length }}</h6>
+                    </td>
+                </tr>
+            </tfoot>
         </table>
     </div>
 </section>
@@ -42,5 +56,5 @@
 <section class="col-12 text-center" *ngIf="this.loginService.isLogged() != 'coach'">
     <h1 class="col-12">PAGE NOT FOUND</h1>
     <h6 class="col-12">We're sorry. The page you are looking for cannot be found.</h6>
-    <img class="col-12" src="../../../../../assets/seguridad.jpg" alt="seguridad">
+    <img class="col-12" src="assets/seguridad.jpg" alt="seguridad">
 </section>

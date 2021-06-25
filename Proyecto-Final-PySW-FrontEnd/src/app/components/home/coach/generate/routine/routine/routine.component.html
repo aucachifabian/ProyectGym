@@ -11,28 +11,63 @@
     <!-----Table------>
     <!---------------->
     <div class="col-12 col-md-9 table-responsive px-md-5">
-        <table class="col-12 table table-hover text-center">
+        <table class="col-12 table table-hover text-center" [mfData]="routines" #mf="mfDataTable" [mfRowsOnPage]="3">
             <thead class="col-12">
                 <tr class="col-12">
-                    <th class="col-2">Tipo</th>
+                    
+                    <th class="col-1">      
+                        <mfDefaultSorter by="dni">Tipo</mfDefaultSorter>
+                    </th>
+                    <th class="col-2">      
+                        <mfDefaultSorter by="dni">Repeticiones</mfDefaultSorter>
+                    </th>
+                    
+                    <th class="col-2">      
+                        <mfDefaultSorter by="dni">Series</mfDefaultSorter>
+                    </th>
+
+                    
+                    <th class="col-2">      
+                        <mfDefaultSorter by="dni">Descanso</mfDefaultSorter>
+                    </th>
+
+                    
+                    <th class="col-2">      
+                        <mfDefaultSorter by="dni">Intensidad</mfDefaultSorter>
+                    </th>
+
+                    
+                    <th class="col-3">      
+                        <mfDefaultSorter by="dni">Ejercicios</mfDefaultSorter>
+                    </th>
+
+                    
+                    <th class="col-1">      
+                        <mfDefaultSorter by="dni"></mfDefaultSorter>
+                    </th>
+                    
+                    <th class="col-1">      
+                        <mfDefaultSorter by="dni"></mfDefaultSorter>
+                    </th>
+                    <!--
                     <th class="col-2">Repeticiones</th>
                     <th class="col-2">Series</th>
                     <th class="col-2">Descanso</th>
                     <th class="col-2">Intensidad</th>
                     <th class="col-2">Ejercicios</th>
                     <th class="col-1"></th>
-                    <th class="col-1"></th>
+                    <th class="col-1"></th>-->
                 </tr>
             </thead>
 
             <tbody>
-                <tr class="col-12" *ngFor="let a of routines">
-                    <td class="col-2">{{a.type}}</td>
+                <tr class="col-12" *ngFor="let a of mf.data">
+                    <td class="col-1">{{a.type}}</td>
                     <td class="col-2">{{a.repetition}}</td>
                     <td class="col-1">{{a.serie}}</td>
                     <td class="col-2">{{a.rest}}</td>
                     <td class="col-2">{{a.intensity}}</td>
-                    <td class="col-2"><p *ngFor="let b of a.training"> {{ b.name }},</p></td>
+                    <td class="col-3"><p *ngFor="let b of a.training"> {{ b.name }},</p></td>
                     <td class="col-1">
                         <button (click)="editRoutine(a._id)">Edit</button>
                     </td>   
@@ -41,6 +76,14 @@
                     </td>          
                 </tr>
             </tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                        <mfBootstrapPaginator></mfBootstrapPaginator>
+                        <h6> Total Routines : {{ routines.length }}</h6>
+                    </td>
+                </tr>
+            </tfoot>
         </table>
     </div>
     <!--<button class="btn btn-danger">Descargar Rutina Pdf</button>-->

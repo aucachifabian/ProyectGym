@@ -2,11 +2,7 @@
 
     <section class=" fon container">
         <div class="col-12 row">
-            <div class="col-12 col-md-3 px-5 my-5 px-md-0 px-lg-3 my-md-0">
-                <button class="col-12 btn btn-primary" (click)="addNewCoach()">Add new Coach</button>
-            </div>
-
-            <div class="col-12 col-md-9 table-responsive text-center px-md-5">
+            <div class="col-10 mx-auto table-responsive text-center mt-5 px-md-5">
                 <table class="col-12 table table-hover" [mfData]="coachs" #mf="mfDataTable" [mfRowsOnPage]="5">
                     <thead class="col-12">
                         <tr class="col-12">
@@ -37,7 +33,9 @@
                             </th>
 
                             <th>
-                                <mfDefaultSorter></mfDefaultSorter>
+                                <mfDefaultSorter><div class="col-12 mx-auto">
+                                    <button class="col-12 btn btn-primary" (click)="addNewCoach()">Add new Coach</button>
+                                </div></mfDefaultSorter>
                             </th>
                         </tr>
                     </thead>

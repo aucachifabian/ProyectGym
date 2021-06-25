@@ -1,11 +1,38 @@
-.red {
-    outline: red 1px solid;
+nav{
+    background-color: rgb(5, 39, 39);
+    width: 100%; 
 }
 
-.blue {
-    outline: blue 1px solid;
+.dropdown-menu{
+    background-color: rgba(5, 39, 39, 0.925);
+    
+}
+.dropdown-item
+{
+    color: white !important;
+}
+.dropdown-item:hover{
+    color:black !important;
 }
 
-.fondo {
-    background-image: linear-gradient(white, red)
+.icon{
+    width: 80px;
+}
+
+.icon2{
+    width: 80px;
+}
+
+.nav-item
+{
+  margin-left: 15px;
+}
+
+.nav-item a{
+  color :rgb(214, 214, 214) !important;
+  font-weight: bold;
+}
+
+.nav-item a:hover{
+    color :rgb(209, 154, 3) !important;
 }
