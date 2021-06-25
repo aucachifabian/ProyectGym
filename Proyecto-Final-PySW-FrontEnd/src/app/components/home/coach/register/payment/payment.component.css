@@ -8,9 +8,13 @@ section > * {
 }
 
 .contenedor{
-  background-color: whitesmoke;
+  background-color: rgba(161, 192, 194, 0.733);
   border-radius: 20px 20px 20px 20px;
   border: 2px solid rgb(0, 0, 5);
+}
+
+aside button:hover{
+ background-color: rgb(70, 143, 189);
 }
 
 .container-pay{
@@ -19,7 +23,7 @@ section > * {
 }
 
 .total-tr{
-  background-color: darkgrey;
+  background-color: rgba(169, 169, 169, 0.089);
 }
 
 button {
@@ -39,10 +43,6 @@ button {
 
 }
 
-  
-  button:hover{
-    background-color: #39ace7;
-  }
 
   button:disabled{
     opacity: 0.5;

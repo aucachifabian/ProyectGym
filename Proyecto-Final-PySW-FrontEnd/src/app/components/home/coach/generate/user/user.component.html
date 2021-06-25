@@ -1,6 +1,11 @@
-<section class="container" *ngIf="this.loginService.isLogged() == 'coach'">
-    <div class="col-12 row">
-        <div class="col-6">
+<section class="container min-vh-100" *ngIf="this.loginService.isLogged() == 'coach'">
+    <div class="col-10 mx-auto row pt-3 mb-4 mt-3" id="formUser">
+        <div class="col-12 mt-2 mb-3">
+            <h3 class="mx-auto text-center">
+                User registration form
+            </h3>
+        </div>
+        <div class="col-6 mt-2">
             <form class="col-12" #formSearch="ngForm">
                 <div class="col-12 my-3">
                     <label class="col-12" for="id_type_user">Type user</label>
@@ -30,7 +35,7 @@
             </form>
         </div>
 
-        <div class="col-6">
+        <div class="col-6 mt-2">
             <form class="col-12" #formUser="ngForm">
                 <div class="col-12 my-3">
                     <label class="col-12" for="id_user_name">User name</label>
@@ -51,11 +56,46 @@
                 </div>
             </form>
         </div>
+        <div class="row col-8 mx-auto">
+            <div class="col-xl-4 col-md-4 col-sm-6 col-12 mb-5">
+                <div class="card">
+                    <img src="assets/imgicon/cur1.jpg" width="200" height="300" class="card-img-top img-student" alt="...">
+                    <div class="card-body">
+                        <h4 class="titulo">Gratuito</h4>
+    
+                        <p class="card-text">Certificados Oficiales .- </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-4 col-sm-6 col-12 mb-5">
+                <div class="card">
+                    <img src="assets/imgicon/cur2.jpg" width="200" height="300" class="card-img-top img-student" alt="...">
+                    <div class="card-body">
+    
+                        <h4 class="titulo">Descuento por planilla</h4>
+    
+                        <p class="card-text">Con certificados de aprobación.-</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-4 col-sm-6 col-12 mb-5">
+                <div class="card">
+                    <img src="assets/imgicon/cur3.jpg" width="200" height="300" class="card-img-top img-student" alt="...">
+                    <div class="card-body">
+    
+                        <h4 class="titulo">Gratuito</h4>
+    
+                        <p class="card-text">Transmitido por You Tuve .-</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
 </section>
 
 <section class="col-12 text-center" *ngIf="this.loginService.isLogged() != 'coach'">
         <h1 class="col-12">PAGE NOT FOUND</h1>
         <h6 class="col-12">We're sorry. The page you are looking for cannot be found.</h6>
-        <img class="col-12" src="../../../../../assets/seguridad.jpg" alt="seguridad">
+        <img class="col-12" src="assets/seguridad.jpg" alt="seguridad">
 </section>
