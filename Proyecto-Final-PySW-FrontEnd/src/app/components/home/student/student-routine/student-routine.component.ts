@@ -51,15 +51,11 @@ export class StudentRoutineComponent implements OnInit {
 
   /*****************************************************/
 
- 
-
-  /*****************************************************/
-
   private async getStudent(id : string) : Promise<void> {
     await this.studentService.getStudent(id).subscribe(
       async result => {
         this.amount_day = result.arrangement.amount_day;
-        this.getDayRoutine(result.day_routine);
+        this.getDayRoutine(result.day_routine._id);
       },
 
       error => {
