@@ -11,7 +11,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse col-8" id="navbarSupportedContent">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav nav-links">
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" [routerLink]="['arrangement']">Arrangement</a>
                 </li>
@@ -56,6 +56,41 @@
                     </ul>
                   </li>
 
+            </ul>
+        </div>
+
+           </div>
+            <div class="col-3 row">
+                <h6 class="col-8 text-white text-end fw-bold"> {{loginService.isLogged() | titlecase}} {{loginService.isPerson()}}</h6>
+                <button class="col-3 btn float-end btn-danger" [routerLink]="['Login']" (click)="logout()">(Exit)</button>
+            </div>
+    </div>
+</nav>
+
+
+<!---------------------------------------------------------------->
+<!------------------------ STUDENT --------------------------------->
+<!---------------------------------------------------------------->
+<nav *ngIf="loginService.isLogged() == 'student' && router.url != '/login' " class="navbar navbar-expand-md navbar-dark bg-gradient">
+    <div class="container-fluid row">
+
+        <div class="col-7 row ">
+        <img class="icon col-4" style="width: 100px;" src="assets/img/logo.png">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse col-8" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-links">
+                <li class="nav-item">
+                    <a class="nav-link btn" aria-current="page" (click)="checkAssistance()"> assitance</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn" aria-current="page" (click)="checkPayment()"> Payments</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn" aria-current="page" (click)="checkRoutine()"> Routines</a>
+                </li>
             </ul>
         </div>
 
