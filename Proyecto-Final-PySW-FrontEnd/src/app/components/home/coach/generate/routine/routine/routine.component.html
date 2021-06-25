@@ -3,7 +3,7 @@
     <!-------------->
     <!--Button Add-->
     <!-------------->
-    <div class="col-12 col-md-3 d-flex px-5 my-5 px-md-0 px-lg-3 my-md-0">
+    <div class="col-12 col-md-3 px-5 my-5 px-md-0 px-lg-3 my-md-0">
         <button class="col-12 m-auto" (click)="addNewRoutine()">Add new routine</button>
     </div>
 
@@ -43,9 +43,9 @@
             </tbody>
         </table>
     </div>
-    
     <!--<button class="btn btn-danger">Descargar Rutina Pdf</button>-->
 </section>
+
 <section class="col-12 text-center" *ngIf="this.loginService.isLogged() != 'coach'">
     <h1 class="col-12">PAGE NOT FOUND</h1>
     <h6 class="col-12">We're sorry. The page you are looking for cannot be found.</h6>

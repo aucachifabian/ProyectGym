@@ -48,7 +48,7 @@ button {
     padding: 10px 10px;
     font-size: 15px;
     border-radius: 5px;
-    background-image: linear-gradient(white, red, black);
+    background: #079ae4;
 }
 
 button:hover {
@@ -62,12 +62,4 @@ button:active {
 .img-plan {
     width: 150px;
     height: 150px;
-}
-
-.test {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column-reverse;
-    background-image: linear-gradient(white, red, black)
 }

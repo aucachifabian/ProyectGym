@@ -1,16 +1,11 @@
 <section class="container" *ngIf="this.loginService.isLogged() == 'coach'">
     <div class="col-12 row">
-        <!-------------->
-        <!--Button Add-->
-        <!-------------->
-        <div class="col-12 col-md-3 px-5 my-5 px-md-0 px-lg-3 my-md-0">
+
+        <div class="col-2">
             <button class="col-12 blue-light" (click)="addNewTraining()">Add new Training</button>
         </div>
 
-        <!---------------->
-        <!-----Table------>
-        <!---------------->
-        <div class="col-12 col-md-9 table-responsive text-center px-md-5">
+        <div class="col-10 table-responsive text-center">
             <table class="col-12 table table-hover" [mfData]="trainings" #mf="mfDataTable" [mfRowsOnPage]="5">
                 <thead class="col-12">
                     <tr class="col-12">

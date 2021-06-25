@@ -1,4 +1,4 @@
-<header class=" fondo container my-5" *ngIf="loginService.isLogged() == 'coach' || loginService.isLogged() == 'student'">
+<header class="container my-5" *ngIf="loginService.isLogged() == 'coach' || loginService.isLogged() == 'student'">
     <div class="col-12 row">
         <h2 class="col-12 text-center">Welcome {{loginService.isLogged() | titlecase}} {{loginService.isPerson()}}</h2>
 
@@ -11,7 +11,7 @@
 <!---------------------------------------------------------------->
 <!------------------------ COACH --------------------------------->
 <!---------------------------------------------------------------->
-<nav class=" fondo container justify-content-evenly" *ngIf="loginService.isLogged() == 'coach'">
+<nav class="container justify-content-evenly" *ngIf="loginService.isLogged() == 'coach'">
     <hr/>
 
     <ul class="nav nav-tabs justify-content-evenly text-center">

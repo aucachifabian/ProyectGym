@@ -1,7 +1,3 @@
-* {
-    padding: 0%;
-    margin: 0%;
-}
 
 *:focus {
     outline: none;
@@ -48,7 +44,7 @@ button {
     padding: 10px 10px;
     font-size: 15px;
     border-radius: 5px;
-    background-image: linear-gradient(white, red, black);
+    
 }
 
 button:active {
@@ -98,6 +94,3 @@ button:active {
     margin: 0;
 }
 
-.fon {
-    background-image: linear-gradient(white, red, black);
-}
