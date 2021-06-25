@@ -277,6 +277,7 @@ export class StatisticComponent implements OnInit {
   public clear() : void {
     this.lineChartData = new Array<ChartDataSets>();
     this.lineChartLabels = new Array<Label>();
+    window.location.reload();
   }
 
   /***************************************************/

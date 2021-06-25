@@ -30,7 +30,6 @@ export class HeaderComponent implements OnInit {
     await this.studentService.getStudentByDni(this.loginService.isOwner()).subscribe(
       result => {
         if(result.status == "1"){
-          alert(result.student)
           Object.assign(this.student,result.student);
         }
         else {
