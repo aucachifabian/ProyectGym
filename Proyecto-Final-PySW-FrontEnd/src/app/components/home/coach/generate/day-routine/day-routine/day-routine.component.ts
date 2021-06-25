@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { DayRoutine } from 'src/app/models/day_routine/day-routine';
 import { DayRoutineService } from 'src/app/services/day_routine/day-routine.service';
+import { LoginService } from 'src/app/services/login/login.service';
 
 @Component({
   selector: 'app-day-routine',
@@ -13,8 +14,10 @@ export class DayRoutineComponent implements OnInit {
   public dayRoutines : Array<DayRoutine>;
   constructor(
     private toastr : ToastrService,
-    private router : Router, private dayRoutineService : DayRoutineService) { 
-}
+    private router : Router, 
+    private dayRoutineService : DayRoutineService,
+    public loginService : LoginService) { 
+ }
 
   ngOnInit(): void {
     this.getDayRoutines();

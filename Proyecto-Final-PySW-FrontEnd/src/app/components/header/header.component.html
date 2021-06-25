@@ -1,9 +1,9 @@
-<header class="container my-5" *ngIf="loginService.isLogged() == 'coach' || loginService.isLogged() == 'student'">
+<header class=" fondo container my-5" *ngIf="loginService.isLogged() == 'coach' || loginService.isLogged() == 'student'">
     <div class="col-12 row">
         <h2 class="col-12 text-center">Welcome {{loginService.isLogged() | titlecase}} {{loginService.isPerson()}}</h2>
 
         <h4 class="col-12 text-end">
-            <a class="col-12"  [routerLink]="['Login']" (click)="logout()">(Exit)</a>
+            <a class="col-12" [routerLink]="['Login']" (click)="logout()">(Exit)</a>
         </h4>
     </div>
 </header>
@@ -11,7 +11,7 @@
 <!---------------------------------------------------------------->
 <!------------------------ COACH --------------------------------->
 <!---------------------------------------------------------------->
-<nav class="container justify-content-evenly" *ngIf="loginService.isLogged() == 'coach'">
+<nav class=" fondo container justify-content-evenly" *ngIf="loginService.isLogged() == 'coach'">
     <hr/>
 
     <ul class="nav nav-tabs justify-content-evenly text-center">

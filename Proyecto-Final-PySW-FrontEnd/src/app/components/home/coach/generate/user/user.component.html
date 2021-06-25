@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <section class="container" *ngIf="this.loginService.isLogged() == 'coach'">
+=======
+<section class=" trasf container">
+>>>>>>> 91cd3a5c6ff20fe98d705e3053268119afd9c4b1
     <div class="col-12 row">
         <div class="col-6">
             <form class="col-12" #formSearch="ngForm">
@@ -25,7 +29,7 @@
                 </div>
 
                 <div class="col-12 my-3 text-center">
-                    <button class="btn bg-primary" [disabled]="formSearch.invalid" (click)="search()">Search</button>
+                    <button class="button" [disabled]="formSearch.invalid" (click)="search()">Search</button>
                 </div>
             </form>
         </div>
@@ -43,19 +47,22 @@
                 </div>
 
                 <div class="col-12 my-3 text-center">
-                    <button class="col-12" class="btn bg-primary" [disabled]="!btnSearch" (click)="getPassword()">Get Password</button>
+                    <button class="col-12" class="button" [disabled]="!btnSearch" (click)="getPassword()">Get Password</button>
                 </div>
 
                 <div class="col-12 my-3 text-center">
-                    <button class="btn bg-primary" [disabled]="!btnPassword" (click)="saveUser(formUser,formSearch)">Save new User</button>
+                    <button class="button" [disabled]="!btnPassword" (click)="saveUser(formUser,formSearch)">Save new User</button>
                 </div>
             </form>
         </div>
     </div>
 </section>
+<<<<<<< HEAD
 
 <section class="col-12 text-center" *ngIf="this.loginService.isLogged() != 'coach'">
     <h1 class="col-12">PAGE NOT FOUND</h1>
     <h6 class="col-12">We're sorry. The page you are looking for cannot be found.</h6>
     <img class="col-12" src="../../../../../assets/seguridad.jpg" alt="seguridad">
 </section>
+=======
+>>>>>>> 91cd3a5c6ff20fe98d705e3053268119afd9c4b1

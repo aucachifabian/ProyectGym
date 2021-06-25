@@ -40,6 +40,7 @@ import { RoutineComponent } from './components/home/coach/generate/routine/routi
 import { FormRoutineComponent } from './components/home/coach/generate/routine/form-routine/form-routine.component';
 import { CoachComponent } from './components/home/coach/register/coach/coach/coach.component';
 import { FormCoachComponent } from './components/home/coach/register/coach/form-coach/form-coach.component';
+import { NgxBarcodeModule } from 'ngx-barcode';
 
 
 
@@ -84,6 +85,7 @@ import { FormCoachComponent } from './components/home/coach/register/coach/form-
     BrowserAnimationsModule,
     GoogleMapsModule,
     ChartsModule,
+    NgxBarcodeModule,
     ToastrModule.forRoot({
       timeOut: 1500,
       positionClass: 'toast-bottom-right',

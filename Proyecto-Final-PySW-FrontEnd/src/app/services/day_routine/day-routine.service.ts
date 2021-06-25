@@ -65,4 +65,17 @@ export class DayRoutineService {
 
     return this.http.delete(this.urlBase+id);
   }
+
+  public findDayRoutineByIntensity(intensity:String) : Observable<any> {
+    return this.http.get(this.urlBase + "?intensity=" + intensity);
+  }
+
+  public findDayRoutineByArrangement(arrangement:String) : Observable<any> {
+    return this.http.get(this.urlBase + "?arrangement=" + arrangement);
+  }
+
+  public findDayRoutineByArrangementAndIntensity(arrangement:String, intensity:String) : Observable<any> {
+    return this.http.get(this.urlBase + "?intensity="+ intensity +"&arrangement=" + arrangement);
+  }
+
 }

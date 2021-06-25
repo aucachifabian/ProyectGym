@@ -36,7 +36,7 @@ studentCtrl.getStudents = async(req, res) => {
 
 
 studentCtrl.getStudentParams = async(req, res) => {
-    const student = await Student.findById(req.params.id).populate("arrangement");
+    const student = await Student.findById(req.params.id).populate("arrangement").populate("day_routine");
 
     res.json(student);
 }
@@ -91,7 +91,7 @@ studentCtrl.checkValidate = async(req, res) => {
 
 
 studentCtrl.getStudentByDni = async(req, res) => {
-    const student = await Student.findOne({ dni: req.params.dni }).populate("arrangement");
+    const student = await Student.findOne({ dni: req.params.dni }).populate("arrangement").populate("day_routine");
 
     if (student != null) {
         res.json({

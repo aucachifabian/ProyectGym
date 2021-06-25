@@ -1,4 +1,4 @@
-<section class="col-12 row container-fluid">
+<section *ngIf="this.loginService.isLogged() == 'coach' " class="col-12 row container-fluid">
 
     <!-------------->
     <!--Button Add-->
@@ -44,5 +44,10 @@
         </table>
     </div>
     
-    <button class="btn btn-danger">Descargar Rutina Pdf</button>
+    <!--<button class="btn btn-danger">Descargar Rutina Pdf</button>-->
+</section>
+<section class="col-12 text-center" *ngIf="this.loginService.isLogged() != 'coach'">
+    <h1 class="col-12">PAGE NOT FOUND</h1>
+    <h6 class="col-12">We're sorry. The page you are looking for cannot be found.</h6>
+    <img class="col-12" src="../../../../../assets/seguridad.jpg" alt="seguridad">
 </section>

@@ -1,4 +1,4 @@
-<section class="col-12 d-flex row container">
+<section *ngIf="this.loginService.isLogged() == 'coach' " class="col-12 d-flex row container-fluid">
 
     <div class="col-12 row text-center mt-4">
         <div class="col-md-8 mx-auto">
@@ -100,7 +100,7 @@
 
             <div class="row col-10 mt-2 mb-3 mx-auto">
                 <div class="col-2"></div>
-                <button class="col-8" (click)="returnDayRoutine()">Return</button>
+                <button class="col-8" (click)="returnRoutine()">Return</button>
                 <div class="col-2"></div>
             </div>
         </div>
@@ -182,3 +182,10 @@
         </div>
     </div>
 </div>
+
+<section class="col-12 text-center" *ngIf="loginService.isLogged() != 'coach'">
+    <h1 class="col-12">PAGE NOT FOUND</h1>
+    <h6 class="col-12">We're sorry. The page you are looking for cannot be found.</h6>
+    <img class="col-12" src="../../../../../assets/seguridad.jpg" alt="seguridad">
+</section>
+

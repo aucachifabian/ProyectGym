@@ -5,3 +5,7 @@
 .blue {
     outline: blue 1px solid;
 }
+
+.fondo {
+    background-image: linear-gradient(white, red)
+}
