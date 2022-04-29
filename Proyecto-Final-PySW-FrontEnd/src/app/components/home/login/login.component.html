@@ -1,36 +1,29 @@
-<section class="container mx-auto">
-    <div class="img">
-        <img src="assets/img/logo.png">
-    </div>
-
-    <div class="login-content">
-        <form action="index.html">
-            <img src="assets/imgicon/userpassword_deusuari_787.png">
-            <h2 class="title">Welcome</h2>
-
-            <div class="input-div one">
-                <div class="i">
-                    <i class="fas fa-user"></i>
-                </div>
-                <div class="div">
-                    <input type="text" class="input" id="id_user_name" name="user_name" [(ngModel)]="user.user_name">
+<div class="login_form_wrapper mx-auto pt-5">
+    <div class="container pt-5">
+        <div class="row">  
+                <!-- login_wrapper -->
+                <div class="login_wrapper mx-auto">
+                    <div class="col-md-8 col-md-offset-2 mx-auto">
+                        <div class=" col-4 mx-auto mb-5">
+                            <h1>Bienvenid@</h1>
+                         </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6"> <a href="#" class="btn btn-primary facebook"> <span>Login with Facebook</span> <i class="fa fa-facebook"></i> </a> </div>
+                        <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6"> <a href="#" class="btn btn-primary google-plus"> Login with Google <i class="fa fa-google-plus"></i> </a> </div>
+                    </div>
+                    <h2>o</h2>
+                    <div class="formsix-pos">
+                        <div class="form-group i-email"> <input type="text" class="form-control" required="" name="user_name" [(ngModel)]="user.user_name" placeholder="Usuario *"> </div>
+                    </div>
+                    <div class="formsix-e">
+                        <div class="form-group i-password"> <input type="password" class="form-control" required="" placeholder="Password *" id="id_password" name="password" [(ngModel)]="user.password"> </div>
+                    </div>
+                    <div class="login_btn_wrapper mt-3"> <a  (click)="login()" class="btn btn-primary login_btn"> Iniciar sesion </a> </div>
+                    <div class="login_message">
+                        <p>¿ Quieres una cuenta ? <a href="#"> Contactame </a> </p>
+                    </div>
                 </div>
             </div>
-
-            <div class="input-div pass">
-                <div class="i">
-                    <i class="fas fa-lock"></i>
-                </div>
-                <div class="div">
-                    <input type="password" class="input" id="id_password" name="password" [(ngModel)]="user.password">
-                </div>
-            </div>
-
-            <a href="#">Forgot Password?</a>
-
-            <button class="btn" type="button" (click)="login()">LOGIN</button>
-        </form>
+        </div>
     </div>
-
-    <script type="text/javascript" src="js/main.js"></script>
-</section>
+</div>

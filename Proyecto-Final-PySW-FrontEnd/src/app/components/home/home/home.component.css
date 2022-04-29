@@ -22,22 +22,22 @@
 .btn-login {
   position: fixed;
   top: 5%;
-  right: 1%;
+  right: 8%;
   width: 15%;
-  z-index: 1;
 }
 
 .btn-login > button {
   border-style: none;
-  border-radius: 20px;
+  border-radius: 10px;
   color: white;
   font-size: 20px;
   background: linear-gradient(to right, #e63131, #202231);
 }
 
 .btn-login > button:hover {
-  background: linear-gradient(to right,#ff0000, #c31313, #202231);
+  background: linear-gradient(to right,#ff0000, #c31313, #6d4444);
 }
+
 
 
 /***************************SECTION2***************************/
@@ -45,35 +45,38 @@
 
 .p-absolute {
   position: absolute;
-  top: 0%;
+  top: 3%;
   left: 5%;
-  font-size: 90px;
+  font-size:  10vmin;
   z-index: 2;
   color: #000000;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-
+.card-presentation
+{
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  background-color: #d5e9ecc2;
+  z-index: 1;
+  text-indent: 25px;
+}
 span {
   color: #800000;
 }
 
-.video-animation {
-  animation-name: video-animation;
-  animation-duration: 1s;
+
+.planes .card-body{
+  background: linear-gradient(to right, rgb(1, 7, 5), rgb(41, 70, 59), rgb(37, 73, 67));
+  color: antiquewhite;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
-@keyframes video-animation {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+.planes .card-footer{
+  background-color: #d5e9ecc2;
 }
-
-
 
 /***************************SECTION3***************************/
 /**************************************************************/
@@ -91,55 +94,6 @@ span {
   height: 100px;
 }
 
-/*************SLIDER*************/
-
-.slider {
-  overflow: hidden;
-}
-
-.slider-animation {
-  display: flex;
-
-  animation-name: sliderChange;
-  animation-duration: 120s;
-  animation-iteration-count: infinite;
-  animation-delay: 1s;
-}
-
-.slider-animation:hover {
-  animation-play-state: paused;
-  cursor: pointer;
-}
-
-.slider-animation img {
-  width: 200px;
-  height: 200px;
-}
-
-
-@keyframes sliderChange {
-  
-  0% {
-    margin-left: 0%;
-  }
-
-  25% {
-    margin-left: -187.5%;
-  }
-
-  50% {
-    margin-left: -375%;
-  }
-
-  75% {
-    margin-left: -562.5%;
-  }
-
-  100% {
-    margin-left: -675%;
-  }
-
-}
 
 .p-img {
   height: 100px;
@@ -147,4 +101,10 @@ span {
 }
 
 
-/**************************************************************/
+/****************************Media query ****************************/
+
+@media (max-width: 860px) {
+  .card-presentation {
+    display: none;
+  }
+}
